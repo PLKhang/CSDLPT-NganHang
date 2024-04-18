@@ -10,12 +10,12 @@
 - CHINHANH
 - KHACHHANG
 ---
-### sp_TimNV
+### [sp_TimNV](/Store%20Proceduces/sp_TimNV.sql)
 - Desciption: Tìm nhân viên dựa vào MaNV (Link0) (chuyển chi nhánh)
 - input: @MaNV
 - ouput: TenCN, Ho, Ten 
 - role: 
-### sp_LayThongTinLogin (*)
+### (*) [sp_LayThongTinLogin](/Store%20Proceduces/sp_LayThongTinLogin.sql) 
 - Desciption: Dùng khi đăng nhập
 - input: @LoginName
 - output: MaNV, HoTen, Role
