@@ -114,41 +114,48 @@
 - input:
 - output:
 - role:
-### sp_GetMaxMaNV
+### [sp_GetMaxMaNV](/Store%20Proceduces/sp_GetMaxMaNV.sql)
 - Desciption: Lấy mã nhân viên cao nhất để tạo mã mới khi thêm nhân viên (LINK0)
 - input:
 - output:
 - role:
-### sp_GetMaxSTK
+---
+    exec sp_GetMaxMaNV
+### [sp_GetMaxSTK](/Store%20Proceduces/sp_GetMaxSTK.sql)
 - Desciption: Lấy STK lần gần nhất để tạo số tài khoản mới (LINK2)
 - input:
 - output:
 - role:
-### sp_GetMaxMaCT
-- Desciption: Lấy mã giao dịch chuyển tiền gần nhất để tạo mới 
-- input:
-- output:
-- role:
-### sp_GetMaxMaGT
-- Desciption: Lấy mã giao dịch gửi rút gần nhất để tạo mã mới
-- input:
-- output:
-- role:
-### sp_Existed_CMND_KH 
+---
+    exec sp_GetMaxSTK
+### [sp_Existed_CMND_KH](/Store%20Proceduces/sp_Existed_CMND_KH.sql) 
 - Desciption: Kiểm tra khi thêm khách hàng mới (LINK2)
 - input: @CMND
 - output: true/false
 - role:
-### sp_Existed_CMND_NV
+---
+    DECLARE	@return_value int
+    EXEC @return_value = [dbo].[sp_Existed_CMND_KH] 
+    @CMND = N'1111111111'
+    SELECT	'Return Value' = @return_value
+### [sp_Existed_CMND_NV](/Store%20Proceduces/sp_Existed_CMND_NV.sql)
 - Desciption: Kiểm tra khi thêm nhân mới (LINK0)
 - input: @CMND
 - output: true/false
 - role:
-### sp_Existed_STK
+---
+    DECLARE	@return_value int
+    EXEC @return_value = [dbo].[sp_Existed_CMND_NV] @CMND = N'1111111111'
+    SELECT	'Return Value' = @return_value
+### [sp_Existed_STK](/Store%20Proceduces/sp_Existed_STK.sql)
 - Desciption: Kiểm tra khi thực hiện chuyển tiền (LINK2)
 - input: @STK
 - output: true/false
 - role:
+---
+    declare @x int
+    exec @x = sp_Existed_STK '010000010'
+    select @x as 'RETURN VALUE'
 ### [sp_DSGD_GuiRut_NV](/Store%20Proceduces/sp_DSGD_GuiRut_NV.sql)
 - Desciption: Danh sách giao dịch gửi rút NV đã thực hiện
 - input: @MANV
