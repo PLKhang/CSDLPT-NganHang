@@ -14,11 +14,11 @@
 - Desciption: Tìm nhân viên dựa vào MaNV (Link0) (chuyển chi nhánh)
 - input: @MaNV
 - ouput: TenCN, Ho, Ten 
-- role: 
+- role: CHINHANH
 ### (*) [sp_LayThongTinLogin](/Store%20Proceduces/sp_LayThongTinLogin.sql) 
-- Desciption: Dùng khi đăng nhập
+- Desciption: Dùng khi đăng nhập, người đăng nhập có thể là khách hàng
 - input: @LoginName
-- output: MaNV, HoTen, Role
+- output: Username, HoTen, Role
 - role: all
 ### sp_TaoLogin
 - Desciption: Tạo thông tin để đăng nhập vào hệ thống
@@ -33,15 +33,15 @@
 - role: NGANHANG, CHINHANH
 ### sp_ThemNV (*)
 - Desciption:
-- input: MaNV, Ho, Ten, Diachi, Gioitinh, SDT
+- input: MaNV, Ho, Ten, CMND, Diachi, Gioitinh, SDT
     - Username == MaNV
 - output: true/false (raise error)
-- role:
-### sp_XoaNV (*)
-- Desciption: Chỉ xóa được khi nhân viên đó chưa thực hiện nhập giao dịch nào
+- role: CHINHANH
+### sp_XoaNV (*) 
+- Desciption: đặt trạng thái xóa = true
 - input: @MaNV
 - output: true/false (raise error)
-- role:
+- role: CHINHANH
 ### sp_SuaThongTinNV (*)
 - Desciption: Thay đổi nhân viên dựa trên mã nhân viên
 - input: @MaNV
@@ -58,19 +58,19 @@
 - output (table): MaNV, CMND, Ho, Ten, Diachi, Gioitinh, SDT, TT.Xoa
 - role: NGANHANG, CHINHANH
 ### sp_DanhSachKhachHang_ChiNhanh
-- Desciption: Lấy danh sách khách hàng để thao tác (thêm/sửa/tạo tài khoản)
+- Desciption: Lấy danh sách khách hàng để thao tác (thêm/sửa/tạo tài khoản/xử lý giao dịch)
 - input: None
 - output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
-- role:
+- role: CHINHANH
 ### sp_DanhSachKhachHang_NganHang(*)
 - Desciption: Lấy danh sách khách hàng tất cả chi nhánh, cùng chi nhánh tăng theo họ tên (LINK2)
 - input: None
 - output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
-- role:
+- role: NGANHANG, CHINHANH
 ### sp_DanhSachTaiKhoan
 - Desciption: 
     - Lấy danh sách các tài khoản của 1 khách hàng (duyệt trên tất side hỗ trợ (LINK2))
-    - Thực hiện các thao tác: Mở TK mới/Sao kê/Chuyển tiền/Gửi tiền
+    - Thực hiện các thao tác: Sao kê
 - input: @CMND (KhachHang)
 - output: SoTK, NgayMoTK, SoDu
 - role:
@@ -149,16 +149,16 @@
 - input: @STK
 - output: true/false
 - role:
-### sp_
-- Desciption:
-- input:
+### [sp_DSGD_GuiRut_NV](/Store%20Proceduces/sp_DSGD_GuiRut_NV.sql)
+- Desciption: Danh sách giao dịch gửi rút NV đã thực hiện
+- input: @MANV
 - output:
-- role:
-### sp_
-- Desciption:
-- input:
+- role: CHINHANH, NGANHANG
+### [sp_DSGD_ChuyenTien_NV](/Store%20Proceduces/sp_DSGD_ChuyenTien_NV.sql)
+- Desciption: Danh sách giao dịch chuyển tiền NV đã thực hiện
+- input: @MANV
 - output:
-- role:
+- role: CHINHANH, NGANHANG
 ### sp_
 - Desciption:
 - input:
