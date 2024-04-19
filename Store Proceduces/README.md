@@ -20,17 +20,27 @@
 - input: @LoginName
 - output: Username, HoTen, Role
 - role: all
-### sp_TaoLogin
+### [sp_TaoLogin](/Store%20Proceduces/sp_TaoLogin.sql)
 - Desciption: Tạo thông tin để đăng nhập vào hệ thống
 - input: @LoginName, @Username, @Password, @Role
     - LoginName, Username: unique
 - output: true/false (raise error)
 - role: NGANHANG, CHINHANH
-### sp_XoaLogin
+---
+    DECLARE	@return_value int
+    EXEC	@return_value = [dbo].[sp_TaoLogin]
+            @LGNAME = N'LoginName', -- NV: MANV, KH: CMND
+            @PASS = N'Password',
+            @USERNAME = N'Username', -- NV: MANV, KH: CMND
+            @ROLE = N'ChiNhanh' -- N'NganHang' -- N'KhachHang'
+    SELECT	'Return Value' = @return_value
+### [sp_XoaLogin](/Store%20Proceduces/sp_XoaLogin.sql)
 - Desciption: Xóa thông tin đăng nhập khỏi hệ thống
 - input: @LoginName, @Username
 - output: true/false (raise error)
 - role: NGANHANG, CHINHANH
+---
+    EXEC sp_XoaLogin LoginName, Username
 ### sp_ThemNV (*)
 - Desciption:
 - input: MaNV, Ho, Ten, CMND, Diachi, Gioitinh, SDT
@@ -52,18 +62,17 @@
 - input: @MANV
 - output: true/false (raise error)
 - role: CHINHANH
-### sp_DanhSachNhanVien
+### [sp_DanhSachNhanVien](/Store%20Proceduces/sp_DanhSachNhanVien.sql)
 - Desciption: Lấy danh sách nhân viên để thao tác (thêm/xóa/sửa/chuyển chi nhánh)
 - input: None
 - output (table): MaNV, CMND, Ho, Ten, Diachi, Gioitinh, SDT, TT.Xoa
 - role: NGANHANG, CHINHANH
-### sp_DanhSachKhachHang_ChiNhanh
-- Desciption: Lấy danh sách khách hàng để thao tác (thêm/sửa/tạo tài khoản/xử lý giao dịch)
-- input: None
-- output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
-- role: CHINHANH
-### sp_DanhSachKhachHang_NganHang(*)
-- Desciption: Lấy danh sách khách hàng tất cả chi nhánh, cùng chi nhánh tăng theo họ tên (LINK2)
+---
+    exec sp_DanhSachNhanVien
+### sp_DanhSachKhachHang(*)
+- Desciption: 
+    - Lấy danh sách khách hàng tất cả chi nhánh, cùng chi nhánh tăng theo họ tên (LINK2)
+    - Lấy danh sách khách hàng để thao tác (thêm/sửa/tạo tài khoản/xử lý giao dịch)
 - input: None
 - output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
 - role: NGANHANG, CHINHANH
