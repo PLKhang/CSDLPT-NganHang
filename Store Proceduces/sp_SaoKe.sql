@@ -1,12 +1,6 @@
 CREATE PROCEDURE [dbo].[SP_SaoKeTaiKhoanNganHang] @SOTK_SAOKE NCHAR(9), @dateFrom AS DATE, @dateTo AS DATE
 AS
 BEGIN
---the temporary tables can be read by the calling application(xtra report)
-    SET NOCOUNT ON;  
-    IF 1=0 BEGIN  
-        SET FMTONLY OFF  
-    END  
-
     CREATE TABLE #GD_Temp(SODUDAU money,NGAYGD DATETIME,LOAIGD nchar(10),SOTIEN money,SODUSAU money)
 
     DECLARE @CrsrVar CURSOR,  @SOTK nchar(9), @SOTIEN money, @SODUDAU money,  
