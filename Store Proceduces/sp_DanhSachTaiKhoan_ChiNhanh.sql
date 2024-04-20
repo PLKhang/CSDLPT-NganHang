@@ -7,7 +7,7 @@ BEGIN
             IF (@LoaiSaoKe = 'T')--TẤT CẢ CHI NHÁNH
             BEGIN
                 SELECT TK.SOTK,KH.HO +' ' + KH.TEN AS HOTEN,TK.CMND,TK.MACN,TK.NGAYMOTK
-                FROM LINK3.NGANHANG.dbo.KhachHang AS KH,
+                FROM LINK2.NGANHANG.dbo.KhachHang AS KH,
                 (SELECT SOTK,CMND,MACN,NGAYMOTK FROM TaiKhoan WHERE NGAYMOTK BETWEEN @dateFrom AND @dateTo) AS TK 
                 WHERE KH.CMND = TK.CMND 
                 ORDER BY NGAYMOTK
