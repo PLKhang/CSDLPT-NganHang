@@ -63,7 +63,7 @@
             @PHAI = N'nam',
             @SODT = N'123412341234',
             @DIACHI = N'ptithcm'
-    select @return_value as return_value -- (1: Thành công, 0: Thất bại)
+    select @return_value as return_value -- (0: Thành công, 1: Thất bại - CMND tồn tại)
 ### [sp_XoaNV](/Store%20Proceduces/sp_XoaNV.sql) (*) 
 - Describe: đặt trạng thái xóa = true
 - input: @MaNV
@@ -98,11 +98,15 @@
         @SODT = '0101022010',
         @DiaChi = N'Trái đất này'
     select @return_value as return_value --(0: thành công, 1: không tồn tại MANV, 2: CMND mới trùng với NV khác)
-### sp_ChuyenChiNhanh (*)
+### [sp_ChuyenChiNhanh](/Store%20Proceduces/sp_ChuyenChiNhanh.sql) (*)
 - Describe: Chuyển NV từ Chi nhánh này qua chi nhánh khác
 - input: @MANV
 - output: true/false (raise error)
 - role: CHINHANH
+---
+    DECLARE	@return_value int
+    exec @return_value = sp_ChuyenChiNhanh 'NV00000022'
+    select @return_value as return_value
 ### [sp_DanhSachNhanVien](/Store%20Proceduces/sp_DanhSachNhanVien.sql)
 - Describe: Lấy danh sách nhân viên để thao tác (thêm/xóa/sửa/chuyển chi nhánh)
 - input: None
