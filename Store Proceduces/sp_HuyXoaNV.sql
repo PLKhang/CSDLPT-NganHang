@@ -15,6 +15,10 @@ BEGIN
     BEGIN
         RETURN 2; -- Nhân viên đã bị chưa bị xóa
     END
+    ELSE IF (SELECT TrangThaiXoa FROM LINK1.NGANHANG.dbo.NHANVIEN WHERE CMND = (SELECT CMND FROM dbo.NHANVIEN WHERE MANV = @MANV)) = 0
+	BEGIN
+		RETURN 3; -- Nhân viên đang làm việc ở chi nhánh khác, yêu cầu chuyển chi nhánh.
+	END
     ELSE
     BEGIN
         UPDATE NHANVIEN
