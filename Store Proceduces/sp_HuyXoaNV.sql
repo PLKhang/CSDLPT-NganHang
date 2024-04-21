@@ -1,5 +1,5 @@
-CREATE PROCEDURE [dbo].[sp_XoaNV]
-    @MANV nchar(10)
+create proc sp_HuyXoaNV
+@MANV nchar(10)
 AS
 BEGIN
     SET XACT_ABORT ON;
@@ -9,19 +9,19 @@ BEGIN
 
     IF NOT EXISTS (SELECT MANV FROM dbo.NHANVIEN WHERE MANV = @MANV)
     BEGIN
-        RETURN 1; -- Không tồn tại nhân viên
+        RETURN 1; -- Không tồn tại mã nhân viên 
     END
-    ELSE IF (SELECT TrangThaiXoa FROM dbo.NHANVIEN WHERE MANV = @MANV) = 1
+    ELSE IF (SELECT TrangThaiXoa FROM dbo.NHANVIEN WHERE MANV = @MANV) = 0
     BEGIN
-        RETURN 2; -- Nhân viên đã bị xóa trước đó
+        RETURN 2; -- Nhân viên đã bị chưa bị xóa
     END
     ELSE
     BEGIN
         UPDATE NHANVIEN
-        SET TrangThaiXoa = 1
+        SET TrangThaiXoa = 0
         WHERE MANV = @MANV;
     END
 
     COMMIT TRANSACTION;
-    RETURN 0; -- Xóa thành công
+    RETURN 0; -- Hủy xóa thành công
 END
