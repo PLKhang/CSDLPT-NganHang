@@ -1,15 +1,15 @@
-create proc sp_TaoMaNV
-as
+CREATE FUNCTION [dbo].[fnc_TaoMaNV]()
+RETURNS nchar(10)
+AS
 BEGIN
-	declare @temp nchar(10)
-	declare @newID int
-	declare @newMANV nchar(10)
+    DECLARE @temp nchar(10);
+    DECLARE @newID bigint;
+    DECLARE @newMANV nchar(10);
 
-	select @temp = MAX(MANV)
-	from LINK0.NGANHANG.dbo.NHANVIEN
+    SELECT @temp = MAX(MANV) FROM LINK0.NGANHANG.dbo.NHANVIEN;
 
-	set @newID = CAST((SUBSTRING(@temp, 3, 8)) as INT) + 1
-	set @newMANV = 'NV' + RIGHT('0000000000' + CAST(@newID AS NVARCHAR(10)), 8)
+    SET @newID = CAST((SUBSTRING(@temp, 3, 8)) AS bigint) + 1;
+    SET @newMANV = 'NV' + RIGHT('0000000000' + CAST(@newID AS NVARCHAR(10)), 8);
 
-	select @newMANV as MANV
-END
+    RETURN @newMANV;
+END;

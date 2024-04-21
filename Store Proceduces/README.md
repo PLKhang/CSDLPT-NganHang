@@ -41,19 +41,29 @@
 - role: NGANHANG, CHINHANH
 ---
     EXEC sp_XoaLogin LoginName, Username
-### [sp_TaoMaNV](/Store%20Proceduces/sp_TaoMaNV.sql)
+### [sp_TaoMaNV](/Store%20Proceduces/sp_TaoMaNV.sql) (Bỏ: Đã gộp vào [sp_ThemNV](README.md#sp_themnv))
 - Describe: Tạo mã nhân viên mới tự động khi thêm NV
 - input: None
 - output: MANV nchar(10)
 - role: CHINHANH
 ---
     EXEC [dbo].[sp_TaoMaNV]
-### sp_ThemNV (*)
+### [sp_ThemNV](/Store%20Proceduces/sp_ThemNV.sql) (*)
 - Describe:
 - input: MaNV, Ho, Ten, CMND, Diachi, Gioitinh, SDT
     - Username == MaNV
 - output: true/false (raise error)
 - role: CHINHANH
+---
+    DECLARE	@return_value int
+    EXEC	@return_value = [dbo].[sp_ThemNV]
+            @CMND = N'123412342',
+            @HO = N'phuckhang',
+            @TEN = N'le',
+            @PHAI = N'nam',
+            @SODT = N'123412341234',
+            @DIACHI = N'ptithcm'
+    select @return_value as return_value -- (1: Thành công, 0: Thất bại)
 ### sp_XoaNV (*) 
 - Describe: đặt trạng thái xóa = true
 - input: @MaNV
@@ -90,7 +100,7 @@
 - input: @CMND (KhachHang)
 - output: SoTK, NgayMoTK, SoDu
 - role:
-### sp_DanhSachTaiKhoan_ChiNhanh (*)
+### [sp_DanhSachTaiKhoan_ChiNhanh](/Store%20Proceduces/sp_DanhSachTaiKhoan_ChiNhanh.sql) (*)
 - Describe: Lấy danh sách các tài khoản mở từ ngày A đến ngày B của chi nhánh
 - input: None
 - output: SoTK, NgayMoTK, SoDu
@@ -125,12 +135,12 @@
 - input:
 - output:
 - role:
-### sp_SaoKe
+### [sp_SaoKe](/Store%20Proceduces/sp_SaoKe.sql)
 - Describe:
 - input:
 - output:
 - role:
-### [sp_GetMaxMaNV](/Store%20Proceduces/sp_GetMaxMaNV.sql)
+### [sp_GetMaxMaNV](/Store%20Proceduces/sp_GetMaxMaNV.sql) (Bỏ: Đã gộp vào [sp_ThemNV](README.md#sp_themnv))
 - Describe: Lấy mã nhân viên cao nhất để tạo mã mới khi thêm nhân viên (LINK0)
 - input:
 - output:
