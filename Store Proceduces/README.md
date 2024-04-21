@@ -50,7 +50,7 @@
     EXEC [dbo].[sp_TaoMaNV]
 ### [sp_ThemNV](/Store%20Proceduces/sp_ThemNV.sql) (*)
 - Describe:
-- input: MaNV, Ho, Ten, CMND, Diachi, Gioitinh, SDT
+- input: @CMND, @Ho, @Ten, @Gioitinh, @SDT, @Diachi
     - Username == MaNV
 - output: true/false (raise error)
 - role: CHINHANH
@@ -64,18 +64,42 @@
             @SODT = N'123412341234',
             @DIACHI = N'ptithcm'
     select @return_value as return_value -- (1: Thành công, 0: Thất bại)
-### sp_XoaNV (*) 
+### [sp_XoaNV](/Store%20Proceduces/sp_XoaNV.sql) (*) 
 - Describe: đặt trạng thái xóa = true
 - input: @MaNV
 - output: true/false (raise error)
 - role: CHINHANH
-### sp_SuaThongTinNV (*)
-- Describe: Thay đổi nhân viên dựa trên mã nhân viên
+---
+    DECLARE	@return_value int
+    exec @return_value = sp_XoaNV 'NV00000022'
+    select @return_value as return_value --(0: thành công, 1: không tồn tại MANV, 2: đã bị xóa trước đó)
+### [sp_HuyXoaNV](/Store%20Proceduces/sp_HuyXoaNV.sql) (*) 
+- Describe: đặt trạng thái xóa = false
 - input: @MaNV
 - output: true/false (raise error)
-- role:
+- role: CHINHANH
+---
+    DECLARE	@return_value int
+    exec @return_value = sp_HuyXoaNV 'NV00000022'
+    select @return_value as return_value --(0: thành công, 1: không tồn tại MANV, 2: chưa bị xóa trước đó)
+### [sp_SuaThongTinNV](/Store%20Proceduces/sp_SuaThongTinNV.sql) (*)
+- Describe: Thay đổi nhân viên dựa trên mã nhân viên
+- input: @MaNV, @CMND, @Ho, @Ten, @Gioitinh, @SDT, @Diachi
+- output: true/false (raise error)
+- role: CHINHANH
+--- 
+    DECLARE	@return_value int
+    exec @return_value = sp_SuaThongTinNV 
+        @MANV = 'NV00000022',
+        @CMND = '111112222',
+        @HO = N'5 anh em siêu nhân',
+        @TEN = 'Gao',
+        @Phai = N'Nữ',
+        @SODT = '0101022010',
+        @DiaChi = N'Trái đất này'
+    select @return_value as return_value --(0: thành công, 1: không tồn tại MANV, 2: CMND mới trùng với NV khác)
 ### sp_ChuyenChiNhanh (*)
-- Describe: 
+- Describe: Chuyển NV từ Chi nhánh này qua chi nhánh khác
 - input: @MANV
 - output: true/false (raise error)
 - role: CHINHANH
@@ -165,7 +189,7 @@
     @CMND = N'1111111111'
     SELECT	'Return Value' = @return_value
 ### [sp_Existed_CMND_NV](/Store%20Proceduces/sp_Existed_CMND_NV.sql)
-- Describe: Kiểm tra khi thêm nhân mới (LINK0)
+- Describe: Kiểm tra khi thêm nhân mới (side hiện tại)
 - input: @CMND
 - output: true/false
 - role:

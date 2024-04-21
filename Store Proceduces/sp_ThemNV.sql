@@ -15,7 +15,7 @@ BEGIN
 	if(@existedCMND = 1)
 	BEGIN
 		rollback
-		RETURN 0 -- Thêm không thành công
+		RETURN 1 -- Thêm không thành công
 	END
 
 	declare @MACN nchar(10)
@@ -34,5 +34,5 @@ BEGIN
 	values (@newMANV, @CMND, @HO, @TEN, @PHAI, @SODT, @DIACHI, @MACN)
 
 	COMMIT TRAN
-	RETURN 1 --Thêm thành công
+	RETURN 0 --Thêm thành công
 END
