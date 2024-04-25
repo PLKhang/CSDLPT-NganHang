@@ -12,7 +12,7 @@ BEGIN
 		BEGIN TRANSACTION
 		-- Kiem tra su ton tai cua khach hang bang CMND
     declare @existedCMND int
-	  exec @existedCMND = sp_Existed_CMND_NV @CMND
+	  exec @existedCMND = sp_Existed_CMND_KH @CMND
 	  if(@existedCMND = 1)
 	  BEGIN
 		  rollback
