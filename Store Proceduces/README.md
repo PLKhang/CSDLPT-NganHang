@@ -130,7 +130,7 @@
 - role:
 ### [sp_DanhSachTaiKhoan_ChiNhanh](/Store%20Proceduces/sp_DanhSachTaiKhoan_ChiNhanh.sql) (*)
 - Describe: Lấy danh sách các tài khoản mở từ ngày A đến ngày B của chi nhánh
-- input: None
+- input: 'T': tất cả chi nhánh, 'C': chi nhánh hiện tại
 - output: SoTK, NgayMoTK, SoDu
 - role:
 ### sp_DanhSachTaiKhoan_NganHang (*)
