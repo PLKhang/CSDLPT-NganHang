@@ -3,8 +3,8 @@ create proc sp_ChuyenChiNhanh
 as
 SET XACT_ABORT ON;
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-BEGIN
-	BEGIN TRAN;
+BEGIN TRANSACTION;
+BEGIN TRY
 	if not exists (select MANV from dbo.NHANVIEN where MANV = @MANV)
 	BEGIN
 		rollback
@@ -53,6 +53,16 @@ BEGIN
 	set TrangThaiXoa = 1
 	where MANV = @MANV
 
-	COMMIT TRAN;
+	COMMIT TRANSACTION;
 	return 0 -- Thành công
-END
+END TRY
+
+BEGIN CATCH
+	IF (@@TRANCOUNT > 0)
+	BEGIN
+		ROLLBACK TRANSACTION;
+		DECLARE @ErrorMessage NVARCHAR(2000)
+		SELECT @ErrorMessage = 'LOI: ' + ERROR_MESSAGE()
+		RAISERROR (@ErrorMessage,16,1)
+	END
+END CATCH

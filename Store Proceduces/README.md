@@ -121,24 +121,17 @@
 - input: None
 - output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
 - role: NGANHANG, CHINHANH
-### sp_DanhSachTaiKhoan
-- Describe: 
-    - Lấy danh sách các tài khoản của 1 khách hàng (duyệt trên tất side hỗ trợ (LINK2))
-    - Thực hiện các thao tác: Sao kê
-- input: @CMND (KhachHang)
-- output: SoTK, NgayMoTK, SoDu
-- role:
 ### [sp_DanhSachTaiKhoan_ChiNhanh](/Store%20Proceduces/sp_DanhSachTaiKhoan_ChiNhanh.sql) (*)
 - Describe: Lấy danh sách các tài khoản mở từ ngày A đến ngày B của chi nhánh
 - input: 'T': tất cả chi nhánh, 'C': chi nhánh hiện tại
 - output: SoTK, NgayMoTK, SoDu
-- role:
-### sp_DanhSachTaiKhoan_NganHang (*)
-- Describe: Lấy danh sách các tài khoản mở từ ngày A đến ngày B của tất cả chi nhánh (LINK2)
+- role: CHINHANH/NGANHANG
+### sp_DanhSachTaiKhoan_KhachHang (*)
+- Describe: Lấy danh sách các tài khoản thuộc tất cả chi nhánh của khách hàng khi đã đăng nhập
 - input: None
-- output: SoTK, NgayMoTK, SoDu
-- role:
-### sp_ThemKH (*)
+- output(TABLE): SoTK, SoDu
+- role: KHACHHANG
+### [sp_ThemKH](/Store%20Proceduces/sp_ThemKH.sql) (*)
 - Describe: Tạo khách hàng mới
 - input: @CMND, @Ngaycap, @Ho, @Ten, @Diachi, @Gioitinh, @SDT
 - output: true/false (raise error)
