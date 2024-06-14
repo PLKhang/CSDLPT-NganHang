@@ -136,22 +136,22 @@
 - input: @CMND, @Ngaycap, @Ho, @Ten, @Diachi, @Gioitinh, @SDT
 - output: true/false (raise error)
 - role: CHINHANH
-### sp_TaoTK:
+### [sp_TaoTK_KH](/Store%20Proceduces/sp_TaoTK_KH.sql):
 - Describe: Tạo tài khoản ngân hàng mới cho khách hàng
 - input: @CMND, @STK, @SODU(default = 100,000VND)
 - output:
-- role:
-### sp_SuaThongTinKH (*)
+- role: CHINHANH
+### [sp_SuaThongTinKH](/Store%20Proceduces/sp_SuaThongTinKH.sql) (*)
 - Describe: Thay đổi các thông tin của khách hàng
 - input:
 - output:
 - role:
-### sp_ChuyenTien
+### [sp_ChuyenTien](/Store%20Proceduces/sp_ChuyenTien.sql)
 - Describe:
 - input:
 - output:
 - role:
-### sp_GuiTien
+### [sp_GuiRut](/Store%20Proceduces/sp_GuiRut.sql)
 - Describe:
 - input:
 - output:
@@ -213,28 +213,3 @@
 - input: @MANV
 - output:
 - role: CHINHANH, NGANHANG
-### sp_
-- Describe:
-- input:
-- output:
-- role:
-### sp_
-- Describe:
-- input:
-- output:
-- role:
-### sp_
-- Describe:
-- input:
-- output:
-- role:
-### sp_
-- Describe:
-- input:
-- output:
-- role:
-### sp_
-- Describe:
-- input:
-- output:
-- role:
