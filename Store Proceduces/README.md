@@ -114,23 +114,30 @@
 - role: NGANHANG, CHINHANH
 ---
     exec sp_DanhSachNhanVien
-### sp_DanhSachKhachHang(*)
+### [sp_DanhSachKhachHang](/Store%20Proceduces/sp_DanhSachKhachHang.sql)
 - Describe: 
-    - Lấy danh sách khách hàng tất cả chi nhánh, cùng chi nhánh tăng theo họ tên (LINK2)
+    - Lấy danh sách khách hàng của chi nhánh hiện tại
     - Lấy danh sách khách hàng để thao tác (thêm/sửa/tạo tài khoản/xử lý giao dịch)
-- input: None
+- input: type (0/None: theo MaKH; other: tên)
+- output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
+- role: NGANHANG, CHINHANH
+### [sp_DanhSachKhachHang_NganHang](/Store%20Proceduces/sp_DanhSachKhachHang_NganHang.sql)
+- Describe: 
+    - Lấy danh sách khách hàng tất cả chi nhánh, cùng chi nhánh tăng theo tên
+    - Lấy danh sách khách hàng để thao tác (thêm/sửa/tạo tài khoản/xử lý giao dịch)
+- input: type (0/None: theo MaKH; other: tên)
 - output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
 - role: NGANHANG, CHINHANH
 ### [sp_DanhSachTaiKhoan_ChiNhanh](/Store%20Proceduces/sp_DanhSachTaiKhoan_ChiNhanh.sql) (*)
 - Describe: Lấy danh sách các tài khoản mở từ ngày A đến ngày B của chi nhánh
 - input: 'T': tất cả chi nhánh, 'C': chi nhánh hiện tại
-- output: SoTK, NgayMoTK, SoDu
+- output: SOTK, HOTEN, CMND, NGAYMOTK, MACN
 - role: CHINHANH/NGANHANG
-### sp_DanhSachTaiKhoan_KhachHang (*)
+### [sp_DanhSachTaiKhoan_KhachHang](/Store%20Proceduces/sp_DanhSachTaiKhoan_KhachHang.sql) (*)
 - Describe: Lấy danh sách các tài khoản thuộc tất cả chi nhánh của khách hàng khi đã đăng nhập
 - input: None
-- output(TABLE): SoTK, SoDu
-- role: KHACHHANG
+- output(TABLE): SOTK, HOTEN, CMND, NGAYMOTK, SODU, MACN
+- role: ALL
 ### [sp_ThemKH](/Store%20Proceduces/sp_ThemKH.sql) (*)
 - Describe: Tạo khách hàng mới
 - input: @CMND, @Ngaycap, @Ho, @Ten, @Diachi, @Gioitinh, @SDT
