@@ -212,7 +212,7 @@
     select @x as 'RETURN VALUE'
 ### [sp_DSGD_GuiRut_NV](/Store%20Proceduces/sp_DSGD_GuiRut_NV.sql)
 - Describe: Danh sách giao dịch gửi rút NV đã thực hiện
-- input: @MANV
+- input: @MANV, @Type('G': gửi; 'R': rút; None/other: all)
 - output:
 - role: CHINHANH, NGANHANG
 ### [sp_DSGD_ChuyenTien_NV](/Store%20Proceduces/sp_DSGD_ChuyenTien_NV.sql)
