@@ -12,9 +12,9 @@ using DevExpress.XtraReports.UI;
 
 namespace NganHang
 {
-    public partial class Frpt_DanhSachTaiKhoan_ChiNhanh : Form
+    public partial class frpt_DanhSachTaiKhoan_ChiNhanh : Form
     {
-        public Frpt_DanhSachTaiKhoan_ChiNhanh()
+        public frpt_DanhSachTaiKhoan_ChiNhanh()
         {
             InitializeComponent();
         }

@@ -71,3 +71,6 @@ D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.XtraReports.v22.2.xml
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Frpt_DanhSachTaiKhoan_ChiNhanh.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Xrpt_DanhSachTaiKhoan_ChiNhanh.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.FrmTaoLogin.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmTaoLoginKH.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmTaiKhoanNganHang.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Main.resources

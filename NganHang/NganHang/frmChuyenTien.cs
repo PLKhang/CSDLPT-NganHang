@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace NganHang
@@ -35,7 +36,7 @@ namespace NganHang
                 Program.mlogin = Program.mloginDN;
                 Program.password = Program.passwordDN;
             }
-            if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            if (Program.KetNoi() == 0) System.Windows.Forms.MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             else
             {
                 DS.EnforceConstraints = false;
@@ -68,6 +69,7 @@ namespace NganHang
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
             pnlGD.Enabled = true;
+            txtMANV.Text = Program.username;
             if (Program.mGroup == "NganHang")
             {
                 cmbChiNhanh.Enabled = true;
@@ -79,28 +81,23 @@ namespace NganHang
 
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.CHUYENTIEN_INFORECEIVERTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.CHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
         private void btnChuyenTien_Click(object sender, EventArgs e)
         {
             String dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-            Program.ExecSqlNonQuery("EXEC sp_ChuyenTien '" + txtSoTKChuyen.Text + "','" + txtSoTKNhan.Text + "','" + nuSoTien.Value + "','" + dt + "','" + Program.username + "'" + txtMACN.Text);
-            DS.EnforceConstraints = false;
-            this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-            this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
+            try
+            {
+                Program.ExecSqlNonQuery("EXEC sp_ChuyenTien '" + txtSoTKChuyen.Text + "','" + txtSoTKNhan.Text + "','" + nuSoTien.Value + "','" + dt + "','" + Program.username + "'" + txtMACN.Text);
+                DS.EnforceConstraints = false;
+                this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
+                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
+            }
+            catch(Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
             taiKhoanGridControl.Enabled = khachHangGridControl.Enabled = true;
             hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
             pnlGD.Enabled = false;
@@ -123,6 +120,7 @@ namespace NganHang
             pnlGD.Enabled = true;
             khachHangGridControl.Enabled = taiKhoanGridControl.Enabled = true;
             hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
+            hOTextBox.Text = tENTextBox.Text = cMNDTextBox1.Text = txtSoTKChuyen.Text = sODUTextEdit.Text = "";
             try
             {
                 this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -130,7 +128,7 @@ namespace NganHang
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
+                System.Windows.Forms.MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
         }

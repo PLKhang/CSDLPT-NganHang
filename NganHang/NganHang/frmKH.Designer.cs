@@ -38,7 +38,7 @@
             System.Windows.Forms.Label hOLabel;
             System.Windows.Forms.Label cMNDLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKH));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -63,8 +63,6 @@
             this.bdsKH = new System.Windows.Forms.BindingSource(this.components);
             this.KHACHHANGTableAdapter = new NganHang.DSTableAdapters.KHACHHANGTableAdapter();
             this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
-            this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
-            this.tAIKHOANTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.txtSODT = new System.Windows.Forms.TextBox();
             this.dateNgayCap = new DevExpress.XtraEditors.DateEdit();
@@ -74,10 +72,6 @@
             this.txtTEN = new System.Windows.Forms.TextBox();
             this.txtHO = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
-            this.bdsCN = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.thêmTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cHINHANHTableAdapter = new NganHang.DSTableAdapters.CHINHANHTableAdapter();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,15 +82,19 @@
             this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcKH = new DevExpress.XtraGrid.GridControl();
-            this.dgvMOTK = new System.Windows.Forms.DataGridView();
+            this.pnlMoLoginKH = new System.Windows.Forms.Panel();
+            this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
+            this.tAIKHOANTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
+            this.tAIKHOANDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.themTKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taiLaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thêmTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoáTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             soDTLabel = new System.Windows.Forms.Label();
             nGAYCAPLabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
@@ -110,17 +108,15 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCN)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcKH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMOTK)).BeginInit();
-            this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tAIKHOANDataGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // soDTLabel
@@ -313,7 +309,7 @@
             // 
             // btnMOTK
             // 
-            this.btnMOTK.Caption = "Mở Tài Khoản";
+            this.btnMOTK.Caption = "Mở Tài Khoản Đăng Nhập";
             this.btnMOTK.Id = 8;
             this.btnMOTK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMOTK.ImageOptions.SvgImage")));
             this.btnMOTK.Name = "btnMOTK";
@@ -339,15 +335,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1353, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1924, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 660);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 681);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1353, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1924, 20);
             // 
             // barDockControlLeft
             // 
@@ -355,15 +351,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 630);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 651);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1353, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1924, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 630);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 651);
             // 
             // btnChuyenNV
             // 
@@ -380,7 +376,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 30);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1353, 41);
+            this.panelControl1.Size = new System.Drawing.Size(1924, 41);
             this.panelControl1.TabIndex = 6;
             // 
             // label1
@@ -426,15 +422,6 @@
             this.tableAdapterManager.TAIKHOANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bdsTK
-            // 
-            this.bdsTK.DataMember = "FK_TaiKhoan_KhachHang";
-            this.bdsTK.DataSource = this.bdsKH;
-            // 
-            // tAIKHOANTableAdapter
-            // 
-            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
-            // 
             // panelControl2
             // 
             this.panelControl2.AutoSize = true;
@@ -457,7 +444,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl2.Location = new System.Drawing.Point(0, 291);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(451, 369);
+            this.panelControl2.Size = new System.Drawing.Size(451, 390);
             this.panelControl2.TabIndex = 54;
             // 
             // txtSODT
@@ -535,30 +522,6 @@
             this.txtCMND.Size = new System.Drawing.Size(177, 23);
             this.txtCMND.TabIndex = 82;
             // 
-            // bdsCN
-            // 
-            this.bdsCN.DataMember = "CHINHANH";
-            this.bdsCN.DataSource = this.DS;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thêmTàiKhoảnToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 28);
-            // 
-            // thêmTàiKhoảnToolStripMenuItem
-            // 
-            this.thêmTàiKhoảnToolStripMenuItem.Name = "thêmTàiKhoảnToolStripMenuItem";
-            this.thêmTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
-            this.thêmTàiKhoảnToolStripMenuItem.Text = "Thêm Tài Khoản";
-            this.thêmTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thêmTàiKhoảnToolStripMenuItem_Click);
-            // 
-            // cHINHANHTableAdapter
-            // 
-            this.cHINHANHTableAdapter.ClearBeforeFill = true;
-            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -572,6 +535,7 @@
             this.colMACN});
             this.gridView1.GridControl = this.gcKH;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsFind.FindFilterColumns = "CMND";
@@ -654,39 +618,56 @@
             // 
             this.gcKH.DataSource = this.bdsKH;
             this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gcKH.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gcKH.Location = new System.Drawing.Point(0, 71);
             this.gcKH.MainView = this.gridView1;
             this.gcKH.MenuManager = this.barManager1;
             this.gcKH.Name = "gcKH";
-            this.gcKH.Size = new System.Drawing.Size(1353, 220);
+            this.gcKH.Size = new System.Drawing.Size(1924, 220);
             this.gcKH.TabIndex = 44;
             this.gcKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // dgvMOTK
+            // pnlMoLoginKH
             // 
-            this.dgvMOTK.AllowUserToAddRows = false;
-            this.dgvMOTK.AllowUserToDeleteRows = false;
-            this.dgvMOTK.AutoGenerateColumns = false;
-            this.dgvMOTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMOTK.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pnlMoLoginKH.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlMoLoginKH.Location = new System.Drawing.Point(1168, 291);
+            this.pnlMoLoginKH.Name = "pnlMoLoginKH";
+            this.pnlMoLoginKH.Size = new System.Drawing.Size(756, 390);
+            this.pnlMoLoginKH.TabIndex = 63;
+            // 
+            // bdsTK
+            // 
+            this.bdsTK.DataMember = "FK_TaiKhoan_KhachHang";
+            this.bdsTK.DataSource = this.bdsKH;
+            // 
+            // tAIKHOANTableAdapter
+            // 
+            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
+            // 
+            // tAIKHOANDataGridView
+            // 
+            this.tAIKHOANDataGridView.AllowUserToAddRows = false;
+            this.tAIKHOANDataGridView.AllowUserToDeleteRows = false;
+            this.tAIKHOANDataGridView.AutoGenerateColumns = false;
+            this.tAIKHOANDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tAIKHOANDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dgvMOTK.DataSource = this.bdsTK;
-            this.dgvMOTK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dgvMOTK.Location = new System.Drawing.Point(533, 291);
-            this.dgvMOTK.Name = "dgvMOTK";
-            this.dgvMOTK.ReadOnly = true;
-            this.dgvMOTK.RowHeadersWidth = 51;
-            this.dgvMOTK.RowTemplate.Height = 24;
-            this.dgvMOTK.Size = new System.Drawing.Size(820, 369);
-            this.dgvMOTK.TabIndex = 58;
+            this.tAIKHOANDataGridView.DataSource = this.bdsTK;
+            this.tAIKHOANDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tAIKHOANDataGridView.Location = new System.Drawing.Point(451, 291);
+            this.tAIKHOANDataGridView.Name = "tAIKHOANDataGridView";
+            this.tAIKHOANDataGridView.ReadOnly = true;
+            this.tAIKHOANDataGridView.RowHeadersWidth = 51;
+            this.tAIKHOANDataGridView.RowTemplate.Height = 24;
+            this.tAIKHOANDataGridView.Size = new System.Drawing.Size(717, 390);
+            this.tAIKHOANDataGridView.TabIndex = 75;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -733,33 +714,42 @@
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 125;
             // 
-            // contextMenuStrip2
+            // contextMenuStrip1
             // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.themTKToolStripMenuItem,
-            this.taiLaiToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(137, 52);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmTàiKhoảnToolStripMenuItem,
+            this.tảiLạiToolStripMenuItem,
+            this.xoáTàiKhoảnToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 76);
             // 
-            // themTKToolStripMenuItem
+            // thêmTàiKhoảnToolStripMenuItem
             // 
-            this.themTKToolStripMenuItem.Name = "themTKToolStripMenuItem";
-            this.themTKToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.themTKToolStripMenuItem.Text = "Them TK";
+            this.thêmTàiKhoảnToolStripMenuItem.Name = "thêmTàiKhoảnToolStripMenuItem";
+            this.thêmTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.thêmTàiKhoảnToolStripMenuItem.Text = "Thêm Tài Khoản";
             // 
-            // taiLaiToolStripMenuItem
+            // tảiLạiToolStripMenuItem
             // 
-            this.taiLaiToolStripMenuItem.Name = "taiLaiToolStripMenuItem";
-            this.taiLaiToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.taiLaiToolStripMenuItem.Text = "Tai Lai";
+            this.tảiLạiToolStripMenuItem.Name = "tảiLạiToolStripMenuItem";
+            this.tảiLạiToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.tảiLạiToolStripMenuItem.Text = "Tải Lại";
+            // 
+            // xoáTàiKhoảnToolStripMenuItem
+            // 
+            this.xoáTàiKhoảnToolStripMenuItem.Name = "xoáTàiKhoảnToolStripMenuItem";
+            this.xoáTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.xoáTàiKhoảnToolStripMenuItem.Text = "Xoá Tài Khoản";
             // 
             // frmKH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 680);
-            this.Controls.Add(this.dgvMOTK);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1924, 701);
+            this.Controls.Add(this.tAIKHOANDataGridView);
+            this.Controls.Add(this.pnlMoLoginKH);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.gcKH);
             this.Controls.Add(this.panelControl1);
@@ -777,18 +767,16 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCN)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcKH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMOTK)).EndInit();
-            this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tAIKHOANDataGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -819,8 +807,6 @@
         private DS DS;
         private DSTableAdapters.KHACHHANGTableAdapter KHACHHANGTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource bdsTK;
-        private DSTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.TextBox txtSODT;
         private DevExpress.XtraEditors.DateEdit dateNgayCap;
@@ -830,10 +816,6 @@
         private System.Windows.Forms.TextBox txtTEN;
         private System.Windows.Forms.TextBox txtHO;
         private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem thêmTàiKhoảnToolStripMenuItem;
-        private System.Windows.Forms.BindingSource bdsCN;
-        private DSTableAdapters.CHINHANHTableAdapter cHINHANHTableAdapter;
         private DevExpress.XtraGrid.GridControl gcKH;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
@@ -844,15 +826,19 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoDT;
         private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
-        private System.Windows.Forms.DataGridView dgvMOTK;
+        private DevExpress.XtraBars.BarButtonItem btnMOTK;
+        private System.Windows.Forms.Panel pnlMoLoginKH;
+        private System.Windows.Forms.BindingSource bdsTK;
+        private DSTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;
+        private System.Windows.Forms.DataGridView tAIKHOANDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private DevExpress.XtraBars.BarButtonItem btnMOTK;
-        private System.Windows.Forms.ToolStripMenuItem themTKToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem taiLaiToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem thêmTàiKhoảnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tảiLạiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xoáTàiKhoảnToolStripMenuItem;
     }
 }

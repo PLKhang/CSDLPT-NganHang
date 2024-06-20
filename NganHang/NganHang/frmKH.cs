@@ -20,7 +20,13 @@ namespace NganHang
         {
             InitializeComponent();
         }
-
+        private Form CheckExists(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;   //nếu frmMain đã tồn tại thì trả về f, không thì trả về null.
+            return null;
+        }
         private void kHACHHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -30,12 +36,12 @@ namespace NganHang
         }
 
         private void frmKH_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'DS.CHINHANH' table. You can move, or remove it, as needed.
-            this.cHINHANHTableAdapter.Fill(this.DS.CHINHANH);
+        {          
             DS.EnforceConstraints = false;
             this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
             this.KHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
+            this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
 
             macn = ((DataRowView)bdsKH[0])["MACN"].ToString();
             cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
@@ -268,12 +274,28 @@ namespace NganHang
 
         private void btnMOTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsKH.Position;
-            panelControl2.Enabled = true;
-            btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
-            btnSave.Enabled = btnUndo.Enabled = true;
-            gcKH.Enabled = false; txtMACN.Enabled = false;
-            dgvMOTK.Enabled = true ;
+            //vitri = bdsKH.Position;
+            //panelControl2.Enabled = true;
+            //btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
+            //btnSave.Enabled = btnUndo.Enabled = true;
+            //gcKH.Enabled = false; txtMACN.Enabled = false;
+            //dgvMOTK.Enabled = true ;
+            Form frm = this.CheckExists(typeof(frmTaoLoginKH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoLoginKH f = new frmTaoLoginKH();
+                // Đặt TopLevel thành false để không hiển thị dưới dạng cửa sổ độc lập
+                f.TopLevel = false;
+                // Đặt FormBorderStyle thành None để không có viền cửa sổ
+                f.FormBorderStyle = FormBorderStyle.None;
+                // Thêm form vào Panel trên form chính
+                this.pnlMoLoginKH.Controls.Add(f);
+
+                // Thiết lập DockStyle để form con chiếm toàn bộ Panel
+                f.Dock = DockStyle.Fill;
+                f.Show();
+            }
         }
     }
 }

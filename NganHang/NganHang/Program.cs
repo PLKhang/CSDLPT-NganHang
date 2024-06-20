@@ -38,7 +38,7 @@ namespace NGANHANG
 
         public static BindingSource bds_dspm = new BindingSource(); //giữ bds phân mảnh khi đăng nhập -> chứa TENCN và TENSEVER của V_Get_Subscribes. Từ lúc đăng nhập thành công đến lúc kết thúc.
 
-        public static frmMain frmChinh;
+        public static Main frmChinh;
 
         public static int KetNoi()
         {
@@ -120,7 +120,7 @@ namespace NGANHANG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmChinh = new frmMain();   // frmChinh là một đối tượng của frmMain
+            frmChinh = new Main();   // frmChinh là một đối tượng của frmMain
             Application.Run(frmChinh);
             //Application.Run(new frmMain());
             //Tại sao không chạy thẳng frmMain mà phải tạo ra frm chính?

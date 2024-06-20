@@ -1,4 +1,5 @@
-﻿using NGANHANG;
+﻿using DevExpress.XtraBars;
+using NGANHANG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +12,17 @@ using System.Windows.Forms;
 
 namespace NganHang
 {
-    public partial class frmMain : Form
+    public partial class Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmMain()
+        public Main()
         {
             InitializeComponent();
             this.IsMdiContainer = true;
             btn_DangNhap.PerformClick();
+        }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            btn_DangXuat.Enabled = btn_DK.Enabled = false;
         }
         private Form CheckExists(Type ftype)
         {
@@ -25,10 +30,6 @@ namespace NganHang
                 if (f.GetType() == ftype)
                     return f;   //nếu frmMain đã tồn tại thì trả về f, không thì trả về null.
             return null;
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            btn_DangXuat.Enabled = btn_DK.Enabled = false;
         }
         private void btn_DangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -72,7 +73,7 @@ namespace NganHang
                         childForm.Close();
                     }
 
-                    rib_BaoCao.Visible = rib_DanhMuc.Visible = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
+                    rib_BaoCao.Visible  = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
                     btn_DangNhap.Enabled = true;
                     MANV.Text = "MANV "; HOTEN.Text = "HOTEN "; NHOM.Text = "NHOM";
                     MessageBox.Show("Đăng xuất thành công.", "", MessageBoxButtons.OK);
@@ -108,7 +109,7 @@ namespace NganHang
             HOTEN.Text = "; Họ tên: " + Program.mHoten.Trim('\r', '\n');
             NHOM.Text = "; Nhóm: " + Program.mGroup;
             // Phân quyền
-            rib_BaoCao.Visible = rib_DanhMuc.Visible = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = true;
+            rib_BaoCao.Visible  = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = true;
             btn_DangNhap.Enabled = false;
             // tiếp tục if trên Program.mGroup để bật/tắt các nút lệnh trên menu chính
             /*           if (Program.mGroup == "NGANHANG")

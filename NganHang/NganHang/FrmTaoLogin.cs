@@ -30,19 +30,10 @@ namespace NganHang
 
         private void FrmTaoLogin_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.V_EX_LoginName' table. You can move, or remove it, as needed.
-            this.v_EX_LoginNameTableAdapter.Fill(this.DS.V_EX_LoginName);
             DS.EnforceConstraints = false;
+            this.v_EX_LoginNameTableAdapter.Fill(this.DS.V_EX_LoginName);
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.DS.NHANVIEN);
-            //string cmd = "SELECT * FROM V_EX_LoginName";
-            //DataTable dt = new DataTable(); //trả về một data table.
-            //SqlDataAdapter da = new SqlDataAdapter(cmd, Program.conn); // Tạo ra một đối tượng thuộc lớp SqlDataAdapter có 2 tham số là chuỗi lệnh và đối tượng SqlConnection.
-            //da.Fill(dt);    // Muốn tải số liệu từ View,Table từ DataAdapter vào DataTable thì ta dùng Fill -> dt sẽ chứa các danh sách phân mảnh.
-
-            //cmbMANV.DataSource = dt;  // gán bds_dspm ở Program cho DataSource ở cmbChiNhanh. //
-            //cmbMANV.DisplayMember = "MANV"; cmbMANV.ValueMember = "MANV";
-            //cmbMANV.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btThoat_Click(object sender, EventArgs e)
@@ -87,25 +78,20 @@ namespace NganHang
                 return;
             }
 
-
-            //Debug.WriteLine(txtLoginName.Text);
-            //Debug.WriteLine(txtPass.Text);
-            //Debug.WriteLine(txtPassConfir.Text);
-
-            //string cmd = "exec v_ex_loginname";
-            //Program.myReader = Program.ExecSqlDataReader(cmd);
-            //Program.myReader.Read();
-            //string generatedStaffId = Program.myReader.GetString(0);
-            //Program.myReader.Close();
-
-            string cmd = "exec sp_TaoLogin '" + txtLoginName.Text + "',"
-                        + "'" + txtPass.Text + "',"
-                        + "N'" + txtLoginName.Text + "',"
-                        + "N'" + Program.mGroup + "'";
-
-            Program.myReader = Program.ExecSqlDataReader(cmd);
-            Program.myReader.Close();
-            MessageBox.Show("DEO!!", "", MessageBoxButtons.OK);
+            try
+            {
+                string cmd = "exec sp_TaoLogin '" + txtLoginName.Text + "',"
+                            + "'" + txtPass.Text + "',"
+                            + "N'" + txtLoginName.Text + "',"
+                            + "N'" + Program.mGroup + "'";
+                Program.ExecSqlNonQuery(cmd);
+                MessageBox.Show("Đã Tạo Thành Công!!", "", MessageBoxButtons.OK);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi tạo login cho nhân viên", ex.Message, MessageBoxButtons.OK);
+                return;
+            }
             
         }
     }

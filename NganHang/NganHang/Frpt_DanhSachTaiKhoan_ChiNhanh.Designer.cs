@@ -1,6 +1,6 @@
 ﻿namespace NganHang
 {
-    partial class Frpt_DanhSachTaiKhoan_ChiNhanh
+    partial class frpt_DanhSachTaiKhoan_ChiNhanh
     {
         /// <summary>
         /// Required designer variable.

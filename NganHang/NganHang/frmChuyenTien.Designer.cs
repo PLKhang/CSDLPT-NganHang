@@ -38,6 +38,8 @@
             System.Windows.Forms.Label cMNDLabel;
             System.Windows.Forms.Label hOTENLabel;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -63,9 +65,7 @@
             this.btnChuyenTien = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSoTkNhanTien = new System.Windows.Forms.TextBox();
             this.khachHangTableAdapter = new NganHang.DSTableAdapters.KHACHHANGTableAdapter();
             this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
             this.taiKhoanTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
@@ -96,8 +96,6 @@
             this.colMACN1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.btnReload = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
             label7 = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
@@ -225,6 +223,28 @@
             this.panelControl1.Size = new System.Drawing.Size(1356, 41);
             this.panelControl1.TabIndex = 8;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(658, 5);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(134, 32);
+            this.btnThoat.TabIndex = 3;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Location = new System.Drawing.Point(494, 5);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(158, 32);
+            this.btnReload.TabIndex = 2;
+            this.btnReload.Text = "Tải Lại";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -279,10 +299,8 @@
             this.pnlGD.Controls.Add(this.btnChuyenTien);
             this.pnlGD.Controls.Add(this.label4);
             this.pnlGD.Controls.Add(this.label3);
-            this.pnlGD.Controls.Add(this.btnTimKiem);
             this.pnlGD.Controls.Add(mACNLabel);
             this.pnlGD.Controls.Add(this.label2);
-            this.pnlGD.Controls.Add(this.txtSoTkNhanTien);
             this.pnlGD.Controls.Add(sOTKLabel);
             this.pnlGD.Controls.Add(cMNDLabel);
             this.pnlGD.Controls.Add(hOTENLabel);
@@ -501,37 +519,16 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "Thông tin người nhận tiền: ";
             // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.Black;
-            this.btnTimKiem.Location = new System.Drawing.Point(588, 17);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(138, 33);
-            this.btnTimKiem.TabIndex = 20;
-            this.btnTimKiem.Text = "Tìm kiếm...";
-            this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(5, 18);
+            this.label2.Location = new System.Drawing.Point(212, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(391, 32);
+            this.label2.Size = new System.Drawing.Size(390, 35);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Nhập số tài khoản người nhận";
-            // 
-            // txtSoTkNhanTien
-            // 
-            this.txtSoTkNhanTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoTkNhanTien.ForeColor = System.Drawing.Color.Black;
-            this.txtSoTkNhanTien.Location = new System.Drawing.Point(412, 21);
-            this.txtSoTkNhanTien.Name = "txtSoTkNhanTien";
-            this.txtSoTkNhanTien.Size = new System.Drawing.Size(170, 30);
-            this.txtSoTkNhanTien.TabIndex = 17;
+            this.label2.Text = "Phiếu Giao Dịch Chuyển Tiền";
             // 
             // khachHangTableAdapter
             // 
@@ -814,28 +811,6 @@
             this.label10.TabIndex = 43;
             this.label10.Text = "Chọn tài khoản nhận tiền";
             // 
-            // btnReload
-            // 
-            this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(494, 5);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(158, 32);
-            this.btnReload.TabIndex = 2;
-            this.btnReload.Text = "Tải Lại";
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(658, 5);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(134, 32);
-            this.btnThoat.TabIndex = 3;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // frmChuyenTien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -899,9 +874,6 @@
         private System.Windows.Forms.Button btnChuyenTien;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSoTkNhanTien;
         private DS DS;
         private System.Windows.Forms.BindingSource bdsKH;
         private DSTableAdapters.KHACHHANGTableAdapter khachHangTableAdapter;
@@ -947,5 +919,6 @@
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Label label2;
     }
 }
