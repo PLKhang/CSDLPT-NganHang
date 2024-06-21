@@ -26,14 +26,8 @@ BEGIN TRY
 	END
 	else
 	BEGIN
-		declare @temp nchar(10);
-		declare @newID bigint;
 		declare @newMANV nchar(10);
-
-		SELECT @temp = ISNULL(MAX(MANV), 'NV00000000') FROM LINK0.NGANHANG.dbo.NHANVIEN
-
-		SET @newID = CAST((SUBSTRING(@temp, 3, 8)) AS bigint) + 1
-		SET @newMANV = 'NV' + RIGHT('0000000000' + CAST(@newID AS nvarchar(10)), 8)
+		SET @newMANV = dbo.fn_TaoMaNV()
 
 		insert into LINK1.NGANHANG.dbo.NHANVIEN (MANV, CMND, HO, TEN, PHAI,SoDT, DIACHI, MACN, TrangThaiXoa)
 		select	@newMANV as MANV, 

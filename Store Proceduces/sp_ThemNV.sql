@@ -1,4 +1,4 @@
-CREATE proc [dbo].[sp_ThemNV]
+create proc [dbo].[sp_ThemNV]
 @CMND nchar(10),
 @HO nvarchar(50),
 @TEN nvarchar(10),
@@ -21,14 +21,8 @@ BEGIN TRY
 	declare @MACN nchar(10)
 	set @MACN = (select top 1 MACN from dbo.CHINHANH)
 
-	declare @temp nchar(10);
-    declare @newID bigint;
-    declare @newMANV nchar(10);
-
-	SELECT @temp = ISNULL(MAX(MANV), 'NV00000000') FROM LINK0.NGANHANG.dbo.NHANVIEN
-
-    SET @newID = CAST((SUBSTRING(@temp, 3, 8)) AS bigint) + 1
-    SET @newMANV = 'NV' + RIGHT('0000000000' + CAST(@newID AS nvarchar(10)), 8)
+	declare @newMANV nchar(10);
+	set @newMANV = dbo.fn_TaoMaNV()
 
 	insert into dbo.NHANVIEN(MANV, CMND, HO, TEN, PHAI, SODT, DIACHI, MACN) 
 	values (@newMANV, @CMND, @HO, @TEN, @PHAI, @SODT, @DIACHI, @MACN)

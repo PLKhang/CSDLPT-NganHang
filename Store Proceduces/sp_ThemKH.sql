@@ -14,17 +14,18 @@ BEGIN TRANSACTION
 BEGIN TRY
 	declare @existedCMND int
 	exec @existedCMND = sp_Existed_CMND_KH @CMND
+	
 	if(@existedCMND = 1)
 		BEGIN
 			rollback
-			RAISERROR('CMND NAY DA TON TAI !!!', 16, 1)
 			RETURN 1 -- Thêm không thành công
 		END
-	if(@existedCMND = 0)
+	else
 		BEGIN
 			INSERT INTO KhachHang (CMND , HO , TEN , DIACHI , PHAI,NGAYCAP,SODT,MACN)
 			VALUES (@CMND , @HO , @TEN , @DIACHI , @PHAI,@NGAYCAP,@SODT,@MACN)
 			COMMIT TRANSACTION;
+			RETURN 0 -- Thành công
 		END 
 END TRY
 

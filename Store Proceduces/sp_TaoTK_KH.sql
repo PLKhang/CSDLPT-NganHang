@@ -15,9 +15,8 @@ BEGIN
 		exec @existedCMND = sp_Existed_CMND_KH @CMND
 		if(@existedCMND = 0)
 			BEGIN
-				RAISERROR(N'Khách hàng không tồn tại', 16, 1);
 				ROLLBACK; -- Rollback nếu khách hàng không tồn tại
-				RETURN;
+				RETURN 1
 			END
 		-- CMND ko tồn tại
 		ELSE
@@ -25,6 +24,7 @@ BEGIN
 				INSERT INTO TaiKhoan (SOTK , CMND , SODU , MACN , NGAYMOTK)
 				VALUES (@SOTK , @CMND , @SODU , @MACN ,@NGAYMOTK)
 				COMMIT TRANSACTION
+				RETURN 0
 			END 
 	END TRY
 
