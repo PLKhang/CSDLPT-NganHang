@@ -36,9 +36,17 @@ namespace NGANHANG
         public static String mHoten = "";
         public static int mChinhanh = 0;    // đăng nhập thành công thuộc chi nhánh nào.
 
+
+        public static String mlogin1 = "sa";
+        public static String password1 = "123";
+        public static String connstr1;
+        public static String servername1 = "";
+        public static SqlConnection conn1 = new SqlConnection();
+
+
         public static BindingSource bds_dspm = new BindingSource(); //giữ bds phân mảnh khi đăng nhập -> chứa TENCN và TENSEVER của V_Get_Subscribes. Từ lúc đăng nhập thành công đến lúc kết thúc.
 
-        public static Main frmChinh;
+        public static frmMain frmChinh;
 
         public static int KetNoi()
         {
@@ -49,12 +57,6 @@ namespace NGANHANG
 
                 Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog=" + Program.database + ";User ID=" +
                       Program.mlogin + ";password=" + Program.password;
-                Debug.WriteLine("----------------------------");
-                Debug.WriteLine(Program.servername);
-                Debug.WriteLine(Program.database);
-                Debug.WriteLine(Program.mlogin);
-                Debug.WriteLine(Program.password);
-                Debug.WriteLine(Program.connstr);
                 Program.conn.ConnectionString = Program.connstr;
                 Program.conn.Open();
                 return 1;
@@ -66,7 +68,27 @@ namespace NGANHANG
                 return 0;
             }
         }
+        public static int KetNoiCosoKhac()
+        {
+            if (Program.conn1 != null && Program.conn1.State == ConnectionState.Open)
+                Program.conn1.Close();
+            try
+            {
+                Program.connstr1 = "Data Source=" + Program.servername1 + ";Initial Catalog=" +
+                      Program.database + ";User ID=" +
+                      Program.mlogin1 + ";password=" + Program.password1;
+                Program.conn1.ConnectionString = Program.connstr1;
+                Program.conn1.Open();
+                return 1;
+            }
 
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n "
+                    + e.Message, "", MessageBoxButtons.OK);
+                return 0;
+            }
+        }
         public static SqlDataReader ExecSqlDataReader(String strLenh)
         { // thực thi câu lệnh và trả về dưới dạng DataReader.
             SqlDataReader myreader;
@@ -120,7 +142,7 @@ namespace NGANHANG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmChinh = new Main();   // frmChinh là một đối tượng của frmMain
+            frmChinh = new frmMain();   // frmChinh là một đối tượng của frmMain
             Application.Run(frmChinh);
             //Application.Run(new frmMain());
             //Tại sao không chạy thẳng frmMain mà phải tạo ra frm chính?

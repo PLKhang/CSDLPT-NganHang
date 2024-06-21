@@ -18,7 +18,7 @@ namespace NganHang
 {
     public partial class frmDangNhap : Form
     {
-        private static SqlConnection conn_publisher = new SqlConnection();
+        public static SqlConnection conn_publisher = new SqlConnection();
         private void LayDSPM(String cmd)
         {
             DataTable dt = new DataTable(); //trả về một data table.
@@ -34,6 +34,7 @@ namespace NganHang
             cmbChiNhanh.DisplayMember = "TENCN"; cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
         public frmDangNhap()
         {
             InitializeComponent();
@@ -72,6 +73,19 @@ namespace NganHang
             }
             catch (Exception) { }
         }
+
+        public static DataTable GetListSubcription(String cmd)
+        {
+            DataTable dt = new DataTable();
+            if (conn_publisher.State == ConnectionState.Closed)
+            {
+                conn_publisher.Open();
+            }
+            SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
+            da.Fill(dt);
+            conn_publisher.Close();
+            return dt;
+        }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (txtTk.Text.Trim() == "" || txtMk.Text.Trim() == "")
@@ -86,7 +100,7 @@ namespace NganHang
             Program.mloginDN = Program.mlogin;              //tài khoản đăng nhập thành công.   -> sẽ còn dùng cho những form sau này.
             Program.passwordDN = Program.password;          //mật khẩu đăng nhập thành công.
           
-            string strLenh = "EXEC SP_Lay_Thong_Tin_NV_Tu_Login '" + Program.mlogin + "'";
+            string strLenh = "EXEC sp_LayThongTinLogin '" + Program.mlogin + "'";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             if (Program.myReader == null || !Program.myReader.HasRows)
             {
@@ -127,16 +141,6 @@ namespace NganHang
         private void frmDangNhap_Load_1(object sender, EventArgs e)
         {
             FrmDangNhap_Load(sender,e);
-        }
-
-        private void txtMk_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTk_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

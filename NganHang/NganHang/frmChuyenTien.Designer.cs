@@ -256,6 +256,7 @@
             // 
             // cmbChiNhanh
             // 
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(134, 9);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
@@ -363,6 +364,7 @@
             this.txtSoTKNhan.ReadOnly = true;
             this.txtSoTKNhan.Size = new System.Drawing.Size(185, 31);
             this.txtSoTKNhan.TabIndex = 48;
+            this.txtSoTKNhan.TextChanged += new System.EventHandler(this.txtSoTKNhan_TextChanged);
             // 
             // cMNDTextBox
             // 

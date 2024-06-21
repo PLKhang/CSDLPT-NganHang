@@ -38,7 +38,7 @@
             System.Windows.Forms.Label hOLabel;
             System.Windows.Forms.Label cMNDLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKH));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -390,6 +390,7 @@
             // 
             // cmbChiNhanh
             // 
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(134, 9);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
@@ -489,14 +490,14 @@
             // cmbPHAI
             // 
             this.cmbPHAI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "PHAI", true));
-            this.cmbPHAI.DataSource = this.bdsKH;
-            this.cmbPHAI.DisplayMember = "PHAI";
             this.cmbPHAI.FormattingEnabled = true;
+            this.cmbPHAI.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
             this.cmbPHAI.Location = new System.Drawing.Point(150, 109);
             this.cmbPHAI.Name = "cmbPHAI";
             this.cmbPHAI.Size = new System.Drawing.Size(182, 24);
             this.cmbPHAI.TabIndex = 88;
-            this.cmbPHAI.ValueMember = "PHAI";
             // 
             // txtTEN
             // 
@@ -618,9 +619,9 @@
             // 
             this.gcKH.DataSource = this.bdsKH;
             this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gcKH.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gcKH.Location = new System.Drawing.Point(0, 71);
             this.gcKH.MainView = this.gridView1;
             this.gcKH.MenuManager = this.barManager1;
@@ -746,7 +747,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1924, 701);
             this.Controls.Add(this.tAIKHOANDataGridView);
             this.Controls.Add(this.pnlMoLoginKH);

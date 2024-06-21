@@ -103,12 +103,6 @@
     <Compile Include="frmKH.Designer.cs">
       <DependentUpon>frmKH.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +127,12 @@
     <Compile Include="frmTaoLoginKH.Designer.cs">
       <DependentUpon>frmTaoLoginKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="frpt_DanhSachKhachHang_NganHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frpt_DanhSachKhachHang_NganHang.Designer.cs">
+      <DependentUpon>frpt_DanhSachKhachHang_NganHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frpt_SaoKeTaiKhoanNganHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +145,11 @@
     <Compile Include="frpt_DanhSachTaiKhoan_ChiNhanh.Designer.cs">
       <DependentUpon>frpt_DanhSachTaiKhoan_ChiNhanh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_DanhSachTaiKhoan_ChiNhanh.cs">
       <SubType>Component</SubType>
@@ -188,9 +188,6 @@
     <EmbeddedResource Include="frmKH.resx">
       <DependentUpon>frmKH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,14 +203,17 @@
     <EmbeddedResource Include="frmTaoLoginKH.resx">
       <DependentUpon>frmTaoLoginKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frpt_DanhSachKhachHang_NganHang.resx">
+      <DependentUpon>frpt_DanhSachKhachHang_NganHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frpt_SaoKeTaiKhoanNganHang.resx">
       <DependentUpon>frpt_SaoKeTaiKhoanNganHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frpt_DanhSachTaiKhoan_ChiNhanh.resx">
       <DependentUpon>frpt_DanhSachTaiKhoan_ChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
