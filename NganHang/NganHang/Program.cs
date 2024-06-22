@@ -137,6 +137,97 @@ namespace NGANHANG
                 return ex.State;// trang thai lỗi gói từ RAISERROR trong SQL Server qua -> Message.
             }
         }
+        public static int ExecuteStoredProcedure(string SPName, string parameter, string accountNumber)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connstr))
+                {
+                    SqlCommand command = new SqlCommand(SPName, connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@" + parameter, accountNumber);
+
+                    SqlParameter returnValue = new SqlParameter();
+                    returnValue.Direction = System.Data.ParameterDirection.ReturnValue;
+                    command.Parameters.Add(returnValue);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    return (int)returnValue.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK);
+                return -1;
+            }
+        }
+        public static int ExecSqlAndGetReturnedValue(String spName, SqlParameter param1 = null, SqlParameter param2 = null)
+        {
+            SqlCommand Sqlcmd = new SqlCommand(spName, conn);
+            Sqlcmd.CommandType = CommandType.StoredProcedure;
+            Sqlcmd.CommandTimeout = 600;// 10 phut 
+            SqlParameter returnValue = new SqlParameter();
+            returnValue.Direction = ParameterDirection.ReturnValue;
+            Sqlcmd.Parameters.Add(returnValue);
+            if (param1 != null)
+                Sqlcmd.Parameters.Add(param1);
+            if (param2 != null)
+                Sqlcmd.Parameters.Add(param2);
+
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+                Sqlcmd.ExecuteNonQuery();
+
+                return (int)returnValue.Value;
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public static int ExecSqlAndGetReturnedValue2(String spName, params SqlParameter[] parameters)
+        {
+            SqlCommand Sqlcmd = new SqlCommand(spName, conn);
+            Sqlcmd.CommandType = CommandType.StoredProcedure;
+            Sqlcmd.CommandTimeout = 600; // 10 phút
+
+            // Thêm tham số trả về
+            SqlParameter returnValue = new SqlParameter();
+            returnValue.Direction = ParameterDirection.ReturnValue;
+            Sqlcmd.Parameters.Add(returnValue);
+
+            // Thêm các tham số truyền vào stored procedure
+            if (parameters != null)
+            {
+                foreach (var param in parameters)
+                {
+                    Sqlcmd.Parameters.Add(param);
+                }
+            }
+
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+                Sqlcmd.ExecuteNonQuery();
+                return (int)returnValue.Value;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         [STAThread]
         static void Main()
         {

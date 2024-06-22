@@ -68,10 +68,12 @@ D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.XtraCharts.v22.2.xml
 D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.XtraGauges.v22.2.Core.xml
 D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.XtraReports.v22.2.xml
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Frpt_DanhSachTaiKhoan_ChiNhanh.resources
-D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Xrpt_DanhSachTaiKhoan_ChiNhanh.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.FrmTaoLogin.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmTaoLoginKH.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmTaiKhoanNganHang.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frpt_SaoKeTaiKhoanNganHang.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frpt_DanhSachKhachHang_NganHang.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmMain.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Xrpt_SaoKe.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Xrpt_DanhSachKhachHang.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Xrpt_TaiKhoan.resources

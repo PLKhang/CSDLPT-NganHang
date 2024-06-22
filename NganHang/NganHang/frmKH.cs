@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -65,25 +66,25 @@ namespace NganHang
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
-            //    return;
-            //Program.servername = cmbChiNhanh.SelectedValue.ToString();
-            //if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
-            //{
-            //    Program.mlogin = Program.remotelogin;
-            //    Program.password = Program.remotepassword;
-            //}
-            //else
-            //{
-            //    Program.mlogin = Program.mloginDN;
-            //    Program.password = Program.passwordDN;
-            //}
-            //if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-            //else
-            //{
-            //    this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-            //    this.KHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
-            //}
+            /*            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
+            if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+            if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
+            }*/
 
             if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
             {
@@ -123,7 +124,7 @@ namespace NganHang
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String CMND = ((DataRowView)bdsKH[bdsKH.Position])["CMND"].ToString();
+            String oldCMND = ((DataRowView)bdsKH[bdsKH.Position])["CMND"].ToString();
             if (txtCMND.Text.Length != 10)
             {
                 MessageBox.Show("CMND của khách hàng không đúng định dạng (10 số)", "", MessageBoxButtons.OK);
@@ -172,38 +173,66 @@ namespace NganHang
                 txtSODT.Focus();
                 return;
             }
-            // Kiểm tra cmnd tồn tại trên site chủ
-            //viết 1 SP kiểm tra mã trùng. gọi SP đó thông qua hàm ExecSqlDataReader dưới dạng có hay không!! 
-            if (btn_Add_clicked == true || CMND != txtCMND.Text)//khi click update, MANV mới khác với MANV cũ thì kiểm tra có trùng MANV không
+
+            if (btn_Add_clicked == true )
             {
-                Program.myReader.Close();
-                string strlenh1 = "EXEC sp_Existed_CMND_KH '" + txtCMND.Text + "'";
-                Program.myReader = Program.ExecSqlDataReader(strlenh1);
-                Program.myReader.Read();
-                if (Program.myReader.HasRows)
+                try
                 {
-                    MessageBox.Show("CMND khách hàng đã tồn tại \nVui lòng nhập lại", "", MessageBoxButtons.OK);
+                    int result = Program.ExecSqlAndGetReturnedValue2("sp_ThemKH",
+                                                                    new SqlParameter("@CMND", txtCMND.Text),
+                                                                    new SqlParameter("@HO", txtHO.Text),
+                                                                    new SqlParameter("@TEN", txtTEN.Text),
+                                                                    new SqlParameter("@DIACHI", txtDIACHI.Text),
+                                                                    new SqlParameter("@PHAI", cmbPHAI.Text),
+                                                                    new SqlParameter("@NGAYCAP", dateNgayCap.Text),
+                                                                    new SqlParameter("@SODT", txtSODT.Text),
+                                                                    new SqlParameter("@MACN", cmbChiNhanh.Text));
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Trùng CMND!!", "", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lưu thành công!!", "", MessageBoxButtons.OK);
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi khách hàng. \n" + ex.Message, "", MessageBoxButtons.OK);
                     return;
                 }
-                Program.myReader.Close();
             }
-            String dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-            //Program.ExecSqlNonQuery("EXEC sp_ThemKH '" + txtCMND.Text + "','" + txtHO.Text + "','" + txtTEN.Text + "','" + txtDIACHI.Text + "','" + cmbPhai.SelectedItem.ToString() + "','" + dt + "','" + txtSODT.Text + "','" + macn + "'");
-            //this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-            //this.KHACHHANGTableAdapter.Update(this.DS.KHACHHANG); 
-            try
+            else
             {
-                bdsKH.EndEdit(); //kết thúc quá trình hiệu chỉnh (ghi vào datasource)
-                bdsKH.ResetCurrentItem();//đưa thông tin lên lưới
-                this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.KHACHHANGTableAdapter.Update(this.DS.KHACHHANG);
-                MessageBox.Show("Lưu thành công!!", "", MessageBoxButtons.OK);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi ghi khách hàng. \n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
+                try
+                {
+                    int result = Program.ExecSqlAndGetReturnedValue2("sp_SuaThongTinKH",
+                                                                    new SqlParameter("@HO", txtHO.Text),
+                                                                    new SqlParameter("@TEN", txtTEN.Text),
+                                                                    new SqlParameter("@DIACHI", txtDIACHI.Text),
+                                                                    new SqlParameter("@newCMND", txtCMND.Text),
+                                                                    new SqlParameter("@oldCMND", oldCMND),
+                                                                    new SqlParameter("@NGAYCAP", dateNgayCap.Text),
+                                                                    new SqlParameter("@SODT", txtSODT.Text),
+                                                                    new SqlParameter("@PHAI", cmbPHAI.Text),
+                                                                    new SqlParameter("@MACN", cmbChiNhanh.Text));
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Trùng CMND!!", "", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else if(result != 1 && result != 0)
+                    {
+                        MessageBox.Show("Lưu thành công!!", "", MessageBoxButtons.OK); 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi khách hàng. \n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
             }
             gcKH.Enabled = true;
             btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = true;
@@ -214,16 +243,6 @@ namespace NganHang
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Double cmnd = Double.Parse(((DataRowView)bdsKH[bdsKH.Position])["CMND"].ToString().TrimEnd());
-            //Program.myReader.Close();
-            //string strlenh1 = "EXEC frmKhachHang_ExistsGD '" + txtCMND.Text + "'";
-            //Program.myReader = Program.ExecSqlDataReader(strlenh1);
-            //Program.myReader.Read();
-            //if (Program.myReader.HasRows)
-            //{
-            //    MessageBox.Show("Khách hàng đã thực hiện giao dịch \nKhông thể xoá", "", MessageBoxButtons.OK);
-            //    return;
-            //}
-            //Program.myReader.Close();
             if (bdsTK.Count > 0)
             {
                 MessageBox.Show("Không thể xoá khách hàng, vì đã tài khoản liên kết với khách hàng", "", MessageBoxButtons.OK);
@@ -237,7 +256,6 @@ namespace NganHang
                     bdsKH.RemoveCurrent();
                     this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.KHACHHANGTableAdapter.Update(this.DS.KHACHHANG);
-                    //Program.ExecSqlNonQuery("EXEC frmKhachHang_DeleteAccountNonGD '" + cmnd + "'");
                     MessageBox.Show("Xoá thành công khánh hàng có CMND " + cmnd, "", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
@@ -281,20 +299,8 @@ namespace NganHang
             Close();
         }
 
-        private void thêmTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //bdsTK.AddNew();
-            //((DataRowView)bdsTK[bdsTK.Position])["CMND"] = teCMND.Text;
-        }
-
         private void btnMOTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //vitri = bdsKH.Position;
-            //panelControl2.Enabled = true;
-            //btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
-            //btnSave.Enabled = btnUndo.Enabled = true;
-            //gcKH.Enabled = false; txtMACN.Enabled = false;
-            //dgvMOTK.Enabled = true ;
             Form frm = this.CheckExists(typeof(frmTaoLoginKH));
             if (frm != null) frm.Activate();
             else

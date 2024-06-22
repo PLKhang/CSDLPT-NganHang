@@ -200,7 +200,6 @@
             // 
             // cMNDComboBox
             // 
-            this.cMNDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameKHBindingSource, "CMND", true));
             this.cMNDComboBox.DataSource = this.v_EX_LoginNameKHBindingSource;
             this.cMNDComboBox.DisplayMember = "CMND";
             this.cMNDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

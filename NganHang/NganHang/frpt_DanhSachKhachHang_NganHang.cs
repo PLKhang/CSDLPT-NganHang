@@ -30,11 +30,13 @@ namespace NganHang
             string dt = string.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
             try
             {
-                /*Xrpt_DanhSachKhachHang_NganHang rpt = new Xrpt_DanhSachKhachHang_NganHang();
-                rpt.lblTenNV.Text = Program.mHoten;
+                Xrpt_DanhSachKhachHang rpt = new Xrpt_DanhSachKhachHang();
+                rpt.lblName.Text = Program.mHoten;
+                rpt.lblExportDate.Text = dt;
+                rpt.lblMaNV.Text = Program.username;
 
                 ReportPrintTool printTool = new ReportPrintTool(rpt);
-                printTool.ShowPreviewDialog();*/
+                printTool.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

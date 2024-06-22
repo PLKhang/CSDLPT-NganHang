@@ -38,7 +38,6 @@
             this.btn_ChuyenTien = new DevExpress.XtraBars.BarButtonItem();
             this.btn_GuiRut = new DevExpress.XtraBars.BarButtonItem();
             this.btnOpenCustomerAccount = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_SaoKe = new DevExpress.XtraBars.BarButtonItem();
             this.btn_LietKeTK = new DevExpress.XtraBars.BarButtonItem();
             this.btn_LietKeKH = new DevExpress.XtraBars.BarButtonItem();
@@ -47,7 +46,6 @@
             this.rib_NghiepVu = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rb_ChuyenVien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rb_NgiepVuTien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rb_SaoKeKH = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rib_BaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -82,7 +80,6 @@
             this.btn_ChuyenTien,
             this.btn_GuiRut,
             this.btnOpenCustomerAccount,
-            this.barButtonItem9,
             this.btn_SaoKe,
             this.btn_LietKeTK,
             this.btn_LietKeKH});
@@ -164,19 +161,13 @@
             this.btnOpenCustomerAccount.Name = "btnOpenCustomerAccount";
             this.btnOpenCustomerAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOpenCustomerAccount_ItemClick);
             // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "Sao Kê Giao Dịch Khách Hàng";
-            this.barButtonItem9.Id = 9;
-            this.barButtonItem9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
             // btn_SaoKe
             // 
             this.btn_SaoKe.Caption = "Sao Kê Tài Khoản";
             this.btn_SaoKe.Id = 10;
             this.btn_SaoKe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_SaoKe.ImageOptions.SvgImage")));
             this.btn_SaoKe.Name = "btn_SaoKe";
+            this.btn_SaoKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_SaoKe_ItemClick);
             // 
             // btn_LietKeTK
             // 
@@ -184,6 +175,7 @@
             this.btn_LietKeTK.Id = 11;
             this.btn_LietKeTK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_LietKeTK.ImageOptions.SvgImage")));
             this.btn_LietKeTK.Name = "btn_LietKeTK";
+            this.btn_LietKeTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_LietKeTK_ItemClick);
             // 
             // btn_LietKeKH
             // 
@@ -191,6 +183,7 @@
             this.btn_LietKeKH.Id = 12;
             this.btn_LietKeKH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_LietKeKH.ImageOptions.SvgImage")));
             this.btn_LietKeKH.Name = "btn_LietKeKH";
+            this.btn_LietKeKH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_LietKeKH_ItemClick);
             // 
             // rib_HeThong
             // 
@@ -210,8 +203,7 @@
             // 
             this.rib_NghiepVu.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rb_ChuyenVien,
-            this.rb_NgiepVuTien,
-            this.rb_SaoKeKH});
+            this.rb_NgiepVuTien});
             this.rib_NghiepVu.Name = "rib_NghiepVu";
             this.rib_NghiepVu.Text = "Nghiệp Vụ";
             // 
@@ -227,11 +219,6 @@
             this.rb_NgiepVuTien.ItemLinks.Add(this.btn_ChuyenTien);
             this.rb_NgiepVuTien.ItemLinks.Add(this.btn_GuiRut);
             this.rb_NgiepVuTien.Name = "rb_NgiepVuTien";
-            // 
-            // rb_SaoKeKH
-            // 
-            this.rb_SaoKeKH.ItemLinks.Add(this.barButtonItem9);
-            this.rb_SaoKeKH.Name = "rb_SaoKeKH";
             // 
             // rib_BaoCao
             // 
@@ -369,8 +356,6 @@
         private DevExpress.XtraBars.BarButtonItem btn_ChuyenTien;
         private DevExpress.XtraBars.BarButtonItem btn_GuiRut;
         private DevExpress.XtraBars.BarButtonItem btnOpenCustomerAccount;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rb_SaoKeKH;
         private DevExpress.XtraBars.Ribbon.RibbonPage rib_BaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
         private DevExpress.XtraBars.BarButtonItem btn_SaoKe;

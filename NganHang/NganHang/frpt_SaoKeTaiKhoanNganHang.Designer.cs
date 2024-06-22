@@ -41,25 +41,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bdsKH = new System.Windows.Forms.BindingSource(this.components);
             this.kHACHHANGTableAdapter = new NganHang.DSTableAdapters.KHACHHANGTableAdapter();
+            this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
+            this.tAIKHOANTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
+            this.cmbCMND = new System.Windows.Forms.ComboBox();
             this.txtHO = new System.Windows.Forms.TextBox();
             this.txtTEN = new System.Windows.Forms.TextBox();
-            this.txtCMND = new System.Windows.Forms.TextBox();
             this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
-            this.tAIKHOANTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
-            this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
             this.cmbSOTK = new System.Windows.Forms.ComboBox();
+            this.fKTaiKhoanKhachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             lblHoTen = new System.Windows.Forms.Label();
             cMNDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKTaiKhoanKhachHangBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHoTen
             // 
             lblHoTen.AutoSize = true;
             lblHoTen.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblHoTen.Location = new System.Drawing.Point(46, 134);
+            lblHoTen.Location = new System.Drawing.Point(44, 176);
             lblHoTen.Name = "lblHoTen";
             lblHoTen.Size = new System.Drawing.Size(53, 17);
             lblHoTen.TabIndex = 21;
@@ -68,7 +70,7 @@
             // cMNDLabel
             // 
             cMNDLabel.AutoSize = true;
-            cMNDLabel.Location = new System.Drawing.Point(46, 183);
+            cMNDLabel.Location = new System.Drawing.Point(47, 70);
             cMNDLabel.Name = "cMNDLabel";
             cMNDLabel.Size = new System.Drawing.Size(50, 16);
             cMNDLabel.TabIndex = 23;
@@ -140,7 +142,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 76);
+            this.label1.Location = new System.Drawing.Point(44, 122);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 16);
@@ -156,45 +158,6 @@
             // 
             this.kHACHHANGTableAdapter.ClearBeforeFill = true;
             // 
-            // txtHO
-            // 
-            this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "HO", true));
-            this.txtHO.Enabled = false;
-            this.txtHO.Location = new System.Drawing.Point(144, 130);
-            this.txtHO.Name = "txtHO";
-            this.txtHO.ReadOnly = true;
-            this.txtHO.Size = new System.Drawing.Size(168, 22);
-            this.txtHO.TabIndex = 22;
-            // 
-            // txtTEN
-            // 
-            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "TEN", true));
-            this.txtTEN.Enabled = false;
-            this.txtTEN.Location = new System.Drawing.Point(330, 131);
-            this.txtTEN.Name = "txtTEN";
-            this.txtTEN.ReadOnly = true;
-            this.txtTEN.Size = new System.Drawing.Size(100, 22);
-            this.txtTEN.TabIndex = 23;
-            // 
-            // txtCMND
-            // 
-            this.txtCMND.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "CMND", true));
-            this.txtCMND.Enabled = false;
-            this.txtCMND.Location = new System.Drawing.Point(144, 177);
-            this.txtCMND.Name = "txtCMND";
-            this.txtCMND.ReadOnly = true;
-            this.txtCMND.Size = new System.Drawing.Size(168, 22);
-            this.txtCMND.TabIndex = 24;
-            // 
-            // bdsTK
-            // 
-            this.bdsTK.DataMember = "FK_TaiKhoan_KhachHang";
-            this.bdsTK.DataSource = this.bdsKH;
-            // 
-            // tAIKHOANTableAdapter
-            // 
-            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
@@ -206,15 +169,59 @@
             this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
             this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // tAIKHOANTableAdapter
+            // 
+            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
+            // 
+            // cmbCMND
+            // 
+            this.cmbCMND.DataSource = this.bdsKH;
+            this.cmbCMND.DisplayMember = "CMND";
+            this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCMND.FormattingEnabled = true;
+            this.cmbCMND.Location = new System.Drawing.Point(194, 67);
+            this.cmbCMND.Name = "cmbCMND";
+            this.cmbCMND.Size = new System.Drawing.Size(192, 24);
+            this.cmbCMND.TabIndex = 25;
+            this.cmbCMND.ValueMember = "CMND";
+            // 
+            // txtHO
+            // 
+            this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "HO", true));
+            this.txtHO.Location = new System.Drawing.Point(194, 171);
+            this.txtHO.Name = "txtHO";
+            this.txtHO.Size = new System.Drawing.Size(149, 22);
+            this.txtHO.TabIndex = 26;
+            // 
+            // txtTEN
+            // 
+            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "TEN", true));
+            this.txtTEN.Location = new System.Drawing.Point(354, 171);
+            this.txtTEN.Name = "txtTEN";
+            this.txtTEN.Size = new System.Drawing.Size(100, 22);
+            this.txtTEN.TabIndex = 27;
+            // 
+            // bdsTK
+            // 
+            this.bdsTK.DataMember = "FK_TaiKhoan_KhachHang";
+            this.bdsTK.DataSource = this.bdsKH;
+            // 
             // cmbSOTK
             // 
-            this.cmbSOTK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTK, "SOTK", true));
+            this.cmbSOTK.DataSource = this.fKTaiKhoanKhachHangBindingSource;
+            this.cmbSOTK.DisplayMember = "SOTK";
             this.cmbSOTK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSOTK.FormattingEnabled = true;
-            this.cmbSOTK.Location = new System.Drawing.Point(144, 72);
+            this.cmbSOTK.Location = new System.Drawing.Point(194, 122);
             this.cmbSOTK.Name = "cmbSOTK";
-            this.cmbSOTK.Size = new System.Drawing.Size(241, 24);
-            this.cmbSOTK.TabIndex = 25;
+            this.cmbSOTK.Size = new System.Drawing.Size(198, 24);
+            this.cmbSOTK.TabIndex = 28;
+            this.cmbSOTK.ValueMember = "SOTK";
+            // 
+            // fKTaiKhoanKhachHangBindingSource
+            // 
+            this.fKTaiKhoanKhachHangBindingSource.DataMember = "FK_TaiKhoan_KhachHang";
+            this.fKTaiKhoanKhachHangBindingSource.DataSource = this.bdsKH;
             // 
             // frpt_SaoKeTaiKhoanNganHang
             // 
@@ -222,11 +229,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 332);
             this.Controls.Add(this.cmbSOTK);
-            this.Controls.Add(cMNDLabel);
-            this.Controls.Add(this.txtCMND);
             this.Controls.Add(this.txtTEN);
-            this.Controls.Add(lblHoTen);
             this.Controls.Add(this.txtHO);
+            this.Controls.Add(this.cmbCMND);
+            this.Controls.Add(cMNDLabel);
+            this.Controls.Add(lblHoTen);
             this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.btn_SaoKe);
             this.Controls.Add(this.endDateTimePicker);
@@ -241,6 +248,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKTaiKhoanKhachHangBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,12 +265,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bdsKH;
         private DSTableAdapters.KHACHHANGTableAdapter kHACHHANGTableAdapter;
+        private DSTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ComboBox cmbCMND;
         private System.Windows.Forms.TextBox txtHO;
         private System.Windows.Forms.TextBox txtTEN;
-        private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.BindingSource bdsTK;
         private DSTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;
-        private DSTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource bdsTK;
         private System.Windows.Forms.ComboBox cmbSOTK;
+        private System.Windows.Forms.BindingSource fKTaiKhoanKhachHangBindingSource;
     }
 }

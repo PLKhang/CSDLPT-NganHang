@@ -69,7 +69,8 @@ namespace NganHang
         {
             string dayBD = DateTime.Parse(startdateTimePicker.Value.ToString()).ToString("yyyy-MM-dd 00:00:00");
             string dayKT = DateTime.Parse(enddateTimePicker.Value.ToString()).ToString("yyyy-MM-dd 23:59:59");
-            string macn = ((DataRowView)bdsHoTenNV[0])["MACN"].ToString();
+            string macn = (cmbChiNhanh.SelectedIndex == 0 ? "BENTHANH" : "TANDINH");
+            char type = (cbTatCaChiNhanh.Checked ? 'T' : 'C');
             int compare = dayBD.CompareTo(dayKT);
             if (compare >= 0)
             {
@@ -78,22 +79,27 @@ namespace NganHang
             }
             try
             {
-               /* Xrpt_DanhSachTaiKhoan_ChiNhanh rptAll = new Xrpt_DanhSachTaiKhoan_ChiNhanh(macn, dayBD, dayKT);
-                Xrpt_DanhSachTaiKhoan_TatCaChiNhanh rptSingle = new Xrpt_DanhSachTaiKhoan_TatCaChiNhanh(macn, dayBD, dayKT);
+
+                Xrpt_TaiKhoan rpt = new Xrpt_TaiKhoan(macn, type, startdateTimePicker.Value, enddateTimePicker.Value);
 
                 //rpt.lblTieuDe.Text = “DANH SÁCH PHIẾU “ +cmbLoai.Text.ToUpper() + “ NHÂN VIÊN LẬP TRONG NĂM “ +cmbNam.Text;
-                //rpt.lblHoTen.Text = Program.mHoten;
-
-                ReportPrintTool print;
-                if (cbTatCaChiNhanh.Checked == true)
+                //rpt.lblSoTK.Text = cmbSOTK.Text;
+                rpt.lblMaNV.Text = Program.username;
+                rpt.lblName.Text = Program.mHoten;
+                rpt.lblExportDate.Text = DateTime.Now.ToString();
+                rpt.lblStartdate.Text = startdateTimePicker.Value.ToShortDateString();
+                rpt.lblEnddate.Text = enddateTimePicker.Value.ToShortDateString();
+                if (cbTatCaChiNhanh.Checked)
                 {
-                    print = new ReportPrintTool(rptAll);
+                    rpt.lblLoai.Text = "Tất cả chi nhánh";
                 }
                 else
                 {
-                    print = new ReportPrintTool(rptSingle);
+                    rpt.lblLoai.Text = cmbChiNhanh.Text;
                 }
-                print.ShowPreviewDialog();*/
+
+                ReportPrintTool print = new ReportPrintTool(rpt);
+                print.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

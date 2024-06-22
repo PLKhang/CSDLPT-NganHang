@@ -58,35 +58,26 @@
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DS = new NganHang.DS();
-            this.bdsKH = new System.Windows.Forms.BindingSource(this.components);
-            this.kHACHHANGTableAdapter = new NganHang.DSTableAdapters.KHACHHANGTableAdapter();
-            this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
-            this.tAIKHOANTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
-            this.gcKH = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCMND = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSoDT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bdsTK_FK = new System.Windows.Forms.BindingSource(this.components);
-            this.gcTK = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colCMND1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSODU = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYMOTK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bdsCT = new System.Windows.Forms.BindingSource(this.components);
-            this.gD_CHUYENTIENTableAdapter = new NganHang.DSTableAdapters.GD_CHUYENTIENTableAdapter();
-            this.bdsGR = new System.Windows.Forms.BindingSource(this.components);
-            this.gD_GOIRUTTableAdapter = new NganHang.DSTableAdapters.GD_GOIRUTTableAdapter();
-            this.cMNDTextBox = new System.Windows.Forms.TextBox();
             this.txtMACN = new System.Windows.Forms.TextBox();
             this.nuSODU = new System.Windows.Forms.NumericUpDown();
             this.txtSOTK = new System.Windows.Forms.TextBox();
             this.dateEditNgayMoTK = new DevExpress.XtraEditors.DateEdit();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbCMND = new System.Windows.Forms.TextBox();
+            this.KHACHHANG = new NganHang.KHACHHANG();
+            this.bdsKH = new System.Windows.Forms.BindingSource(this.components);
+            this.kHACHHANGTableAdapter = new NganHang.KHACHHANGTableAdapters.KHACHHANGTableAdapter();
+            this.tableAdapterManager = new NganHang.KHACHHANGTableAdapters.TableAdapterManager();
+            this.gcKH = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
+            this.tAIKHOANTableAdapter = new NganHang.KHACHHANGTableAdapters.TAIKHOANTableAdapter();
+            this.gcTK = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colSOTK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCMND = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSODU = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             cMNDLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
@@ -95,18 +86,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcKH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTK_FK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcTK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuSODU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMoTK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMoTK.Properties.CalendarTimeProperties)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KHACHHANG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcTK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // cMNDLabel
@@ -220,9 +210,7 @@
             this.bar4.FloatSize = new System.Drawing.Size(1, 300);
             this.bar4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUndo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
@@ -240,12 +228,6 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Caption = "Hiệu chỉnh";
-            this.btnUpdate.Id = 6;
-            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.Image")));
-            this.btnUpdate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.LargeImage")));
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpdate_ItemClick);
             // 
             // btnSave
             // 
@@ -259,11 +241,6 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Caption = "Xoá";
-            this.btnDelete.Id = 2;
-            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // btnReload
             // 
@@ -311,15 +288,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1265, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1534, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 659);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 730);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1265, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1534, 20);
             // 
             // barDockControlLeft
             // 
@@ -327,15 +304,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 629);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 700);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1265, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1534, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 629);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 700);
             // 
             // btnChuyenNV
             // 
@@ -379,7 +356,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1265, 35);
+            this.panel1.Size = new System.Drawing.Size(1534, 35);
             this.panel1.TabIndex = 6;
             // 
             // DS
@@ -387,223 +364,8 @@
             this.DS.DataSetName = "DS";
             this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bdsKH
-            // 
-            this.bdsKH.DataMember = "KHACHHANG";
-            this.bdsKH.DataSource = this.DS;
-            // 
-            // kHACHHANGTableAdapter
-            // 
-            this.kHACHHANGTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CHINHANHTableAdapter = null;
-            this.tableAdapterManager.GD_CHUYENTIENTableAdapter = null;
-            this.tableAdapterManager.GD_GOIRUTTableAdapter = null;
-            this.tableAdapterManager.KHACHHANGTableAdapter = this.kHACHHANGTableAdapter;
-            this.tableAdapterManager.NHANVIENTableAdapter = null;
-            this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
-            this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // tAIKHOANTableAdapter
-            // 
-            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
-            // 
-            // gcKH
-            // 
-            this.gcKH.DataSource = this.bdsKH;
-            this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcKH.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gcKH.Location = new System.Drawing.Point(0, 65);
-            this.gcKH.MainView = this.gridView1;
-            this.gcKH.Margin = new System.Windows.Forms.Padding(4);
-            this.gcKH.MenuManager = this.barManager1;
-            this.gcKH.Name = "gcKH";
-            this.gcKH.Size = new System.Drawing.Size(1265, 275);
-            this.gcKH.TabIndex = 7;
-            this.gcKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colHO,
-            this.colTEN,
-            this.colPHAI,
-            this.colDIACHI,
-            this.colCMND,
-            this.colSoDT});
-            this.gridView1.DetailHeight = 437;
-            this.gridView1.GridControl = this.gcKH;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
-            this.gridView1.OptionsFind.AlwaysVisible = true;
-            this.gridView1.OptionsFind.ClearFindOnClose = false;
-            this.gridView1.OptionsFind.FindFilterColumns = "CMND";
-            this.gridView1.OptionsFind.FindNullPrompt = "Nhập CMND để tìm kiếm";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // colHO
-            // 
-            this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 31;
-            this.colHO.Name = "colHO";
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 0;
-            this.colHO.Width = 117;
-            // 
-            // colTEN
-            // 
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 31;
-            this.colTEN.Name = "colTEN";
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 1;
-            this.colTEN.Width = 117;
-            // 
-            // colPHAI
-            // 
-            this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 31;
-            this.colPHAI.Name = "colPHAI";
-            this.colPHAI.Visible = true;
-            this.colPHAI.VisibleIndex = 5;
-            this.colPHAI.Width = 117;
-            // 
-            // colDIACHI
-            // 
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 31;
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 2;
-            this.colDIACHI.Width = 117;
-            // 
-            // colCMND
-            // 
-            this.colCMND.FieldName = "CMND";
-            this.colCMND.MinWidth = 31;
-            this.colCMND.Name = "colCMND";
-            this.colCMND.Visible = true;
-            this.colCMND.VisibleIndex = 3;
-            this.colCMND.Width = 117;
-            // 
-            // colSoDT
-            // 
-            this.colSoDT.FieldName = "SoDT";
-            this.colSoDT.MinWidth = 31;
-            this.colSoDT.Name = "colSoDT";
-            this.colSoDT.Visible = true;
-            this.colSoDT.VisibleIndex = 4;
-            this.colSoDT.Width = 117;
-            // 
-            // bdsTK_FK
-            // 
-            this.bdsTK_FK.DataMember = "FK_TaiKhoan_KhachHang";
-            this.bdsTK_FK.DataSource = this.bdsKH;
-            // 
-            // gcTK
-            // 
-            this.gcTK.DataSource = this.bdsTK_FK;
-            this.gcTK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcTK.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gcTK.Location = new System.Drawing.Point(627, 340);
-            this.gcTK.MainView = this.gridView2;
-            this.gcTK.Margin = new System.Windows.Forms.Padding(4);
-            this.gcTK.MenuManager = this.barManager1;
-            this.gcTK.Name = "gcTK";
-            this.gcTK.Size = new System.Drawing.Size(638, 319);
-            this.gcTK.TabIndex = 8;
-            this.gcTK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCMND1,
-            this.colSOTK,
-            this.colSODU,
-            this.colNGAYMOTK});
-            this.gridView2.DetailHeight = 437;
-            this.gridView2.GridControl = this.gcTK;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
-            this.gridView2.OptionsFind.AlwaysVisible = true;
-            this.gridView2.OptionsFind.ClearFindOnClose = false;
-            this.gridView2.OptionsFind.FindFilterColumns = "CMND";
-            this.gridView2.OptionsFind.FindNullPrompt = "Nhập CMND để tìm kiếm";
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // colCMND1
-            // 
-            this.colCMND1.FieldName = "CMND";
-            this.colCMND1.MinWidth = 31;
-            this.colCMND1.Name = "colCMND1";
-            this.colCMND1.Visible = true;
-            this.colCMND1.VisibleIndex = 1;
-            this.colCMND1.Width = 117;
-            // 
-            // colSOTK
-            // 
-            this.colSOTK.FieldName = "SOTK";
-            this.colSOTK.MinWidth = 31;
-            this.colSOTK.Name = "colSOTK";
-            this.colSOTK.Visible = true;
-            this.colSOTK.VisibleIndex = 0;
-            this.colSOTK.Width = 117;
-            // 
-            // colSODU
-            // 
-            this.colSODU.FieldName = "SODU";
-            this.colSODU.MinWidth = 31;
-            this.colSODU.Name = "colSODU";
-            this.colSODU.Visible = true;
-            this.colSODU.VisibleIndex = 2;
-            this.colSODU.Width = 117;
-            // 
-            // colNGAYMOTK
-            // 
-            this.colNGAYMOTK.FieldName = "NGAYMOTK";
-            this.colNGAYMOTK.MinWidth = 31;
-            this.colNGAYMOTK.Name = "colNGAYMOTK";
-            this.colNGAYMOTK.Visible = true;
-            this.colNGAYMOTK.VisibleIndex = 3;
-            this.colNGAYMOTK.Width = 117;
-            // 
-            // bdsCT
-            // 
-            this.bdsCT.DataMember = "FK_GD_ChuyenTien_TaiKhoan1";
-            this.bdsCT.DataSource = this.bdsTK_FK;
-            // 
-            // gD_CHUYENTIENTableAdapter
-            // 
-            this.gD_CHUYENTIENTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsGR
-            // 
-            this.bdsGR.DataMember = "FK_GD_GoiRut_TaiKhoan";
-            this.bdsGR.DataSource = this.bdsTK_FK;
-            // 
-            // gD_GOIRUTTableAdapter
-            // 
-            this.gD_GOIRUTTableAdapter.ClearBeforeFill = true;
-            // 
-            // cMNDTextBox
-            // 
-            this.cMNDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "CMND", true));
-            this.cMNDTextBox.Enabled = false;
-            this.cMNDTextBox.Location = new System.Drawing.Point(180, 52);
-            this.cMNDTextBox.Name = "cMNDTextBox";
-            this.cMNDTextBox.Size = new System.Drawing.Size(285, 22);
-            this.cMNDTextBox.TabIndex = 10;
-            // 
             // txtMACN
             // 
-            this.txtMACN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "MACN", true));
             this.txtMACN.Enabled = false;
             this.txtMACN.Location = new System.Drawing.Point(180, 237);
             this.txtMACN.Name = "txtMACN";
@@ -655,30 +417,146 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cmbCMND);
             this.panel2.Controls.Add(this.dateEditNgayMoTK);
             this.panel2.Controls.Add(this.txtSOTK);
             this.panel2.Controls.Add(this.nuSODU);
             this.panel2.Controls.Add(this.txtMACN);
-            this.panel2.Controls.Add(this.cMNDTextBox);
             this.panel2.Controls.Add(sOTKLabel);
             this.panel2.Controls.Add(nGAYMOTKLabel);
             this.panel2.Controls.Add(mACNLabel);
             this.panel2.Controls.Add(sODULabel);
             this.panel2.Controls.Add(cMNDLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 340);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(627, 319);
+            this.panel2.Size = new System.Drawing.Size(717, 388);
             this.panel2.TabIndex = 8;
+            // 
+            // cmbCMND
+            // 
+            this.cmbCMND.Location = new System.Drawing.Point(180, 52);
+            this.cmbCMND.Name = "cmbCMND";
+            this.cmbCMND.Size = new System.Drawing.Size(285, 22);
+            this.cmbCMND.TabIndex = 15;
+            // 
+            // KHACHHANG
+            // 
+            this.KHACHHANG.DataSetName = "KHACHHANG";
+            this.KHACHHANG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bdsKH
+            // 
+            this.bdsKH.DataMember = "KHACHHANG";
+            this.bdsKH.DataSource = this.KHACHHANG;
+            // 
+            // kHACHHANGTableAdapter
+            // 
+            this.kHACHHANGTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.KHACHHANGTableAdapter = this.kHACHHANGTableAdapter;
+            this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
+            this.tableAdapterManager.UpdateOrder = NganHang.KHACHHANGTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // gcKH
+            // 
+            this.gcKH.DataSource = this.bdsKH;
+            this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcKH.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcKH.Location = new System.Drawing.Point(0, 65);
+            this.gcKH.MainView = this.gridView1;
+            this.gcKH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcKH.MenuManager = this.barManager1;
+            this.gcKH.Name = "gcKH";
+            this.gcKH.Size = new System.Drawing.Size(1534, 275);
+            this.gcKH.TabIndex = 17;
+            this.gcKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gcKH;
+            this.gridView1.Name = "gridView1";
+            // 
+            // bdsTK
+            // 
+            this.bdsTK.DataMember = "FK_TaiKhoan_KhachHang";
+            this.bdsTK.DataSource = this.bdsKH;
+            // 
+            // tAIKHOANTableAdapter
+            // 
+            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
+            // 
+            // gcTK
+            // 
+            this.gcTK.DataSource = this.bdsTK;
+            this.gcTK.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcTK.Location = new System.Drawing.Point(717, 340);
+            this.gcTK.MainView = this.gridView2;
+            this.gcTK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcTK.MenuManager = this.barManager1;
+            this.gcTK.Name = "gcTK";
+            this.gcTK.Size = new System.Drawing.Size(817, 388);
+            this.gcTK.TabIndex = 17;
+            this.gcTK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colSOTK,
+            this.colCMND,
+            this.colSODU,
+            this.colMACN});
+            this.gridView2.GridControl = this.gcTK;
+            this.gridView2.Name = "gridView2";
+            // 
+            // colSOTK
+            // 
+            this.colSOTK.FieldName = "SOTK";
+            this.colSOTK.MinWidth = 25;
+            this.colSOTK.Name = "colSOTK";
+            this.colSOTK.Visible = true;
+            this.colSOTK.VisibleIndex = 0;
+            this.colSOTK.Width = 94;
+            // 
+            // colCMND
+            // 
+            this.colCMND.FieldName = "CMND";
+            this.colCMND.MinWidth = 25;
+            this.colCMND.Name = "colCMND";
+            this.colCMND.Visible = true;
+            this.colCMND.VisibleIndex = 1;
+            this.colCMND.Width = 94;
+            // 
+            // colSODU
+            // 
+            this.colSODU.FieldName = "SODU";
+            this.colSODU.MinWidth = 25;
+            this.colSODU.Name = "colSODU";
+            this.colSODU.Visible = true;
+            this.colSODU.VisibleIndex = 2;
+            this.colSODU.Width = 94;
+            // 
+            // colMACN
+            // 
+            this.colMACN.FieldName = "MACN";
+            this.colMACN.MinWidth = 25;
+            this.colMACN.Name = "colMACN";
+            this.colMACN.Visible = true;
+            this.colMACN.VisibleIndex = 3;
+            this.colMACN.Width = 94;
             // 
             // frmTaiKhoanNganHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 679);
+            this.ClientSize = new System.Drawing.Size(1534, 750);
             this.Controls.Add(this.gcTK);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.gcKH);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -692,19 +570,18 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcKH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTK_FK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcTK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuSODU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMoTK.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayMoTK.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KHACHHANG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcTK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -731,38 +608,29 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnChuyenNV;
-        private System.Windows.Forms.BindingSource bdsKH;
         private DS DS;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Label label1;
-        private DSTableAdapters.KHACHHANGTableAdapter kHACHHANGTableAdapter;
-        private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl gcKH;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colCMND;
-        private DevExpress.XtraGrid.Columns.GridColumn colSoDT;
-        private DSTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;
-        private System.Windows.Forms.BindingSource bdsTK_FK;
-        private DevExpress.XtraGrid.GridControl gcTK;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colCMND1;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOTK;
-        private DevExpress.XtraGrid.Columns.GridColumn colSODU;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYMOTK;
-        private System.Windows.Forms.BindingSource bdsCT;
-        private DSTableAdapters.GD_CHUYENTIENTableAdapter gD_CHUYENTIENTableAdapter;
-        private System.Windows.Forms.BindingSource bdsGR;
-        private DSTableAdapters.GD_GOIRUTTableAdapter gD_GOIRUTTableAdapter;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.DateEdit dateEditNgayMoTK;
         private System.Windows.Forms.TextBox txtSOTK;
         private System.Windows.Forms.NumericUpDown nuSODU;
         private System.Windows.Forms.TextBox txtMACN;
-        private System.Windows.Forms.TextBox cMNDTextBox;
+        private System.Windows.Forms.TextBox cmbCMND;
+        private System.Windows.Forms.BindingSource bdsKH;
+        private KHACHHANG KHACHHANG;
+        private KHACHHANGTableAdapters.KHACHHANGTableAdapter kHACHHANGTableAdapter;
+        private KHACHHANGTableAdapters.TableAdapterManager tableAdapterManager;
+        private DevExpress.XtraGrid.GridControl gcKH;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private KHACHHANGTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;
+        private System.Windows.Forms.BindingSource bdsTK;
+        private DevExpress.XtraGrid.GridControl gcTK;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOTK;
+        private DevExpress.XtraGrid.Columns.GridColumn colCMND;
+        private DevExpress.XtraGrid.Columns.GridColumn colSODU;
+        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
     }
 }

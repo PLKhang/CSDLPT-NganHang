@@ -159,7 +159,6 @@
             // 
             // cmbMANV
             // 
-            this.cmbMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameBindingSource, "MANV", true));
             this.cmbMANV.DataSource = this.v_EX_LoginNameBindingSource;
             this.cmbMANV.DisplayMember = "MANV";
             this.cmbMANV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

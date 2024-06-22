@@ -26,20 +26,22 @@ namespace NganHang
         {
             this.Validate();
             this.bdsKH.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DS);
+            this.tableAdapterManager.UpdateAll(this.KHACHHANG);
 
         }
 
         private void frmTaiKhoanNganHang_Load(object sender, EventArgs e)
         {
-            
-            DS.EnforceConstraints = false;
+            // TODO: This line of code loads data into the 'kHACHHANG.TAIKHOAN' table. You can move, or remove it, as needed.
+            this.tAIKHOANTableAdapter.Fill(this.KHACHHANG.TAIKHOAN);
+            // TODO: This line of code loads data into the 'kHACHHANG._KHACHHANG' table. You can move, or remove it, as needed.
+            this.kHACHHANGTableAdapter.Fill(this.KHACHHANG._KHACHHANG);
+            KHACHHANG.EnforceConstraints = false;
             this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
-            this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-            this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
-            this.gD_CHUYENTIENTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
+            this.kHACHHANGTableAdapter.Fill(this.KHACHHANG._KHACHHANG);
+
+            DS.EnforceConstraints = false;
+       
 
             macn = ((DataRowView)bdsKH[0])["MACN"].ToString();
             cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
@@ -79,14 +81,14 @@ namespace NganHang
             else
             {
                 this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
+                this.kHACHHANGTableAdapter.Fill(this.KHACHHANG._KHACHHANG);
             }
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsKH.Position;
-            panel2.Enabled = true;          
+            panel2.Enabled = true;
             txtMACN.Text = macn;//tự gán mã chi nhánh = chi nhánh đang đăng nhập của tài khoản thuộc chi nhánh
             btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
             btnSave.Enabled = btnUndo.Enabled = true;
@@ -94,41 +96,9 @@ namespace NganHang
             String dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
             dateEditNgayMoTK.Text = dt;
         }
-
-        private void btnUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string cmnd = (((DataRowView)bdsTK_FK[bdsTK_FK.Position])["CMND"].ToString()); //giữ lại vị trí nv hiện tại
-            if (bdsCT.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch chuyển tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-            if(bdsGR.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch gửi rút tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-            try
-            {
-                vitri = bdsKH.Position;
-                panel2.Enabled = true;
-                btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
-                btnSave.Enabled = btnUndo.Enabled = true;
-                gcKH.Enabled = gcTK.Enabled = false; 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi hiệu chỉnh tài khoản. Bạn hãy hiệu chỉnh lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-                 bdsTK_FK.Position = bdsTK_FK.Find("CMND", cmnd);
-                 return;
-            }
-            if (bdsTK_FK.Count == 0) btnUpdate.Enabled = false;
-        }
-
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String sotk = (((DataRowView)bdsTK_FK[bdsTK_FK.Position])["CMND"].ToString()).TrimEnd();
+            String sotk = (((DataRowView)bdsTK[bdsTK.Position])["CMND"].ToString()).TrimEnd();
 
             if (txtSOTK.Text.Trim() == "")
             {
@@ -171,57 +141,29 @@ namespace NganHang
                 MessageBox.Show("Lỗi ghi nhân viên. \n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
-            gcTK.Enabled = true;
+            gcKH.Enabled = gcTK.Enabled = true;
             btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = true;
             btnSave.Enabled = btnUndo.Enabled = false;
             panel2.Enabled = false;
         }
 
-        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string cmnd = (((DataRowView)bdsTK_FK[bdsTK_FK.Position])["CMND"].ToString()); //giữ lại vị trí nv hiện tại
-            if (bdsGR.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch chuyển tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-            if (bdsCT.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch gửi rút tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-
-           try
-           {                 
-                bdsTK_FK.RemoveCurrent();
-                this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.tAIKHOANTableAdapter.Update(this.DS.TAIKHOAN);
-                MessageBox.Show("Xoá thành công nhân viên " + cmnd, "", MessageBoxButtons.OK);
-           }
-            catch (Exception ex)
-             {
-                MessageBox.Show("Lỗi xoá nhân viên. Bạn hãy xoá lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-                bdsTK_FK.Position = bdsTK_FK.Find("CMND", cmnd);
-                return;
-            }
-            if (bdsTK_FK.Count == 0) btnUpdate.Enabled = false;
-        }
+        
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
+                this.kHACHHANGTableAdapter.Fill(this.KHACHHANG._KHACHHANG);
                 this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.tAIKHOANTableAdapter.Update(this.DS.TAIKHOAN);
+                this.tAIKHOANTableAdapter.Update(this.KHACHHANG.TAIKHOAN);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
+            gcKH.Enabled = gcTK.Enabled = true;
         }
 
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -233,12 +175,21 @@ namespace NganHang
             panel2.Enabled = false;
             btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = true;
             btnSave.Enabled = btnUndo.Enabled = false;
+            
             dateEditNgayMoTK.Text = "";
         }
 
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Close();
+        }
+
+        private void kHACHHANGBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bdsKH.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.KHACHHANG);
+
         }
     }
 }

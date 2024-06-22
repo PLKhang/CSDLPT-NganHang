@@ -133,19 +133,21 @@ namespace NganHang
             if (Program.mGroup == "NganHang")
             {
                 rib_NghiepVu.Visible = rib_BaoCao.Visible = rb_ChuyenVien.Visible = true;
-                rb_NgiepVuTien.Visible = rb_SaoKeKH.Visible =  false;
+                rb_NgiepVuTien.Visible  =  false;
             }
             else if (Program.mGroup == "KhachHang")
             {
                 btn_DK.Visibility = btnOpenCustomerAccount.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                rb_ChuyenVien.Visible = rib_BaoCao.Visible = false;
-                rb_SaoKeKH.Visible = true;
+                rib_NghiepVu.Visible  = false;
+                rib_BaoCao.Visible = true;
+                btn_LietKeTK.Visibility = btn_LietKeKH.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
             else
             {
+                btn_LietKeTK.Visibility = btn_LietKeKH.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
                 rib_NghiepVu.Visible = rib_BaoCao.Visible = true;
                 btn_DK.Visibility = btn_LietKeTK.Visibility = btn_LietKeKH.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                rb_ChuyenVien.Visible = rb_NgiepVuTien.Visible = rb_SaoKeKH.Visible = true;
+                rb_ChuyenVien.Visible = rb_NgiepVuTien.Visible =  true;
             }
             /*           if (Program.mGroup == "NGANHANG")
                        {
@@ -219,6 +221,42 @@ namespace NganHang
             else
             {
                 frmTaiKhoanNganHang f = new frmTaiKhoanNganHang();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btn_SaoKe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frpt_SaoKeTaiKhoanNganHang));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frpt_SaoKeTaiKhoanNganHang f = new frpt_SaoKeTaiKhoanNganHang();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btn_LietKeTK_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frpt_DanhSachTaiKhoan_ChiNhanh));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frpt_DanhSachTaiKhoan_ChiNhanh f = new frpt_DanhSachTaiKhoan_ChiNhanh();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btn_LietKeKH_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frpt_DanhSachKhachHang_NganHang));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frpt_DanhSachKhachHang_NganHang f = new frpt_DanhSachKhachHang_NganHang();
                 f.MdiParent = this;
                 f.Show();
             }
