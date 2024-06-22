@@ -31,7 +31,6 @@ D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.Sparkline.v22.2.Core.xml
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.csproj.Up2Date
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.exe
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.pdb
-D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmMain.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.exe.licenses
 D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.XtraBars.v22.2.dll
 D:\Form_CSDLPT\NganHang\NganHang\bin\Debug\DevExpress.XtraBars.v22.2.xml
@@ -73,4 +72,6 @@ D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Xrpt_DanhSachTaiKhoan_ChiNha
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.FrmTaoLogin.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmTaoLoginKH.resources
 D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmTaiKhoanNganHang.resources
-D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.Main.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frpt_SaoKeTaiKhoanNganHang.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frpt_DanhSachKhachHang_NganHang.resources
+D:\Form_CSDLPT\NganHang\NganHang\obj\Debug\NganHang.frmMain.resources

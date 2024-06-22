@@ -33,6 +33,7 @@
             System.Windows.Forms.Label hOTENLabel;
             this.DS = new NganHang.DS();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtLoginNameKH = new System.Windows.Forms.TextBox();
             this.btLuu = new DevExpress.XtraEditors.SimpleButton();
             this.txtPassKHConfir = new DevExpress.XtraEditors.TextEdit();
@@ -46,7 +47,6 @@
             this.cMNDComboBox = new System.Windows.Forms.ComboBox();
             this.v_EX_LoginNameKHTableAdapter = new NganHang.DSTableAdapters.V_EX_LoginNameKHTableAdapter();
             this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
-            this.label4 = new System.Windows.Forms.Label();
             cMNDLabel = new System.Windows.Forms.Label();
             hOTENLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
@@ -99,6 +99,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(627, 358);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(167, 16);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "Tạo Tài Khoản Đăng Nhập";
             // 
             // txtLoginNameKH
             // 
@@ -194,6 +203,7 @@
             this.cMNDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameKHBindingSource, "CMND", true));
             this.cMNDComboBox.DataSource = this.v_EX_LoginNameKHBindingSource;
             this.cMNDComboBox.DisplayMember = "CMND";
+            this.cMNDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cMNDComboBox.FormattingEnabled = true;
             this.cMNDComboBox.Location = new System.Drawing.Point(269, 38);
             this.cMNDComboBox.Name = "cMNDComboBox";
@@ -216,15 +226,6 @@
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.TAIKHOANTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 16);
-            this.label4.TabIndex = 59;
-            this.label4.Text = "Tạo Tài Khoản Đăng Nhập";
             // 
             // frmTaoLoginKH
             // 

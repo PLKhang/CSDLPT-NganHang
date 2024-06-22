@@ -1,4 +1,5 @@
-﻿using NGANHANG;
+﻿using NganHang.DSTableAdapters;
+using NGANHANG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,42 +45,56 @@ namespace NganHang
             this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
 
             macn = ((DataRowView)bdsKH[0])["MACN"].ToString();
-            cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
+            //cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
+            cmbChiNhanh.DataSource = frmDangNhap.GetListSubcription("SELECT * FROM V_DS_PHANMANH");
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
-            panelControl2.Enabled = btnUndo.Enabled = btnSave.Enabled = false;
+            panelControl2.Enabled = btnUndo.Enabled = btnSave.Enabled  = false;
             if (Program.mGroup == "NganHang")
             {
                 cmbChiNhanh.Enabled = true;
-                btnAdd.Enabled = btnUpdate.Enabled = btnSave.Enabled = btnDelete.Enabled = btnUndo.Enabled = false;
+                btnAdd.Enabled = btnUpdate.Enabled = btnSave.Enabled = btnDelete.Enabled = btnUndo.Enabled = btnMOTK.Enabled = false;
             }
             else
             {
-                btnAdd.Enabled = btnUpdate.Enabled = btnSave.Enabled = btnDelete.Enabled  = btnUndo.Enabled = true;
+                btnAdd.Enabled = btnUpdate.Enabled = btnSave.Enabled = btnDelete.Enabled  = btnUndo.Enabled = btnMOTK.Enabled = true;
                 cmbChiNhanh.Enabled = false;
             }
         }
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+            //    return;
+            //Program.servername = cmbChiNhanh.SelectedValue.ToString();
+            //if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
+            //{
+            //    Program.mlogin = Program.remotelogin;
+            //    Program.password = Program.remotepassword;
+            //}
+            //else
+            //{
+            //    Program.mlogin = Program.mloginDN;
+            //    Program.password = Program.passwordDN;
+            //}
+            //if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            //else
+            //{
+            //    this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
+            //    this.KHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
+            //}
+
             if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+            {
                 return;
-            Program.servername = cmbChiNhanh.SelectedValue.ToString();
-            if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
-            {
-                Program.mlogin = Program.remotelogin;
-                Program.password = Program.remotepassword;
             }
+
+            Program.servername1 = cmbChiNhanh.SelectedValue.ToString();
+            if (Program.KetNoiCosoKhac() == 0) return;
             else
             {
-                Program.mlogin = Program.mloginDN;
-                Program.password = Program.passwordDN;
-            }
-            if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-            else
-            {
-                this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.KHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr1;
                 this.KHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
             }
         }

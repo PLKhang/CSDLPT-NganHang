@@ -85,7 +85,6 @@
             this.txtTk.Name = "txtTk";
             this.txtTk.Size = new System.Drawing.Size(220, 34);
             this.txtTk.TabIndex = 4;
-            this.txtTk.TextChanged += new System.EventHandler(this.txtTk_TextChanged);
             // 
             // txtMk
             // 
@@ -95,7 +94,6 @@
             this.txtMk.PasswordChar = '*';
             this.txtMk.Size = new System.Drawing.Size(220, 34);
             this.txtMk.TabIndex = 5;
-            this.txtMk.TextChanged += new System.EventHandler(this.txtMk_TextChanged);
             // 
             // btnDN
             // 

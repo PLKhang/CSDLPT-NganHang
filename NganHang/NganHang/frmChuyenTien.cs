@@ -137,5 +137,15 @@ namespace NganHang
         {
             Close();
         }
+
+        private void txtSoTKNhan_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSoTKNhan.Text.Trim() == txtSoTKChuyen.Text.Trim())
+            {
+                System.Windows.MessageBox.Show("Số TK nhận bị trùng số tk chuyển", "error", MessageBoxButton.OK);
+                txtSoTKNhan.Clear(); hOTENRECTextBox.Clear(); cMNDTextBox.Clear();
+                return;
+            }
+        }
     }
 }

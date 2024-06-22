@@ -28,150 +28,241 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label lblHoTen;
+            System.Windows.Forms.Label cMNDLabel;
+            this.DS = new NganHang.DS();
             this.btn_Thoat = new System.Windows.Forms.Button();
             this.btn_SaoKe = new System.Windows.Forms.Button();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.selectAccountButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtAccountId = new DevExpress.XtraEditors.TextEdit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAccountId.Properties)).BeginInit();
+            this.bdsKH = new System.Windows.Forms.BindingSource(this.components);
+            this.kHACHHANGTableAdapter = new NganHang.DSTableAdapters.KHACHHANGTableAdapter();
+            this.txtHO = new System.Windows.Forms.TextBox();
+            this.txtTEN = new System.Windows.Forms.TextBox();
+            this.txtCMND = new System.Windows.Forms.TextBox();
+            this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
+            this.tAIKHOANTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
+            this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
+            this.cmbSOTK = new System.Windows.Forms.ComboBox();
+            lblHoTen = new System.Windows.Forms.Label();
+            cMNDLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // lblHoTen
             // 
-            this.panel1.Controls.Add(this.btn_Thoat);
-            this.panel1.Controls.Add(this.btn_SaoKe);
-            this.panel1.Controls.Add(this.endDateTimePicker);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.startDateTimePicker);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.selectAccountButton);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtAccountId);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(908, 155);
-            this.panel1.TabIndex = 1;
+            lblHoTen.AutoSize = true;
+            lblHoTen.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblHoTen.Location = new System.Drawing.Point(46, 134);
+            lblHoTen.Name = "lblHoTen";
+            lblHoTen.Size = new System.Drawing.Size(53, 17);
+            lblHoTen.TabIndex = 21;
+            lblHoTen.Text = "Họ Tên";
+            // 
+            // cMNDLabel
+            // 
+            cMNDLabel.AutoSize = true;
+            cMNDLabel.Location = new System.Drawing.Point(46, 183);
+            cMNDLabel.Name = "cMNDLabel";
+            cMNDLabel.Size = new System.Drawing.Size(50, 16);
+            cMNDLabel.TabIndex = 23;
+            cMNDLabel.Text = "CMND:";
+            // 
+            // DS
+            // 
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btn_Thoat
             // 
-            this.btn_Thoat.Location = new System.Drawing.Point(216, 86);
+            this.btn_Thoat.Location = new System.Drawing.Point(462, 228);
             this.btn_Thoat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.Size = new System.Drawing.Size(159, 46);
-            this.btn_Thoat.TabIndex = 8;
+            this.btn_Thoat.TabIndex = 18;
             this.btn_Thoat.Text = "Thoát";
             this.btn_Thoat.UseVisualStyleBackColor = true;
+            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
             // btn_SaoKe
             // 
-            this.btn_SaoKe.Location = new System.Drawing.Point(49, 86);
+            this.btn_SaoKe.Location = new System.Drawing.Point(295, 228);
             this.btn_SaoKe.Margin = new System.Windows.Forms.Padding(4);
             this.btn_SaoKe.Name = "btn_SaoKe";
             this.btn_SaoKe.Size = new System.Drawing.Size(159, 46);
-            this.btn_SaoKe.TabIndex = 7;
+            this.btn_SaoKe.TabIndex = 17;
             this.btn_SaoKe.Text = "Sao kê";
             this.btn_SaoKe.UseVisualStyleBackColor = true;
+            this.btn_SaoKe.Click += new System.EventHandler(this.btn_SaoKe_Click);
             // 
             // endDateTimePicker
             // 
-            this.endDateTimePicker.Location = new System.Drawing.Point(520, 96);
+            this.endDateTimePicker.Location = new System.Drawing.Point(588, 132);
             this.endDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.endDateTimePicker.Name = "endDateTimePicker";
             this.endDateTimePicker.Size = new System.Drawing.Size(265, 22);
-            this.endDateTimePicker.TabIndex = 6;
+            this.endDateTimePicker.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(441, 100);
+            this.label3.Location = new System.Drawing.Point(509, 136);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 16);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 15;
             this.label3.Text = "Đến ngày";
             // 
             // startDateTimePicker
             // 
-            this.startDateTimePicker.Location = new System.Drawing.Point(520, 34);
+            this.startDateTimePicker.Location = new System.Drawing.Point(588, 70);
             this.startDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.startDateTimePicker.Name = "startDateTimePicker";
             this.startDateTimePicker.Size = new System.Drawing.Size(265, 22);
-            this.startDateTimePicker.TabIndex = 4;
+            this.startDateTimePicker.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(441, 38);
+            this.label2.Location = new System.Drawing.Point(509, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 13;
             this.label2.Text = "Từ ngày";
-            // 
-            // selectAccountButton
-            // 
-            this.selectAccountButton.Location = new System.Drawing.Point(312, 32);
-            this.selectAccountButton.Margin = new System.Windows.Forms.Padding(4);
-            this.selectAccountButton.Name = "selectAccountButton";
-            this.selectAccountButton.Size = new System.Drawing.Size(100, 28);
-            this.selectAccountButton.TabIndex = 2;
-            this.selectAccountButton.Text = "Chọn";
-            this.selectAccountButton.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 38);
+            this.label1.Location = new System.Drawing.Point(44, 76);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 16);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 11;
             this.label1.Text = "Số tài khoản";
             // 
-            // txtAccountId
+            // bdsKH
             // 
-            this.txtAccountId.Enabled = false;
-            this.txtAccountId.Location = new System.Drawing.Point(143, 34);
-            this.txtAccountId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAccountId.Name = "txtAccountId";
-            this.txtAccountId.Size = new System.Drawing.Size(161, 22);
-            this.txtAccountId.TabIndex = 0;
+            this.bdsKH.DataMember = "KHACHHANG";
+            this.bdsKH.DataSource = this.DS;
+            // 
+            // kHACHHANGTableAdapter
+            // 
+            this.kHACHHANGTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtHO
+            // 
+            this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "HO", true));
+            this.txtHO.Enabled = false;
+            this.txtHO.Location = new System.Drawing.Point(144, 130);
+            this.txtHO.Name = "txtHO";
+            this.txtHO.ReadOnly = true;
+            this.txtHO.Size = new System.Drawing.Size(168, 22);
+            this.txtHO.TabIndex = 22;
+            // 
+            // txtTEN
+            // 
+            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "TEN", true));
+            this.txtTEN.Enabled = false;
+            this.txtTEN.Location = new System.Drawing.Point(330, 131);
+            this.txtTEN.Name = "txtTEN";
+            this.txtTEN.ReadOnly = true;
+            this.txtTEN.Size = new System.Drawing.Size(100, 22);
+            this.txtTEN.TabIndex = 23;
+            // 
+            // txtCMND
+            // 
+            this.txtCMND.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "CMND", true));
+            this.txtCMND.Enabled = false;
+            this.txtCMND.Location = new System.Drawing.Point(144, 177);
+            this.txtCMND.Name = "txtCMND";
+            this.txtCMND.ReadOnly = true;
+            this.txtCMND.Size = new System.Drawing.Size(168, 22);
+            this.txtCMND.TabIndex = 24;
+            // 
+            // bdsTK
+            // 
+            this.bdsTK.DataMember = "FK_TaiKhoan_KhachHang";
+            this.bdsTK.DataSource = this.bdsKH;
+            // 
+            // tAIKHOANTableAdapter
+            // 
+            this.tAIKHOANTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CHINHANHTableAdapter = null;
+            this.tableAdapterManager.GD_CHUYENTIENTableAdapter = null;
+            this.tableAdapterManager.GD_GOIRUTTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = this.kHACHHANGTableAdapter;
+            this.tableAdapterManager.NHANVIENTableAdapter = null;
+            this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
+            this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // cmbSOTK
+            // 
+            this.cmbSOTK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTK, "SOTK", true));
+            this.cmbSOTK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSOTK.FormattingEnabled = true;
+            this.cmbSOTK.Location = new System.Drawing.Point(144, 72);
+            this.cmbSOTK.Name = "cmbSOTK";
+            this.cmbSOTK.Size = new System.Drawing.Size(241, 24);
+            this.cmbSOTK.TabIndex = 25;
             // 
             // frpt_SaoKeTaiKhoanNganHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 450);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(929, 332);
+            this.Controls.Add(this.cmbSOTK);
+            this.Controls.Add(cMNDLabel);
+            this.Controls.Add(this.txtCMND);
+            this.Controls.Add(this.txtTEN);
+            this.Controls.Add(lblHoTen);
+            this.Controls.Add(this.txtHO);
+            this.Controls.Add(this.btn_Thoat);
+            this.Controls.Add(this.btn_SaoKe);
+            this.Controls.Add(this.endDateTimePicker);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.startDateTimePicker);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Name = "frpt_SaoKeTaiKhoanNganHang";
             this.Text = "Sao Kê Giao Dịch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAccountId.Properties)).EndInit();
+            this.Load += new System.EventHandler(this.frpt_SaoKeTaiKhoanNganHang_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
+        private DS DS;
         private System.Windows.Forms.Button btn_Thoat;
         private System.Windows.Forms.Button btn_SaoKe;
         private System.Windows.Forms.DateTimePicker endDateTimePicker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker startDateTimePicker;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button selectAccountButton;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit txtAccountId;
+        private System.Windows.Forms.BindingSource bdsKH;
+        private DSTableAdapters.KHACHHANGTableAdapter kHACHHANGTableAdapter;
+        private System.Windows.Forms.TextBox txtHO;
+        private System.Windows.Forms.TextBox txtTEN;
+        private System.Windows.Forms.TextBox txtCMND;
+        private System.Windows.Forms.BindingSource bdsTK;
+        private DSTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;
+        private DSTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ComboBox cmbSOTK;
     }
 }

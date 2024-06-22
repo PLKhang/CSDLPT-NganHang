@@ -364,6 +364,7 @@
             // 
             // cmbChiNhanh
             // 
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(119, 6);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
@@ -414,11 +415,13 @@
             // 
             this.gcKH.DataSource = this.bdsKH;
             this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcKH.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcKH.Location = new System.Drawing.Point(0, 65);
             this.gcKH.MainView = this.gridView1;
+            this.gcKH.Margin = new System.Windows.Forms.Padding(4);
             this.gcKH.MenuManager = this.barManager1;
             this.gcKH.Name = "gcKH";
-            this.gcKH.Size = new System.Drawing.Size(1265, 220);
+            this.gcKH.Size = new System.Drawing.Size(1265, 275);
             this.gcKH.TabIndex = 7;
             this.gcKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -432,6 +435,7 @@
             this.colDIACHI,
             this.colCMND,
             this.colSoDT});
+            this.gridView1.DetailHeight = 437;
             this.gridView1.GridControl = this.gcKH;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -445,56 +449,56 @@
             // colHO
             // 
             this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 25;
+            this.colHO.MinWidth = 31;
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 0;
-            this.colHO.Width = 94;
+            this.colHO.Width = 117;
             // 
             // colTEN
             // 
             this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 25;
+            this.colTEN.MinWidth = 31;
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 1;
-            this.colTEN.Width = 94;
+            this.colTEN.Width = 117;
             // 
             // colPHAI
             // 
             this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 25;
+            this.colPHAI.MinWidth = 31;
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 5;
-            this.colPHAI.Width = 94;
+            this.colPHAI.Width = 117;
             // 
             // colDIACHI
             // 
             this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 25;
+            this.colDIACHI.MinWidth = 31;
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 2;
-            this.colDIACHI.Width = 94;
+            this.colDIACHI.Width = 117;
             // 
             // colCMND
             // 
             this.colCMND.FieldName = "CMND";
-            this.colCMND.MinWidth = 25;
+            this.colCMND.MinWidth = 31;
             this.colCMND.Name = "colCMND";
             this.colCMND.Visible = true;
             this.colCMND.VisibleIndex = 3;
-            this.colCMND.Width = 94;
+            this.colCMND.Width = 117;
             // 
             // colSoDT
             // 
             this.colSoDT.FieldName = "SoDT";
-            this.colSoDT.MinWidth = 25;
+            this.colSoDT.MinWidth = 31;
             this.colSoDT.Name = "colSoDT";
             this.colSoDT.Visible = true;
             this.colSoDT.VisibleIndex = 4;
-            this.colSoDT.Width = 94;
+            this.colSoDT.Width = 117;
             // 
             // bdsTK_FK
             // 
@@ -505,11 +509,13 @@
             // 
             this.gcTK.DataSource = this.bdsTK_FK;
             this.gcTK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcTK.Location = new System.Drawing.Point(627, 285);
+            this.gcTK.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gcTK.Location = new System.Drawing.Point(627, 340);
             this.gcTK.MainView = this.gridView2;
+            this.gcTK.Margin = new System.Windows.Forms.Padding(4);
             this.gcTK.MenuManager = this.barManager1;
             this.gcTK.Name = "gcTK";
-            this.gcTK.Size = new System.Drawing.Size(638, 374);
+            this.gcTK.Size = new System.Drawing.Size(638, 319);
             this.gcTK.TabIndex = 8;
             this.gcTK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -521,6 +527,7 @@
             this.colSOTK,
             this.colSODU,
             this.colNGAYMOTK});
+            this.gridView2.DetailHeight = 437;
             this.gridView2.GridControl = this.gcTK;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
@@ -534,38 +541,38 @@
             // colCMND1
             // 
             this.colCMND1.FieldName = "CMND";
-            this.colCMND1.MinWidth = 25;
+            this.colCMND1.MinWidth = 31;
             this.colCMND1.Name = "colCMND1";
             this.colCMND1.Visible = true;
             this.colCMND1.VisibleIndex = 1;
-            this.colCMND1.Width = 94;
+            this.colCMND1.Width = 117;
             // 
             // colSOTK
             // 
             this.colSOTK.FieldName = "SOTK";
-            this.colSOTK.MinWidth = 25;
+            this.colSOTK.MinWidth = 31;
             this.colSOTK.Name = "colSOTK";
             this.colSOTK.Visible = true;
             this.colSOTK.VisibleIndex = 0;
-            this.colSOTK.Width = 94;
+            this.colSOTK.Width = 117;
             // 
             // colSODU
             // 
             this.colSODU.FieldName = "SODU";
-            this.colSODU.MinWidth = 25;
+            this.colSODU.MinWidth = 31;
             this.colSODU.Name = "colSODU";
             this.colSODU.Visible = true;
             this.colSODU.VisibleIndex = 2;
-            this.colSODU.Width = 94;
+            this.colSODU.Width = 117;
             // 
             // colNGAYMOTK
             // 
             this.colNGAYMOTK.FieldName = "NGAYMOTK";
-            this.colNGAYMOTK.MinWidth = 25;
+            this.colNGAYMOTK.MinWidth = 31;
             this.colNGAYMOTK.Name = "colNGAYMOTK";
             this.colNGAYMOTK.Visible = true;
             this.colNGAYMOTK.VisibleIndex = 3;
-            this.colNGAYMOTK.Width = 94;
+            this.colNGAYMOTK.Width = 117;
             // 
             // bdsCT
             // 
@@ -643,7 +650,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayMoTK.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditNgayMoTK.Size = new System.Drawing.Size(147, 22);
+            this.dateEditNgayMoTK.Size = new System.Drawing.Size(285, 22);
             this.dateEditNgayMoTK.TabIndex = 14;
             // 
             // panel2
@@ -659,9 +666,9 @@
             this.panel2.Controls.Add(sODULabel);
             this.panel2.Controls.Add(cMNDLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 285);
+            this.panel2.Location = new System.Drawing.Point(0, 340);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(627, 374);
+            this.panel2.Size = new System.Drawing.Size(627, 319);
             this.panel2.TabIndex = 8;
             // 
             // frmTaiKhoanNganHang

@@ -1,4 +1,5 @@
-﻿using NGANHANG;
+﻿using DevExpress.XtraBars;
+using NGANHANG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +12,18 @@ using System.Windows.Forms;
 
 namespace NganHang
 {
-    public partial class frmMain : Form
+    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public frmMain()
         {
             InitializeComponent();
             this.IsMdiContainer = true;
             btn_DangNhap.PerformClick();
+        }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            btn_DangXuat.Enabled = btn_DK.Enabled = false;
+            rib_NghiepVu.Visible = rib_BaoCao.Visible = false;   
         }
         private Form CheckExists(Type ftype)
         {
@@ -26,18 +32,13 @@ namespace NganHang
                     return f;   //nếu frmMain đã tồn tại thì trả về f, không thì trả về null.
             return null;
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            btn_DangXuat.Enabled = btn_DK.Enabled = false;
-        }
         private void btn_DangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.mloginDN != "")
+            /*if (Program.mloginDN != "")
             {
                 MessageBox.Show("Bạn cần đăng xuất trước khi thực hiện hành động này");
                 return;
-            }
-
+            }*/
             Form frm = this.CheckExists(typeof(frmDangNhap));
             if (frm != null) frm.Activate();
             else
@@ -49,7 +50,7 @@ namespace NganHang
         }
         private void btn_DangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.mloginDN == "")
+            /*if (Program.mloginDN == "")
             {
                 MessageBox.Show("Bạn phải đăng nhập trước khi đăng xuất!", "", MessageBoxButtons.OK);
                 return;
@@ -72,7 +73,7 @@ namespace NganHang
                         childForm.Close();
                     }
 
-                    rib_BaoCao.Visible = rib_DanhMuc.Visible = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
+                    rib_BaoCao.Visible  = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
                     btn_DangNhap.Enabled = true;
                     MANV.Text = "MANV "; HOTEN.Text = "HOTEN "; NHOM.Text = "NHOM";
                     MessageBox.Show("Đăng xuất thành công.", "", MessageBoxButtons.OK);
@@ -83,15 +84,33 @@ namespace NganHang
                     return;
                 }
             }
-            return;
+            return;*/
+            Program.servername = "";
+            Program.username = "";
+            Program.mlogin = "";
+            Program.password = "";
+            Program.mloginDN = "";
+            Program.passwordDN = "";
+            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();   //Nếu đang mở kết nối thì ta đóng lại.
+
+            Form[] childArray = this.MdiChildren;   //Đóng hết tất cả form con đang mở.
+            foreach (Form childForm in childArray)
+            {
+                childForm.Close();
+            }
+
+            rib_BaoCao.Visible = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
+            btn_DangNhap.Enabled = true;
+            MANV.Text = "Mã Nhân Viên "; HOTEN.Text = "Họ Tên "; NHOM.Text = "Nhóm";
+            MessageBox.Show("Đăng xuất thành công.", "", MessageBoxButtons.OK);
         }
         private void btn_TaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.mloginDN == "")
+            /*if (Program.mloginDN == "")
             {
                 MessageBox.Show("Bạn phải đăng nhập trước khi tạo tài khoản!", "", MessageBoxButtons.OK);
                 return;
-            }
+            }*/
 
             Form frm = this.CheckExists(typeof(FrmTaoLogin));
             if (frm != null) frm.Activate();
@@ -104,13 +123,30 @@ namespace NganHang
         }
         public void HienThiMenu()
         {
-            MANV.Text = "Mã NV: " + Program.username;
-            HOTEN.Text = "; Họ tên: " + Program.mHoten.Trim('\r', '\n');
-            NHOM.Text = "; Nhóm: " + Program.mGroup;
+            MANV.Text = "Tên Người Dùng: " + Program.username;
+            HOTEN.Text = "Họ tên: " + Program.mHoten.Trim('\r', '\n');
+            NHOM.Text = "Nhóm: " + Program.mGroup;
             // Phân quyền
-            rib_BaoCao.Visible = rib_DanhMuc.Visible = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = true;
+            rib_BaoCao.Visible  = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = true;
             btn_DangNhap.Enabled = false;
             // tiếp tục if trên Program.mGroup để bật/tắt các nút lệnh trên menu chính
+            if (Program.mGroup == "NganHang")
+            {
+                rib_NghiepVu.Visible = rib_BaoCao.Visible = rb_ChuyenVien.Visible = true;
+                rb_NgiepVuTien.Visible = rb_SaoKeKH.Visible =  false;
+            }
+            else if (Program.mGroup == "KhachHang")
+            {
+                btn_DK.Visibility = btnOpenCustomerAccount.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                rb_ChuyenVien.Visible = rib_BaoCao.Visible = false;
+                rb_SaoKeKH.Visible = true;
+            }
+            else
+            {
+                rib_NghiepVu.Visible = rib_BaoCao.Visible = true;
+                btn_DK.Visibility = btn_LietKeTK.Visibility = btn_LietKeKH.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                rb_ChuyenVien.Visible = rb_NgiepVuTien.Visible = rb_SaoKeKH.Visible = true;
+            }
             /*           if (Program.mGroup == "NGANHANG")
                        {
                            btn_GuiRut.Enabled = false;

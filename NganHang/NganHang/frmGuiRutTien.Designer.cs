@@ -154,13 +154,13 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1287, 29);
+            this.panelControl1.Size = new System.Drawing.Size(1287, 39);
             this.panelControl1.TabIndex = 7;
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(497, -2);
+            this.btnAdd.Location = new System.Drawing.Point(493, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(158, 32);
             this.btnAdd.TabIndex = 17;
@@ -171,7 +171,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(825, -2);
+            this.btnThoat.Location = new System.Drawing.Point(821, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(134, 32);
             this.btnThoat.TabIndex = 16;
@@ -182,7 +182,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 5);
+            this.label1.Location = new System.Drawing.Point(32, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 1;
@@ -191,7 +191,7 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(661, -2);
+            this.btnReload.Location = new System.Drawing.Point(657, 5);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(158, 32);
             this.btnReload.TabIndex = 15;
@@ -201,8 +201,9 @@
             // 
             // cmbChiNhanh
             // 
+            this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(133, 2);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(129, 9);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(325, 24);
             this.cmbChiNhanh.TabIndex = 0;
@@ -215,7 +216,7 @@
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 29);
+            this.groupControl1.Location = new System.Drawing.Point(0, 39);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1287, 30);
             this.groupControl1.TabIndex = 13;
@@ -375,7 +376,7 @@
             // 
             this.gcKH.DataSource = this.bdsKH;
             this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcKH.Location = new System.Drawing.Point(0, 59);
+            this.gcKH.Location = new System.Drawing.Point(0, 69);
             this.gcKH.MainView = this.gridView1;
             this.gcKH.Name = "gcKH";
             this.gcKH.Size = new System.Drawing.Size(1287, 149);

@@ -28,10 +28,7 @@ namespace NganHang
 
         private void frmNV_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.DS_CHINHANH' table. You can move, or remove it, as needed.
             DS.EnforceConstraints = false;
-            //this.dS_CHINHANHTableAdapter.Connection.ConnectionString = Program.connstr;
-            //this.dS_CHINHANHTableAdapter.Fill(this.DS.DS_CHINHANH);
             this.dS_CHINHANHTableAdapter.Fill(this.DS.DS_CHINHANH);
 
             this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -47,18 +44,19 @@ namespace NganHang
 
             BindingSource newBindingSource = new BindingSource(Program.bds_dspm.DataSource, Program.bds_dspm.DataMember);
 
-            cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
+            //cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
+            cmbChiNhanh.DataSource = frmDangNhap.GetListSubcription("SELECT * FROM V_DS_PHANMANH");
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
             cmbChiNhanh.SelectedIndex = Program.mChinhanh;
 
-            cmbCNFinal.DataSource = newBindingSource; // sao chép bds_ds đã load ở form đăng nhập
+            /*cmbCNFinal.DataSource = newBindingSource; // sao chép bds_ds đã load ở form đăng nhập
             cmbCNFinal.DisplayMember = "TENCN";
             cmbCNFinal.ValueMember = "TENSERVER";
-            cmbCNFinal.SelectedIndex = Program.mChinhanh;
+            cmbCNFinal.SelectedIndex = Program.mChinhanh;*/
 
 
-            panelControl3.Enabled = btnUndo.Enabled = btnSave.Enabled = cmbCNFinal.Enabled = btnMoveEmployee.Enabled= btnChuyenEmployee.Enabled = false;
+            panelControl3.Enabled = btnChuyenEmployee.Visible =  btnUndo.Enabled = btnSave.Enabled  = btnMoveEmployee.Enabled= btnChuyenEmployee.Enabled = false;
 
             if (Program.mGroup == "NganHang")
             {
@@ -146,6 +144,12 @@ namespace NganHang
         {
             String manv = "";
             manv = (((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString().TrimEnd());
+            int trang_thai_xoa = int.Parse(((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString().TrimEnd());
+            if (trang_thai_xoa == 1)
+            {
+                MessageBox.Show("Không thể xoá nhân viên đã nghỉ", "", MessageBoxButtons.OK);
+                return;
+            }
             if (bdsGR.Count > 0)
             {
                 MessageBox.Show("Không thể xoá nhân viên, vì đã thực hiện giao dịch gửi rút tiền cho khách hàng", "", MessageBoxButtons.OK);
@@ -156,6 +160,7 @@ namespace NganHang
                 MessageBox.Show("Không thể xoá nhân viên, vì đã thực hiện giao dịch chuyển tiền cho khách hàng", "", MessageBoxButtons.OK);
                 return;
             }
+            
             if (MessageBox.Show("Bạn có thật sự muốn xoá nhân viên " + manv + " ??", "Xác nhận",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
@@ -239,13 +244,15 @@ namespace NganHang
  
             // Kiểm tra mã nhân viên tồn tại trên site chủ
             //viết 1 SP kiểm tra mã trùng. gọi SP đó thông qua hàm ExecSqlDataReader dưới dạng có hay không!! 
-            if (btn_Add_clicked == true || cmnd != txtCMND.Text.TrimEnd())
+            if ( cmnd != txtCMND.Text.TrimEnd())
             {
                 Program.myReader.Close();
                 string strlenh1 = "EXEC sp_Existed_CMND_NV '" + txtCMND.Text.TrimEnd() + "'";
                 Program.myReader = Program.ExecSqlDataReader(strlenh1);
+                int tmp = int.Parse(Program.myReader.GetString(0));
                 Program.myReader.Read();
-                if (Program.myReader.HasRows)
+                
+                if (tmp == 1)
                 {
                     MessageBox.Show("CMND nhân viên đã tồn tại \nVui lòng nhập lại", "", MessageBoxButtons.OK);
                     return;
@@ -287,33 +294,53 @@ namespace NganHang
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+            //    return;
+            //Program.servername = cmbChiNhanh.SelectedValue.ToString();
+            //if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
+            //{
+            //    Program.mlogin = Program.remotelogin;
+            //    Program.password = Program.remotepassword;
+            //}
+            //else
+            //{
+            //    Program.mlogin = Program.mloginDN;
+            //    Program.password = Program.passwordDN;
+            //}
+            //if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            //else
+            //{
+            //    this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            //    this.NHANVIENTableAdapter.Fill(this.DS.NHANVIEN);
+
+            //    this.gD_CHUYENTIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            //    this.gD_CHUYENTIENTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
+
+            //    this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
+            //    this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
+            //    //macn = ((DataRowView)bdsNV[0])["MACN"].ToString();
+            //}
+
             if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
+            {
                 return;
-            Program.servername = cmbChiNhanh.SelectedValue.ToString();
-            if (cmbChiNhanh.SelectedIndex != Program.mChinhanh)
-            {
-                Program.mlogin = Program.remotelogin;
-                Program.password = Program.remotepassword;
             }
+
+            Program.servername1 = cmbChiNhanh.SelectedValue.ToString();
+            if (Program.KetNoiCosoKhac() == 0) return;
             else
             {
-                Program.mlogin = Program.mloginDN;
-                Program.password = Program.passwordDN;
-            }
-            if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-            else
-            {
-                this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr1;
                 this.NHANVIENTableAdapter.Fill(this.DS.NHANVIEN);
 
-                this.gD_CHUYENTIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                gD_CHUYENTIENTableAdapter.Connection.ConnectionString = Program.connstr1;
                 this.gD_CHUYENTIENTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
 
-                this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
+                gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr1;
                 this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
-                //macn = ((DataRowView)bdsNV[0])["MACN"].ToString();
             }
         }
+
 
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -325,7 +352,7 @@ namespace NganHang
             int trang_thai_xoa = int.Parse(((DataRowView)bdsNV[bdsNV.Position])["TrangThaiXoa"].ToString().TrimEnd());
             if(trang_thai_xoa == 0)
             {
-                btnUndo.Enabled = btnExit.Enabled = cmbCNFinal.Enabled = btnChuyenEmployee.Enabled = btnChuyenEmployee.Enabled = true;
+                btnUndo.Enabled = btnExit.Enabled = btnChuyenEmployee.Visible = btnChuyenEmployee.Enabled = btnChuyenEmployee.Enabled = true;
                 panelControl3.Enabled = btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnSave.Enabled = gcNV.Enabled = false;
             }
             else
@@ -361,7 +388,7 @@ namespace NganHang
                 return;
             }
             btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = gcNV.Enabled = true;
-            btnSave.Enabled = btnUndo.Enabled = cmbCNFinal.Enabled = btnChuyenEmployee.Enabled = false;
+            btnSave.Enabled = btnUndo.Enabled  = btnChuyenEmployee.Enabled = false;
             this.NHANVIENTableAdapter.Fill(this.DS.NHANVIEN);
         }
 
