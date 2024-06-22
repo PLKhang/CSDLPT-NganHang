@@ -83,7 +83,7 @@
             this.txtTk.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTk.Location = new System.Drawing.Point(257, 136);
             this.txtTk.Name = "txtTk";
-            this.txtTk.Size = new System.Drawing.Size(220, 34);
+            this.txtTk.Size = new System.Drawing.Size(314, 34);
             this.txtTk.TabIndex = 4;
             // 
             // txtMk
@@ -92,7 +92,7 @@
             this.txtMk.Location = new System.Drawing.Point(257, 213);
             this.txtMk.Name = "txtMk";
             this.txtMk.PasswordChar = '*';
-            this.txtMk.Size = new System.Drawing.Size(220, 34);
+            this.txtMk.Size = new System.Drawing.Size(314, 34);
             this.txtMk.TabIndex = 5;
             // 
             // btnDN
@@ -109,7 +109,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(447, 283);
+            this.btnThoat.Location = new System.Drawing.Point(439, 283);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(132, 39);
             this.btnThoat.TabIndex = 7;

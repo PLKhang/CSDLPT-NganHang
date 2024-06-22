@@ -17,7 +17,7 @@ namespace NGANHANG
         /// </summary>
         public static SqlConnection conn = new SqlConnection(); //SqlConnection class thuộc namespace System.Data.SqlClient và được sử dụng để kết nối mở đến CSDL SQL Server.
         public static String connstr;
-        public static String connstr_publisher = "Data Source=THIENTANT;Initial Catalog=NGANHANG;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=KHANG\\SERVER1;Initial Catalog=NGANHANG;Integrated Security=True";
         //public static String connstr_publisher = "Data Source=THIENTANT;Initial Catalog=NGANHANG;Integrated Security=True";
         //public static String connstr_publisher = "Data Source=THIENTANT;Initial Catalog=NGANHANG; User ID=sa;Password=123";
 
@@ -29,7 +29,7 @@ namespace NGANHANG
 
         public static String database = "NGANHANG";
         public static String remotelogin = "HTKN";
-        public static String remotepassword = "123";
+        public static String remotepassword = "123456";
         public static String mloginDN = ""; //chứa tài khoản đăng nhập thành công. Dùng cho những form sau này.
         public static String passwordDN = ""; // chứa mật khẩu đăng nhập thành công.
         public static String mGroup = "";
@@ -38,7 +38,7 @@ namespace NGANHANG
 
 
         public static String mlogin1 = "sa";
-        public static String password1 = "123";
+        public static String password1 = "abc";
         public static String connstr1;
         public static String servername1 = "";
         public static SqlConnection conn1 = new SqlConnection();
@@ -46,7 +46,7 @@ namespace NGANHANG
 
         public static BindingSource bds_dspm = new BindingSource(); //giữ bds phân mảnh khi đăng nhập -> chứa TENCN và TENSEVER của V_Get_Subscribes. Từ lúc đăng nhập thành công đến lúc kết thúc.
 
-        public static frmMain frmChinh;
+        public static Main frmChinh;
 
         public static int KetNoi()
         {
@@ -107,7 +107,35 @@ namespace NGANHANG
                 return null;
             }
         }
+        public static int ExecSqlAndGetReturnedValue(String spName, SqlParameter param1 = null, SqlParameter param2 = null)
+        {
+            SqlCommand Sqlcmd = new SqlCommand(spName, conn);
+            Sqlcmd.CommandType = CommandType.StoredProcedure;
+            Sqlcmd.CommandTimeout = 600;// 10 phut 
+            SqlParameter returnValue = new SqlParameter();
+            returnValue.Direction = ParameterDirection.ReturnValue;
+            Sqlcmd.Parameters.Add(returnValue);
+            if (param1 != null)
+                Sqlcmd.Parameters.Add(param1);
+            if (param2 != null)
+                Sqlcmd.Parameters.Add(param2);
 
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+                Sqlcmd.ExecuteNonQuery();
+
+                return (int)returnValue.Value;
+            }
+            catch
+            {
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public static DataTable ExecsqlDataTable(String cmd)
         {
             DataTable dt = new DataTable();
@@ -142,7 +170,7 @@ namespace NGANHANG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmChinh = new frmMain();   // frmChinh là một đối tượng của frmMain
+            frmChinh = new Main();   // frmChinh là một đối tượng của frmMain
             Application.Run(frmChinh);
             //Application.Run(new frmMain());
             //Tại sao không chạy thẳng frmMain mà phải tạo ra frm chính?

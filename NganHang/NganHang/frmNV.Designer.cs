@@ -58,11 +58,11 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btnChuyenNV = new DevExpress.XtraBars.BarButtonItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bdsChuyenNV = new System.Windows.Forms.BindingSource(this.components);
-            this.DS = new NganHang.DS();
             this.btnChuyenEmployee = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.bdsChuyenNV = new System.Windows.Forms.BindingSource(this.components);
+            this.DS = new NganHang.DS();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.txtMACN = new System.Windows.Forms.TextBox();
             this.bdsNV = new System.Windows.Forms.BindingSource(this.components);
@@ -119,83 +119,83 @@
             // CMNDLabel
             // 
             CMNDLabel.AutoSize = true;
-            CMNDLabel.Location = new System.Drawing.Point(610, 155);
+            CMNDLabel.Location = new System.Drawing.Point(609, 16);
             CMNDLabel.Name = "CMNDLabel";
-            CMNDLabel.Size = new System.Drawing.Size(72, 25);
+            CMNDLabel.Size = new System.Drawing.Size(108, 25);
             CMNDLabel.TabIndex = 15;
-            CMNDLabel.Text = "CMND";
+            CMNDLabel.Text = "Số CMND:";
             // 
             // mANVLabel1
             // 
             mANVLabel1.AutoSize = true;
             mANVLabel1.Location = new System.Drawing.Point(54, 20);
             mANVLabel1.Name = "mANVLabel1";
-            mANVLabel1.Size = new System.Drawing.Size(77, 25);
+            mANVLabel1.Size = new System.Drawing.Size(136, 25);
             mANVLabel1.TabIndex = 17;
-            mANVLabel1.Text = "MANV:";
+            mANVLabel1.Text = "Mã nhân viên:";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(615, 25);
+            hOLabel.Location = new System.Drawing.Point(609, 61);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(42, 25);
+            hOLabel.Size = new System.Drawing.Size(144, 25);
             hOLabel.TabIndex = 18;
-            hOLabel.Text = "HO";
+            hOLabel.Text = "Họ và tên đệm:";
             // 
             // tENLabel
             // 
             tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(663, 25);
+            tENLabel.Location = new System.Drawing.Point(949, 63);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(58, 25);
+            tENLabel.Size = new System.Drawing.Size(53, 25);
             tENLabel.TabIndex = 19;
-            tENLabel.Text = "TEN:";
+            tENLabel.Text = "Tên:";
             // 
             // dIACHILabel1
             // 
             dIACHILabel1.AutoSize = true;
             dIACHILabel1.Location = new System.Drawing.Point(54, 63);
             dIACHILabel1.Name = "dIACHILabel1";
-            dIACHILabel1.Size = new System.Drawing.Size(85, 25);
+            dIACHILabel1.Size = new System.Drawing.Size(77, 25);
             dIACHILabel1.TabIndex = 20;
-            dIACHILabel1.Text = "DIACHI:";
+            dIACHILabel1.Text = "Địa chỉ:";
             // 
             // pHAILabel
             // 
             pHAILabel.AutoSize = true;
             pHAILabel.Location = new System.Drawing.Point(54, 109);
             pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(64, 25);
+            pHAILabel.Size = new System.Drawing.Size(88, 25);
             pHAILabel.TabIndex = 21;
-            pHAILabel.Text = "PHAI:";
+            pHAILabel.Text = "Giới tính:";
             // 
             // trangThaiXoaLabel
             // 
             trangThaiXoaLabel.AutoSize = true;
-            trangThaiXoaLabel.Location = new System.Drawing.Point(54, 172);
+            trangThaiXoaLabel.Location = new System.Drawing.Point(54, 162);
             trangThaiXoaLabel.Name = "trangThaiXoaLabel";
-            trangThaiXoaLabel.Size = new System.Drawing.Size(155, 25);
+            trangThaiXoaLabel.Size = new System.Drawing.Size(125, 25);
             trangThaiXoaLabel.TabIndex = 22;
-            trangThaiXoaLabel.Text = "Trang Thai Xoa:";
+            trangThaiXoaLabel.Text = "Đã nghỉ việc:";
             // 
             // soDTLabel
             // 
             soDTLabel.AutoSize = true;
-            soDTLabel.Location = new System.Drawing.Point(618, 68);
+            soDTLabel.Location = new System.Drawing.Point(609, 109);
             soDTLabel.Name = "soDTLabel";
-            soDTLabel.Size = new System.Drawing.Size(75, 25);
+            soDTLabel.Size = new System.Drawing.Size(126, 25);
             soDTLabel.TabIndex = 23;
-            soDTLabel.Text = "So DT:";
+            soDTLabel.Text = "Số điện thoại";
             // 
             // mACNLabel
             // 
             mACNLabel.AutoSize = true;
-            mACNLabel.Location = new System.Drawing.Point(615, 119);
+            mACNLabel.Location = new System.Drawing.Point(609, 155);
             mACNLabel.Name = "mACNLabel";
-            mACNLabel.Size = new System.Drawing.Size(78, 25);
+            mACNLabel.Size = new System.Drawing.Size(108, 25);
             mACNLabel.TabIndex = 24;
-            mACNLabel.Text = "MACN:";
+            mACNLabel.Text = "Chi nhánh:";
             // 
             // barManager1
             // 
@@ -388,16 +388,6 @@
             this.panelControl1.Size = new System.Drawing.Size(1605, 51);
             this.panelControl1.TabIndex = 5;
             // 
-            // bdsChuyenNV
-            // 
-            this.bdsChuyenNV.DataMember = "DS_CHINHANH";
-            this.bdsChuyenNV.DataSource = this.DS;
-            // 
-            // DS
-            // 
-            this.DS.DataSetName = "DS";
-            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnChuyenEmployee
             // 
             this.btnChuyenEmployee.Location = new System.Drawing.Point(601, 6);
@@ -426,6 +416,16 @@
             this.cmbChiNhanh.Size = new System.Drawing.Size(347, 29);
             this.cmbChiNhanh.TabIndex = 0;
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
+            // 
+            // bdsChuyenNV
+            // 
+            this.bdsChuyenNV.DataMember = "DS_CHINHANH";
+            this.bdsChuyenNV.DataSource = this.DS;
+            // 
+            // DS
+            // 
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelControl3
             // 
@@ -458,10 +458,10 @@
             // txtMACN
             // 
             this.txtMACN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "MACN", true));
-            this.txtMACN.Location = new System.Drawing.Point(781, 114);
+            this.txtMACN.Location = new System.Drawing.Point(772, 152);
             this.txtMACN.Name = "txtMACN";
             this.txtMACN.ReadOnly = true;
-            this.txtMACN.Size = new System.Drawing.Size(219, 30);
+            this.txtMACN.Size = new System.Drawing.Size(171, 30);
             this.txtMACN.TabIndex = 25;
             // 
             // bdsNV
@@ -472,7 +472,7 @@
             // txtSODT
             // 
             this.txtSODT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "SoDT", true));
-            this.txtSODT.Location = new System.Drawing.Point(781, 63);
+            this.txtSODT.Location = new System.Drawing.Point(772, 106);
             this.txtSODT.Name = "txtSODT";
             this.txtSODT.Size = new System.Drawing.Size(171, 30);
             this.txtSODT.TabIndex = 24;
@@ -480,7 +480,7 @@
             // trangThaiXoaCheckBox
             // 
             this.trangThaiXoaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsNV, "TrangThaiXoa", true));
-            this.trangThaiXoaCheckBox.Location = new System.Drawing.Point(276, 172);
+            this.trangThaiXoaCheckBox.Location = new System.Drawing.Point(244, 163);
             this.trangThaiXoaCheckBox.Name = "trangThaiXoaCheckBox";
             this.trangThaiXoaCheckBox.Size = new System.Drawing.Size(75, 25);
             this.trangThaiXoaCheckBox.TabIndex = 30;
@@ -493,7 +493,7 @@
             this.cmbPHAI.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cmbPHAI.Location = new System.Drawing.Point(244, 109);
+            this.cmbPHAI.Location = new System.Drawing.Point(244, 106);
             this.cmbPHAI.Name = "cmbPHAI";
             this.cmbPHAI.Size = new System.Drawing.Size(121, 33);
             this.cmbPHAI.TabIndex = 22;
@@ -501,7 +501,7 @@
             // txtDIACHI
             // 
             this.txtDIACHI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "DIACHI", true));
-            this.txtDIACHI.Location = new System.Drawing.Point(244, 63);
+            this.txtDIACHI.Location = new System.Drawing.Point(244, 60);
             this.txtDIACHI.Name = "txtDIACHI";
             this.txtDIACHI.Size = new System.Drawing.Size(257, 30);
             this.txtDIACHI.TabIndex = 21;
@@ -509,7 +509,7 @@
             // txtTEN
             // 
             this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "TEN", true));
-            this.txtTEN.Location = new System.Drawing.Point(958, 20);
+            this.txtTEN.Location = new System.Drawing.Point(1008, 60);
             this.txtTEN.Name = "txtTEN";
             this.txtTEN.Size = new System.Drawing.Size(100, 30);
             this.txtTEN.TabIndex = 20;
@@ -517,7 +517,7 @@
             // txtHO
             // 
             this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "HO", true));
-            this.txtHO.Location = new System.Drawing.Point(781, 20);
+            this.txtHO.Location = new System.Drawing.Point(772, 58);
             this.txtHO.Name = "txtHO";
             this.txtHO.Size = new System.Drawing.Size(171, 30);
             this.txtHO.TabIndex = 19;
@@ -535,10 +535,10 @@
             // txtCMND
             // 
             this.txtCMND.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "CMND", true));
-            this.txtCMND.Location = new System.Drawing.Point(781, 159);
+            this.txtCMND.Location = new System.Drawing.Point(772, 19);
             this.txtCMND.MenuManager = this.barManager1;
             this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(161, 22);
+            this.txtCMND.Size = new System.Drawing.Size(171, 22);
             this.txtCMND.TabIndex = 16;
             // 
             // NHANVIENTableAdapter

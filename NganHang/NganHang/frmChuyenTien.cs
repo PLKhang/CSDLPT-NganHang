@@ -83,25 +83,47 @@ namespace NganHang
 
         private void btnChuyenTien_Click(object sender, EventArgs e)
         {
-            String dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
-            try
+            if (txtSoTKChuyen.Text.Length != 9 || txtSoTKNhan.Text.Length != 9)
             {
-                Program.ExecSqlNonQuery("EXEC sp_ChuyenTien '" + txtSoTKChuyen.Text + "','" + txtSoTKNhan.Text + "','" + nuSoTien.Value + "','" + dt + "','" + Program.username + "'" + txtMACN.Text);
-                DS.EnforceConstraints = false;
-                this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
+                System.Windows.Forms.MessageBox.Show("Vui lòng chọn tài khoản chuyển/nhận", "", MessageBoxButtons.OK);
             }
-            catch(Exception ex)
+            else if (nuSoTien.Value == 0)
             {
-                System.Windows.Forms.MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
+                System.Windows.Forms.MessageBox.Show("Số tiền chuyển phải lớn hơn 0 VND", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                try
+                {
+                    String dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
+                    if (System.Windows.Forms.MessageBox.Show("Xác Nhận Giao Dịch??", "Xác nhận",
+                    MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+
+                        Program.ExecSqlNonQuery("EXEC sp_ChuyenTien '" + txtSoTKChuyen.Text
+                                                            + "','" + txtSoTKNhan.Text
+                                                            + "','" + nuSoTien.Value
+                                                            + "','" + dt
+                                                            + "','" + txtMANV.Text + "'");
+                        /*DS.EnforceConstraints = false;
+                        this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
+                        this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);*/
+                        System.Windows.Forms.MessageBox.Show("Giao Dịch Thành Công ", "", MessageBoxButtons.OK);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
+                }
+                taiKhoanGridControl.Enabled = khachHangGridControl.Enabled = true;
+                hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
+                pnlGD.Enabled = false;
+                bdsTK.Position = vitri;
                 return;
             }
-            taiKhoanGridControl.Enabled = khachHangGridControl.Enabled = true;
-            hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
-            pnlGD.Enabled = false;
-            bdsTK.Position = vitri;
         }
 
         private void btnUndo_Click(object sender, EventArgs e)

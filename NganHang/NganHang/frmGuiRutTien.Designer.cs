@@ -108,7 +108,7 @@
             // 
             mANVLabel.AutoSize = true;
             mANVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mANVLabel.Location = new System.Drawing.Point(403, 66);
+            mANVLabel.Location = new System.Drawing.Point(375, 66);
             mANVLabel.Name = "mANVLabel";
             mANVLabel.Size = new System.Drawing.Size(62, 20);
             mANVLabel.TabIndex = 10;
@@ -118,11 +118,11 @@
             // 
             sOTIENLabel.AutoSize = true;
             sOTIENLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sOTIENLabel.Location = new System.Drawing.Point(403, 26);
+            sOTIENLabel.Location = new System.Drawing.Point(375, 23);
             sOTIENLabel.Name = "sOTIENLabel";
-            sOTIENLabel.Size = new System.Drawing.Size(75, 20);
+            sOTIENLabel.Size = new System.Drawing.Size(66, 20);
             sOTIENLabel.TabIndex = 8;
-            sOTIENLabel.Text = "SOTIEN:";
+            sOTIENLabel.Text = "Số tiền:";
             // 
             // lOAIGDLabel
             // 
@@ -130,9 +130,9 @@
             lOAIGDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lOAIGDLabel.Location = new System.Drawing.Point(37, 66);
             lOAIGDLabel.Name = "lOAIGDLabel";
-            lOAIGDLabel.Size = new System.Drawing.Size(78, 20);
+            lOAIGDLabel.Size = new System.Drawing.Size(118, 20);
             lOAIGDLabel.TabIndex = 4;
-            lOAIGDLabel.Text = "LOAIGD:";
+            lOAIGDLabel.Text = "Loại giao dịch:";
             // 
             // sOTKLabel
             // 
@@ -140,9 +140,9 @@
             sOTKLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             sOTKLabel.Location = new System.Drawing.Point(37, 26);
             sOTKLabel.Name = "sOTKLabel";
-            sOTKLabel.Size = new System.Drawing.Size(59, 20);
+            sOTKLabel.Size = new System.Drawing.Size(106, 20);
             sOTKLabel.TabIndex = 2;
-            sOTKLabel.Text = "SOTK:";
+            sOTKLabel.Text = "Số tài khoản:";
             // 
             // panelControl1
             // 
@@ -265,7 +265,7 @@
             // 
             this.txtSOTK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTK, "SOTK", true));
             this.txtSOTK.Enabled = false;
-            this.txtSOTK.Location = new System.Drawing.Point(126, 23);
+            this.txtSOTK.Location = new System.Drawing.Point(161, 23);
             this.txtSOTK.Name = "txtSOTK";
             this.txtSOTK.Size = new System.Drawing.Size(121, 23);
             this.txtSOTK.TabIndex = 14;
@@ -287,12 +287,12 @@
             // 
             // txtMANV
             // 
-            this.txtMANV.Location = new System.Drawing.Point(497, 63);
+            this.txtMANV.Location = new System.Drawing.Point(447, 63);
             this.txtMANV.Name = "txtMANV";
             this.txtMANV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMANV.Properties.Appearance.Options.UseFont = true;
             this.txtMANV.Properties.ReadOnly = true;
-            this.txtMANV.Size = new System.Drawing.Size(120, 26);
+            this.txtMANV.Size = new System.Drawing.Size(170, 26);
             this.txtMANV.TabIndex = 13;
             // 
             // btnXacNhan
@@ -314,7 +314,7 @@
             0,
             0,
             0});
-            this.txtSoTien.Location = new System.Drawing.Point(497, 24);
+            this.txtSoTien.Location = new System.Drawing.Point(447, 19);
             this.txtSoTien.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -326,7 +326,7 @@
             0,
             0});
             this.txtSoTien.Name = "txtSoTien";
-            this.txtSoTien.Size = new System.Drawing.Size(120, 27);
+            this.txtSoTien.Size = new System.Drawing.Size(170, 27);
             this.txtSoTien.TabIndex = 9;
             this.txtSoTien.ThousandsSeparator = true;
             this.txtSoTien.Value = new decimal(new int[] {
@@ -343,7 +343,7 @@
             this.cmbLoaiGD.Items.AddRange(new object[] {
             "Gửi tiền",
             "Rút tiền"});
-            this.cmbLoaiGD.Location = new System.Drawing.Point(126, 63);
+            this.cmbLoaiGD.Location = new System.Drawing.Point(161, 63);
             this.cmbLoaiGD.Name = "cmbLoaiGD";
             this.cmbLoaiGD.Size = new System.Drawing.Size(121, 28);
             this.cmbLoaiGD.TabIndex = 5;
