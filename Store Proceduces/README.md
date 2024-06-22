@@ -127,6 +127,12 @@
 - input: type (0/None: theo MaKH; other: tên)
 - output (table): CMND, NgayCap, Ho, Ten, Diachi, Gioitinh, SDT
 - role: NGANHANG, CHINHANH
+### [sp_DanhSachKhachHang_ChiNhanh (✓)](/Store%20Proceduces/sp_DanhSachKhachHang_ChiNhanh.sql)
+- Describe: 
+    - Lấy danh sách khách hàng của chi nhánh hiện tại
+- input:
+- output (table): CMND, HO, TEN, PHAI, DIACHI, NGAYCAP, SoDT, MACN
+- role: NGANHANG, CHINHANH
 ### [sp_DanhSachKhachHang_NganHang (✓)](/Store%20Proceduces/sp_DanhSachKhachHang_NganHang.sql)
 - Describe: 
     - Lấy danh sách khách hàng tất cả chi nhánh, cùng chi nhánh tăng theo tên
