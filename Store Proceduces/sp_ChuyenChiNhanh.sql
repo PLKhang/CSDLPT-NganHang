@@ -1,4 +1,11 @@
-create proc sp_ChuyenChiNhanh
+USE [NGANHANG]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_ChuyenChiNhanh]    Script Date: 6/22/2024 3:16:09 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[sp_ChuyenChiNhanh]
 @MANV nchar(10)
 as
 SET XACT_ABORT ON;
@@ -26,8 +33,14 @@ BEGIN TRY
 	END
 	else
 	BEGIN
-		declare @newMANV nchar(10);
-		SET @newMANV = dbo.fn_TaoMaNV()
+		DECLARE @temp nchar(10);
+		DECLARE @newID bigint;
+		DECLARE @newMANV nchar(10);
+
+		SELECT @temp = MAX(MANV) FROM LINK1.NGANHANG.dbo.NHANVIEN;
+
+		SET @newID = CAST((SUBSTRING(@temp, 3, 8)) AS bigint) + 2;
+		SET @newMANV = 'NV' + RIGHT('0000000000' + CAST(@newID AS NVARCHAR(10)), 8)
 
 		insert into LINK1.NGANHANG.dbo.NHANVIEN (MANV, CMND, HO, TEN, PHAI,SoDT, DIACHI, MACN, TrangThaiXoa)
 		select	@newMANV as MANV, 
@@ -60,3 +73,4 @@ BEGIN CATCH
 		RAISERROR (@ErrorMessage,16,1)
 	END
 END CATCH
+
