@@ -1,6 +1,6 @@
 USE [NGANHANG]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_SaoKeTaiKhoanNganHang]    Script Date: 6/22/2024 2:04:42 AM ******/
+/****** Object:  StoredProcedure [dbo].[SP_SaoKeTaiKhoanNganHang]    Script Date: 6/23/2024 9:53:02 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13,61 +13,56 @@ BEGIN
     DECLARE @CrsrVar CURSOR, @SOTK nchar(9), @SOTIEN money, @SODUDAU money, 
     @SODUSAU money, @SOTK_NHAN nchar(9), @SOTK_CHUYEN nchar(9),@SODUSAU_TK_NHAN money, @LOAIGD nchar(10),@NGAYGD DATETIME
 
-    SET @CrsrVar=CURSOR KEYSET FOR 
+	declare @temp datetime
+	set @temp = DATEADD(day, 1, @dateTo)
+    
+	SET @CrsrVar=CURSOR KEYSET FOR 
 
     SELECT GR.SOTIEN,GR.LOAIGD,GR.NGAYGD 
 	FROM (SELECT SOTK, SOTIEN, LOAIGD, NGAYGD from dbo.GD_GOIRUT ) AS GR
     WHERE GR.SOTK = @SOTK_SAOKE
-    AND NGAYGD >= @dateFrom     
+    AND NGAYGD between @dateFrom and @temp
 
     UNION ALL
 
 	SELECT GR.SOTIEN,GR.LOAIGD,GR.NGAYGD 
 	FROM (SELECT SOTK, SOTIEN, LOAIGD, NGAYGD from LINK1.NGANHANG.dbo.GD_GOIRUT ) AS GR
     WHERE GR.SOTK = @SOTK_SAOKE
-    AND NGAYGD >= @dateFrom     
+    AND NGAYGD between @dateFrom and @temp   
 
     UNION ALL
 
     SELECT CT.SOTIEN, 'CT' ,CT.NGAYGD 
 	FROM (SELECT SOTIEN, NGAYGD, SOTK_CHUYEN from dbo.GD_CHUYENTIEN ) AS CT
     WHERE CT.SOTK_CHUYEN = @SOTK_SAOKE
-    AND NGAYGD >= @dateFrom  
+    AND NGAYGD between @dateFrom and @temp
 
     UNION ALL 
 
     SELECT CT_Nhan.SOTIEN, 'NT' ,CT_Nhan.NGAYGD 
 	FROM (SELECT SOTIEN, SOTK_NHAN, NGAYGD from GD_CHUYENTIEN) AS CT_Nhan
     WHERE SOTK_NHAN = @SOTK_SAOKE
-    AND NGAYGD >= @dateFrom    
+    AND NGAYGD between @dateFrom and @temp  
 
 	UNION ALL
 
     SELECT CT.SOTIEN, 'CT' ,CT.NGAYGD 
 	FROM (SELECT SOTIEN, NGAYGD, SOTK_CHUYEN from LINK1.NGANHANG.dbo.GD_CHUYENTIEN ) AS CT
     WHERE CT.SOTK_CHUYEN = @SOTK_SAOKE
-    AND NGAYGD >= @dateFrom  
+    AND NGAYGD between @dateFrom and @temp
 
     UNION ALL 
 
     SELECT CT_Nhan.SOTIEN, 'NT' ,CT_Nhan.NGAYGD 
 	FROM (SELECT SOTIEN, SOTK_NHAN, NGAYGD from LINK1.NGANHANG.dbo.GD_CHUYENTIEN) AS CT_Nhan
     WHERE SOTK_NHAN = @SOTK_SAOKE
-    AND NGAYGD >= @dateFrom  
+    AND NGAYGD between @dateFrom and @temp
     ORDER BY NGAYGD DESC
+	
+	EXEC @SODUSAU = dbo.sp_SoDuSau @SOTK_SAOKE, @temp
 
-    SELECT @SODUSAU = SODU FROM dbo.TaiKhoan WHERE SOTK = @SOTK_SAOKE
     OPEN @CrsrVar
     FETCH NEXT FROM @CrsrVar INTO @SOTIEN,@LOAIGD,@NGAYGD
-	while(@NGAYGD > DATEADD(DAY, 1, @dateTo))
-	begin
-		if @LOAIGD = N'GT' or @LOAIGD = N'NT'
-			SET @SODUSAU = @SODUSAU - @SOTIEN
-		else
-			SET @SODUSAU = @SODUSAU + @SOTIEN
-		FETCH NEXT FROM @CrsrVar INTO @SOTIEN,@LOAIGD,@NGAYGD
-	end
-
     WHILE(@@FETCH_STATUS <>-1)
     BEGIN       
         IF @LOAIGD = N'GT' or @LOAIGD = N'NT'
