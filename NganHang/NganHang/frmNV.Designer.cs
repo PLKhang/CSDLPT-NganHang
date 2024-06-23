@@ -38,7 +38,7 @@
             System.Windows.Forms.Label soDTLabel;
             System.Windows.Forms.Label mACNLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNV));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -91,6 +91,7 @@
             this.bdsCT = new System.Windows.Forms.BindingSource(this.components);
             this.gD_CHUYENTIENTableAdapter = new NganHang.DSTableAdapters.GD_CHUYENTIENTableAdapter();
             this.dS_CHINHANHTableAdapter = new NganHang.DSTableAdapters.DS_CHINHANHTableAdapter();
+            this.btnUnDelete = new DevExpress.XtraBars.BarButtonItem();
             CMNDLabel = new System.Windows.Forms.Label();
             mANVLabel1 = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
@@ -214,9 +215,10 @@
             this.btnExit,
             this.btnUpdate,
             this.btnChuyenNV,
-            this.btnMoveEmployee});
+            this.btnMoveEmployee,
+            this.btnUnDelete});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 9;
+            this.barManager1.MaxItemId = 10;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -241,6 +243,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUpdate, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUndo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnMoveEmployee, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -572,9 +575,9 @@
             this.gcNV.DataSource = this.bdsNV;
             this.gcNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gcNV.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gcNV.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gcNV.Location = new System.Drawing.Point(0, 86);
             this.gcNV.MainView = this.gridView1;
             this.gcNV.Margin = new System.Windows.Forms.Padding(4);
@@ -721,6 +724,16 @@
             // 
             this.dS_CHINHANHTableAdapter.ClearBeforeFill = true;
             // 
+            // btnUnDelete
+            // 
+            this.btnUnDelete.Caption = "Hủy xóa";
+            this.btnUnDelete.Description = "Khôi phục NV đã xóa";
+            this.btnUnDelete.Id = 9;
+            this.btnUnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUnDelete.ImageOptions.Image")));
+            this.btnUnDelete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUnDelete.ImageOptions.LargeImage")));
+            this.btnUnDelete.Name = "btnUnDelete";
+            this.btnUnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUnDelete_ItemClick);
+            // 
             // frmNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -811,5 +824,6 @@
         private System.Windows.Forms.TextBox txtMACN;
         private System.Windows.Forms.BindingSource bdsChuyenNV;
         private DSTableAdapters.DS_CHINHANHTableAdapter dS_CHINHANHTableAdapter;
+        private DevExpress.XtraBars.BarButtonItem btnUnDelete;
     }
 }

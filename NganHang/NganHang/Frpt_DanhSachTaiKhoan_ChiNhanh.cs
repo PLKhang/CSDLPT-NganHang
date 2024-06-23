@@ -87,8 +87,8 @@ namespace NganHang
                 rpt.lblMaNV.Text = Program.username;
                 rpt.lblName.Text = Program.mHoten;
                 rpt.lblExportDate.Text = DateTime.Now.ToString();
-                rpt.lblStartdate.Text = startdateTimePicker.Value.ToShortDateString();
-                rpt.lblEnddate.Text = enddateTimePicker.Value.ToShortDateString();
+                rpt.lblStartdate.Text = startdateTimePicker.Value.ToString("dd/MM/yyyy");
+                rpt.lblEnddate.Text = enddateTimePicker.Value.ToString("dd/MM/yyyy");
                 if (cbTatCaChiNhanh.Checked)
                 {
                     rpt.lblLoai.Text = "Tất cả chi nhánh";
