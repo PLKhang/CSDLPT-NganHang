@@ -41,6 +41,7 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.lblTitle = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -49,6 +50,7 @@
             this.tableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.table2 = new DevExpress.XtraReports.UI.XRTable();
             this.tableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -63,23 +65,25 @@
             this.DetailData3_Odd = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.lblDayFrom = new DevExpress.XtraReports.UI.XRLabel();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.lblDayTo = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblSoTK = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblStartdate = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblEnddate = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblName = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblCreateDate = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblMoneyStartdate = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblStartdate1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCMND = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblStartdate1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblEnddate1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblMoneyStartdate = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblName = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblEnddate = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblStartdate = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblSoTK = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDayFrom = new DevExpress.XtraReports.UI.XRLabel();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.lblMoneyEnddate = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblEnddate1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDayTo = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -117,7 +121,7 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.lblTitle});
             this.ReportHeader.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.ReportHeader.HeightF = 39.16668F;
+            this.ReportHeader.HeightF = 60.83333F;
             this.ReportHeader.Name = "ReportHeader";
             this.ReportHeader.StylePriority.UseFont = false;
             this.ReportHeader.StylePriority.UseTextAlignment = false;
@@ -137,14 +141,36 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel6,
             this.table1});
             this.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
             this.GroupHeader1.HeightF = 28F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
+            // xrLabel6
+            // 
+            this.xrLabel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(107)))));
+            this.xrLabel6.BorderColor = System.Drawing.Color.DarkGray;
+            this.xrLabel6.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrLabel6.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(46F, 27.99998F);
+            this.xrLabel6.StyleName = "Title";
+            this.xrLabel6.StylePriority.UseBackColor = false;
+            this.xrLabel6.StylePriority.UseBorderColor = false;
+            this.xrLabel6.StylePriority.UseBorders = false;
+            this.xrLabel6.StylePriority.UseFont = false;
+            this.xrLabel6.StylePriority.UseTextAlignment = false;
+            this.xrLabel6.Text = "STT";
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            // 
             // table1
             // 
-            this.table1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.table1.LocationFloat = new DevExpress.Utils.PointFloat(46F, 0F);
             this.table1.Name = "table1";
             this.table1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow1});
@@ -256,9 +282,31 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel8,
             this.table2});
-            this.Detail.HeightF = 25F;
+            this.Detail.HeightF = 25.00001F;
             this.Detail.Name = "Detail";
+            // 
+            // xrLabel8
+            // 
+            this.xrLabel8.BorderColor = System.Drawing.Color.DarkGray;
+            this.xrLabel8.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrLabel8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DataSource.CurrentRowIndex] + 1")});
+            this.xrLabel8.Font = new DevExpress.Drawing.DXFont("Arial", 11F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel8.Multiline = true;
+            this.xrLabel8.Name = "xrLabel8";
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(46F, 25.00001F);
+            this.xrLabel8.StyleName = "Title";
+            this.xrLabel8.StylePriority.UseBorderColor = false;
+            this.xrLabel8.StylePriority.UseBorders = false;
+            this.xrLabel8.StylePriority.UseFont = false;
+            this.xrLabel8.StylePriority.UseTextAlignment = false;
+            this.xrLabel8.Text = "lblMoneyEnddate";
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // table2
             // 
@@ -266,7 +314,7 @@
             this.table2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.table2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.table2.LocationFloat = new DevExpress.Utils.PointFloat(46F, 0F);
             this.table2.Name = "table2";
             this.table2.OddStyleName = "DetailData3_Odd";
             this.table2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -329,7 +377,7 @@
             this.tableCell7.StylePriority.UseFont = false;
             this.tableCell7.StylePriority.UseTextAlignment = false;
             this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell7.TextFormatString = "{0:yyyy-MM-dd HH:mm}";
+            this.tableCell7.TextFormatString = "{0:dd/MM/yyyy HH:mm:ss}";
             this.tableCell7.Weight = 0.18571427525655587D;
             // 
             // tableCell8
@@ -479,6 +527,8 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblCreateDate,
+            this.xrLabel7,
             this.lblMoneyStartdate,
             this.lblStartdate1,
             this.xrLabel5,
@@ -494,6 +544,163 @@
             this.lblDayFrom});
             this.PageHeader.HeightF = 137.5F;
             this.PageHeader.Name = "PageHeader";
+            // 
+            // lblCreateDate
+            // 
+            this.lblCreateDate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblCreateDate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 67.5F);
+            this.lblCreateDate.Multiline = true;
+            this.lblCreateDate.Name = "lblCreateDate";
+            this.lblCreateDate.SizeF = new System.Drawing.SizeF(198.3333F, 18.33334F);
+            this.lblCreateDate.StyleName = "Title";
+            this.lblCreateDate.StylePriority.UseFont = false;
+            this.lblCreateDate.Text = "lblCreateDate";
+            // 
+            // xrLabel7
+            // 
+            this.xrLabel7.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(401.6668F, 67.5F);
+            this.xrLabel7.Multiline = true;
+            this.xrLabel7.Name = "xrLabel7";
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(100F, 18.33334F);
+            this.xrLabel7.StyleName = "Title";
+            this.xrLabel7.StylePriority.UseFont = false;
+            this.xrLabel7.Text = "Ngày lập:";
+            // 
+            // lblMoneyStartdate
+            // 
+            this.lblMoneyStartdate.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SODUDAU]")});
+            this.lblMoneyStartdate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblMoneyStartdate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 119.1666F);
+            this.lblMoneyStartdate.Multiline = true;
+            this.lblMoneyStartdate.Name = "lblMoneyStartdate";
+            this.lblMoneyStartdate.SizeF = new System.Drawing.SizeF(149.1665F, 18.33334F);
+            this.lblMoneyStartdate.StyleName = "Title";
+            this.lblMoneyStartdate.StylePriority.UseFont = false;
+            this.lblMoneyStartdate.Text = "lblMoneyStartdate";
+            this.lblMoneyStartdate.TextFormatString = "{0:##,# VND }";
+            // 
+            // lblStartdate1
+            // 
+            this.lblStartdate1.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblStartdate1.LocationFloat = new DevExpress.Utils.PointFloat(130.8333F, 119.1666F);
+            this.lblStartdate1.Multiline = true;
+            this.lblStartdate1.Name = "lblStartdate1";
+            this.lblStartdate1.SizeF = new System.Drawing.SizeF(370.8335F, 18.33334F);
+            this.lblStartdate1.StyleName = "Title";
+            this.lblStartdate1.StylePriority.UseFont = false;
+            this.lblStartdate1.Text = "lblStartdate";
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 67.5F);
+            this.xrLabel5.Multiline = true;
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(144.1667F, 18.33334F);
+            this.xrLabel5.StyleName = "Title";
+            this.xrLabel5.StylePriority.UseFont = false;
+            this.xrLabel5.Text = "Số CMND     :";
+            // 
+            // lblCMND
+            // 
+            this.lblCMND.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblCMND.LocationFloat = new DevExpress.Utils.PointFloat(144.1667F, 67.5F);
+            this.lblCMND.Multiline = true;
+            this.lblCMND.Name = "lblCMND";
+            this.lblCMND.SizeF = new System.Drawing.SizeF(139.9999F, 18.33334F);
+            this.lblCMND.StyleName = "Title";
+            this.lblCMND.StylePriority.UseFont = false;
+            this.lblCMND.Text = "lblCMND";
+            // 
+            // lblName
+            // 
+            this.lblName.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblName.LocationFloat = new DevExpress.Utils.PointFloat(144.1667F, 32.5F);
+            this.lblName.Multiline = true;
+            this.lblName.Name = "lblName";
+            this.lblName.SizeF = new System.Drawing.SizeF(240.8333F, 18.33334F);
+            this.lblName.StyleName = "Title";
+            this.lblName.StylePriority.UseFont = false;
+            this.lblName.Text = "lblName";
+            // 
+            // lblEnddate
+            // 
+            this.lblEnddate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblEnddate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 32.5F);
+            this.lblEnddate.Multiline = true;
+            this.lblEnddate.Name = "lblEnddate";
+            this.lblEnddate.SizeF = new System.Drawing.SizeF(198.3333F, 18.33334F);
+            this.lblEnddate.StyleName = "Title";
+            this.lblEnddate.StylePriority.UseFont = false;
+            this.lblEnddate.Text = "lblEnddate";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(401.6668F, 32.5F);
+            this.xrLabel4.Multiline = true;
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 18.33334F);
+            this.xrLabel4.StyleName = "Title";
+            this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.Text = "Đến ngày:";
+            // 
+            // lblStartdate
+            // 
+            this.lblStartdate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblStartdate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 0F);
+            this.lblStartdate.Multiline = true;
+            this.lblStartdate.Name = "lblStartdate";
+            this.lblStartdate.SizeF = new System.Drawing.SizeF(198.3333F, 18.33335F);
+            this.lblStartdate.StyleName = "Title";
+            this.lblStartdate.StylePriority.UseFont = false;
+            this.lblStartdate.Text = "lblStartdate";
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(401.6668F, 0F);
+            this.xrLabel3.Multiline = true;
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(100F, 18.33334F);
+            this.xrLabel3.StyleName = "Title";
+            this.xrLabel3.StylePriority.UseFont = false;
+            this.xrLabel3.Text = "Từ ngày:";
+            // 
+            // lblSoTK
+            // 
+            this.lblSoTK.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblSoTK.LocationFloat = new DevExpress.Utils.PointFloat(144.1667F, 0F);
+            this.lblSoTK.Multiline = true;
+            this.lblSoTK.Name = "lblSoTK";
+            this.lblSoTK.SizeF = new System.Drawing.SizeF(139.9999F, 18.33334F);
+            this.lblSoTK.StyleName = "Title";
+            this.lblSoTK.StylePriority.UseFont = false;
+            this.lblSoTK.Text = "lblSoTK";
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel2.Multiline = true;
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(144.1667F, 18.33334F);
+            this.xrLabel2.StyleName = "Title";
+            this.xrLabel2.StylePriority.UseFont = false;
+            this.xrLabel2.Text = "Số tài khoản:";
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 32.5F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(144.1667F, 18.33334F);
+            this.xrLabel1.StyleName = "Title";
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.Text = "Tên khách hàng:";
             // 
             // lblDayFrom
             // 
@@ -515,137 +722,19 @@
             this.ReportFooter.HeightF = 50.78791F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // lblDayTo
+            // lblMoneyEnddate
             // 
-            this.lblDayTo.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblDayTo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10F);
-            this.lblDayTo.Multiline = true;
-            this.lblDayTo.Name = "lblDayTo";
-            this.lblDayTo.SizeF = new System.Drawing.SizeF(130.8334F, 18.33334F);
-            this.lblDayTo.StyleName = "Title";
-            this.lblDayTo.StylePriority.UseFont = false;
-            this.lblDayTo.Text = "Số dư tới ngày ";
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 32.5F);
-            this.xrLabel1.Multiline = true;
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(109.1667F, 18.33334F);
-            this.xrLabel1.StyleName = "Title";
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "Họ và tên     :";
-            // 
-            // xrLabel2
-            // 
-            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLabel2.Multiline = true;
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(109.1667F, 18.33334F);
-            this.xrLabel2.StyleName = "Title";
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.Text = "Số tài khoản:";
-            // 
-            // lblSoTK
-            // 
-            this.lblSoTK.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblSoTK.LocationFloat = new DevExpress.Utils.PointFloat(109.1667F, 0F);
-            this.lblSoTK.Multiline = true;
-            this.lblSoTK.Name = "lblSoTK";
-            this.lblSoTK.SizeF = new System.Drawing.SizeF(139.9999F, 18.33334F);
-            this.lblSoTK.StyleName = "Title";
-            this.lblSoTK.StylePriority.UseFont = false;
-            this.lblSoTK.Text = "lblSoTK";
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(401.6668F, 0F);
-            this.xrLabel3.Multiline = true;
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(100F, 18.33334F);
-            this.xrLabel3.StyleName = "Title";
-            this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.Text = "Từ ngày:";
-            // 
-            // xrLabel4
-            // 
-            this.xrLabel4.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(401.6668F, 50F);
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 18.33334F);
-            this.xrLabel4.StyleName = "Title";
-            this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.Text = "Đến ngày:";
-            // 
-            // lblStartdate
-            // 
-            this.lblStartdate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblStartdate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 0F);
-            this.lblStartdate.Multiline = true;
-            this.lblStartdate.Name = "lblStartdate";
-            this.lblStartdate.SizeF = new System.Drawing.SizeF(198.3333F, 50.00001F);
-            this.lblStartdate.StyleName = "Title";
-            this.lblStartdate.StylePriority.UseFont = false;
-            this.lblStartdate.Text = "lblStartdate";
-            // 
-            // lblEnddate
-            // 
-            this.lblEnddate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblEnddate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 50F);
-            this.lblEnddate.Multiline = true;
-            this.lblEnddate.Name = "lblEnddate";
-            this.lblEnddate.SizeF = new System.Drawing.SizeF(198.3333F, 48.33334F);
-            this.lblEnddate.StyleName = "Title";
-            this.lblEnddate.StylePriority.UseFont = false;
-            this.lblEnddate.Text = "lblEnddate";
-            // 
-            // lblName
-            // 
-            this.lblName.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblName.LocationFloat = new DevExpress.Utils.PointFloat(109.1667F, 32.5F);
-            this.lblName.Multiline = true;
-            this.lblName.Name = "lblName";
-            this.lblName.SizeF = new System.Drawing.SizeF(265.8333F, 18.33334F);
-            this.lblName.StyleName = "Title";
-            this.lblName.StylePriority.UseFont = false;
-            this.lblName.Text = "lblName";
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 67.5F);
-            this.xrLabel5.Multiline = true;
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(109.1667F, 18.33334F);
-            this.xrLabel5.StyleName = "Title";
-            this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.Text = "Số CMND     :";
-            // 
-            // lblCMND
-            // 
-            this.lblCMND.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblCMND.LocationFloat = new DevExpress.Utils.PointFloat(109.1667F, 67.5F);
-            this.lblCMND.Multiline = true;
-            this.lblCMND.Name = "lblCMND";
-            this.lblCMND.SizeF = new System.Drawing.SizeF(139.9999F, 18.33334F);
-            this.lblCMND.StyleName = "Title";
-            this.lblCMND.StylePriority.UseFont = false;
-            this.lblCMND.Text = "lblCMND";
-            // 
-            // lblStartdate1
-            // 
-            this.lblStartdate1.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblStartdate1.LocationFloat = new DevExpress.Utils.PointFloat(130.8333F, 119.1666F);
-            this.lblStartdate1.Multiline = true;
-            this.lblStartdate1.Name = "lblStartdate1";
-            this.lblStartdate1.SizeF = new System.Drawing.SizeF(370.8335F, 18.33334F);
-            this.lblStartdate1.StyleName = "Title";
-            this.lblStartdate1.StylePriority.UseFont = false;
-            this.lblStartdate1.Text = "lblStartdate";
+            this.lblMoneyEnddate.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SODUSAU]")});
+            this.lblMoneyEnddate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblMoneyEnddate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 10F);
+            this.lblMoneyEnddate.Multiline = true;
+            this.lblMoneyEnddate.Name = "lblMoneyEnddate";
+            this.lblMoneyEnddate.SizeF = new System.Drawing.SizeF(149.1665F, 18.33334F);
+            this.lblMoneyEnddate.StyleName = "Title";
+            this.lblMoneyEnddate.StylePriority.UseFont = false;
+            this.lblMoneyEnddate.Text = "lblMoneyEnddate";
+            this.lblMoneyEnddate.TextFormatString = "{0:##,# VND }";
             // 
             // lblEnddate1
             // 
@@ -658,27 +747,16 @@
             this.lblEnddate1.StylePriority.UseFont = false;
             this.lblEnddate1.Text = "lblEnddate";
             // 
-            // lblMoneyStartdate
+            // lblDayTo
             // 
-            this.lblMoneyStartdate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblMoneyStartdate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 119.1666F);
-            this.lblMoneyStartdate.Multiline = true;
-            this.lblMoneyStartdate.Name = "lblMoneyStartdate";
-            this.lblMoneyStartdate.SizeF = new System.Drawing.SizeF(149.1665F, 18.33334F);
-            this.lblMoneyStartdate.StyleName = "Title";
-            this.lblMoneyStartdate.StylePriority.UseFont = false;
-            this.lblMoneyStartdate.Text = "lblMoneyStartdate";
-            // 
-            // lblMoneyEnddate
-            // 
-            this.lblMoneyEnddate.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.lblMoneyEnddate.LocationFloat = new DevExpress.Utils.PointFloat(501.6668F, 10F);
-            this.lblMoneyEnddate.Multiline = true;
-            this.lblMoneyEnddate.Name = "lblMoneyEnddate";
-            this.lblMoneyEnddate.SizeF = new System.Drawing.SizeF(149.1665F, 18.33334F);
-            this.lblMoneyEnddate.StyleName = "Title";
-            this.lblMoneyEnddate.StylePriority.UseFont = false;
-            this.lblMoneyEnddate.Text = "lblMoneyEnddate";
+            this.lblDayTo.Font = new DevExpress.Drawing.DXFont("Arial", 11F, DevExpress.Drawing.DXFontStyle.Bold);
+            this.lblDayTo.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10F);
+            this.lblDayTo.Multiline = true;
+            this.lblDayTo.Name = "lblDayTo";
+            this.lblDayTo.SizeF = new System.Drawing.SizeF(130.8334F, 18.33334F);
+            this.lblDayTo.StyleName = "Title";
+            this.lblDayTo.StylePriority.UseFont = false;
+            this.lblDayTo.Text = "Số dư tới ngày ";
             // 
             // Xrpt_SaoKe
             // 
@@ -695,7 +773,7 @@
             this.DataMember = "SP_SaoKeTaiKhoanNganHang";
             this.DataSource = this.sqlDataSource1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(100F, 50F, 100F, 100F);
+            this.Margins = new DevExpress.Drawing.DXMargins(54F, 50F, 100F, 100F);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.DetailCaption1,
@@ -760,5 +838,9 @@
         public DevExpress.XtraReports.UI.XRLabel lblEnddate1;
         public DevExpress.XtraReports.UI.XRLabel lblMoneyStartdate;
         public DevExpress.XtraReports.UI.XRLabel lblMoneyEnddate;
+        public DevExpress.XtraReports.UI.XRLabel lblCreateDate;
+        public DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        public DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        public DevExpress.XtraReports.UI.XRLabel xrLabel8;
     }
 }

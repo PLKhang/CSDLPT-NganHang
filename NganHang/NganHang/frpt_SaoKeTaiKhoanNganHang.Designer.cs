@@ -60,19 +60,20 @@
             // lblHoTen
             // 
             lblHoTen.AutoSize = true;
-            lblHoTen.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblHoTen.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblHoTen.Location = new System.Drawing.Point(44, 176);
             lblHoTen.Name = "lblHoTen";
-            lblHoTen.Size = new System.Drawing.Size(53, 17);
+            lblHoTen.Size = new System.Drawing.Size(67, 21);
             lblHoTen.TabIndex = 21;
             lblHoTen.Text = "Họ Tên";
             // 
             // cMNDLabel
             // 
             cMNDLabel.AutoSize = true;
+            cMNDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             cMNDLabel.Location = new System.Drawing.Point(47, 70);
             cMNDLabel.Name = "cMNDLabel";
-            cMNDLabel.Size = new System.Drawing.Size(50, 16);
+            cMNDLabel.Size = new System.Drawing.Size(71, 24);
             cMNDLabel.TabIndex = 23;
             cMNDLabel.Text = "CMND:";
             // 
@@ -83,6 +84,7 @@
             // 
             // btn_Thoat
             // 
+            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.Location = new System.Drawing.Point(462, 228);
             this.btn_Thoat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Thoat.Name = "btn_Thoat";
@@ -94,6 +96,7 @@
             // 
             // btn_SaoKe
             // 
+            this.btn_SaoKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaoKe.Location = new System.Drawing.Point(295, 228);
             this.btn_SaoKe.Margin = new System.Windows.Forms.Padding(4);
             this.btn_SaoKe.Name = "btn_SaoKe";
@@ -105,47 +108,52 @@
             // 
             // endDateTimePicker
             // 
+            this.endDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDateTimePicker.Location = new System.Drawing.Point(588, 132);
             this.endDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.endDateTimePicker.Name = "endDateTimePicker";
-            this.endDateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.endDateTimePicker.Size = new System.Drawing.Size(265, 28);
             this.endDateTimePicker.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(509, 136);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.Size = new System.Drawing.Size(91, 24);
             this.label3.TabIndex = 15;
             this.label3.Text = "Đến ngày";
             // 
             // startDateTimePicker
             // 
+            this.startDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startDateTimePicker.Location = new System.Drawing.Point(588, 70);
             this.startDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.startDateTimePicker.Name = "startDateTimePicker";
-            this.startDateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.startDateTimePicker.Size = new System.Drawing.Size(265, 28);
             this.startDateTimePicker.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(509, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.Size = new System.Drawing.Size(79, 24);
             this.label2.TabIndex = 13;
             this.label2.Text = "Từ ngày";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(44, 122);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.Size = new System.Drawing.Size(113, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "Số tài khoản";
             // 
@@ -167,6 +175,7 @@
             this.tableAdapterManager.KHACHHANGTableAdapter = this.kHACHHANGTableAdapter;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.TAIKHOANTableAdapter = this.tAIKHOANTableAdapter;
+            this.tableAdapterManager.TK_KHTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // tAIKHOANTableAdapter
@@ -178,27 +187,30 @@
             this.cmbCMND.DataSource = this.bdsKH;
             this.cmbCMND.DisplayMember = "CMND";
             this.cmbCMND.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCMND.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCMND.FormattingEnabled = true;
             this.cmbCMND.Location = new System.Drawing.Point(194, 67);
             this.cmbCMND.Name = "cmbCMND";
-            this.cmbCMND.Size = new System.Drawing.Size(192, 24);
+            this.cmbCMND.Size = new System.Drawing.Size(192, 30);
             this.cmbCMND.TabIndex = 25;
             this.cmbCMND.ValueMember = "CMND";
             // 
             // txtHO
             // 
             this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "HO", true));
+            this.txtHO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHO.Location = new System.Drawing.Point(194, 171);
             this.txtHO.Name = "txtHO";
-            this.txtHO.Size = new System.Drawing.Size(149, 22);
+            this.txtHO.Size = new System.Drawing.Size(149, 28);
             this.txtHO.TabIndex = 26;
             // 
             // txtTEN
             // 
             this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "TEN", true));
+            this.txtTEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTEN.Location = new System.Drawing.Point(354, 171);
             this.txtTEN.Name = "txtTEN";
-            this.txtTEN.Size = new System.Drawing.Size(100, 22);
+            this.txtTEN.Size = new System.Drawing.Size(100, 28);
             this.txtTEN.TabIndex = 27;
             // 
             // bdsTK
@@ -211,10 +223,11 @@
             this.cmbSOTK.DataSource = this.fKTaiKhoanKhachHangBindingSource;
             this.cmbSOTK.DisplayMember = "SOTK";
             this.cmbSOTK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSOTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSOTK.FormattingEnabled = true;
             this.cmbSOTK.Location = new System.Drawing.Point(194, 122);
             this.cmbSOTK.Name = "cmbSOTK";
-            this.cmbSOTK.Size = new System.Drawing.Size(198, 24);
+            this.cmbSOTK.Size = new System.Drawing.Size(198, 30);
             this.cmbSOTK.TabIndex = 28;
             this.cmbSOTK.ValueMember = "SOTK";
             // 

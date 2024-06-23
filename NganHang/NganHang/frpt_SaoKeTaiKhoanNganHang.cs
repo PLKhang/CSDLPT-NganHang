@@ -51,7 +51,6 @@ namespace NganHang
 
         private void btn_SaoKe_Click(object sender, EventArgs e)
         {
-            
             string dayBD = DateTime.Parse(startDateTimePicker.Value.ToString()).ToString("yyyy-MM-dd 00:00:00");
             string dayKT = DateTime.Parse(endDateTimePicker.Value.ToString()).ToString("yyyy-MM-dd 23:59:59");
             int compare = dayBD.CompareTo(dayKT);
@@ -66,8 +65,9 @@ namespace NganHang
 
                 //rpt.lblTieuDe.Text = “DANH SÁCH PHIẾU “ +cmbLoai.Text.ToUpper() + “ NHÂN VIÊN LẬP TRONG NĂM “ +cmbNam.Text;
                 //rpt.lblSoTK.Text = cmbSOTK.Text;
-                rpt.lblName.Text = txtHO.Text.Trim() +' '+ txtTEN.Text.Trim();
+                rpt.lblName.Text = txtHO.Text.Trim() + ' ' + txtTEN.Text.Trim();
                 rpt.lblCMND.Text = cmbCMND.Text;
+                rpt.lblCreateDate.Text = DateTime.Now.ToString();
                 //rpt.lblStarDay.Text = dayBD;
                 //rpt.lblEndDay.Text = dayKT;
 
@@ -80,12 +80,6 @@ namespace NganHang
                 return;
             }
         }
-
-        private void txtHOTEN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void kHACHHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();

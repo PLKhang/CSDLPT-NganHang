@@ -40,30 +40,35 @@ namespace NganHang
             else
             {
                 DS.EnforceConstraints = false;
-                this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
+                this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
+                this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
             }
         }
 
         private void kHACHHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsKH.EndEdit();
+            this.getAllKHBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.DS);
 
         }
 
         private void frmChuyenTien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.GetAllKH' table. You can move, or remove it, as needed.
+            this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
+            // TODO: This line of code loads data into the 'DS.TK_KH' table. You can move, or remove it, as needed.
+            this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
+            // TODO: This line of code loads data into the 'DS.CHUYENTIEN_INFORECEIVER' table. You can move, or remove it, as needed.
+            this.cHUYENTIEN_INFORECEIVERTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.cHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
             DS.EnforceConstraints = false;
-            this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-            this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
-            this.CHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
-            macn = ((DataRowView)bdsKH[0])["MACN"].ToString();
+            //this.CHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
+            macn = ((DataRowView)getAllKHBindingSource[0])["MACN"].ToString();
             cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
@@ -108,8 +113,8 @@ namespace NganHang
                         /*DS.EnforceConstraints = false;
                         this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-                        this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);*/
+                        this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+                        this.tK_KHTableAdapter.Fill(this.DS.TAIKHOAN);*/
                         System.Windows.Forms.MessageBox.Show("Giao Dịch Thành Công ", "", MessageBoxButtons.OK);
                     }
 
@@ -121,15 +126,15 @@ namespace NganHang
                 taiKhoanGridControl.Enabled = khachHangGridControl.Enabled = true;
                 hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
                 pnlGD.Enabled = false;
-                bdsTK.Position = vitri;
+                tK_KHBindingSource.Position = vitri;
                 return;
             }
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            bdsTK.Position = vitri;
-            bdsTK.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
+            tK_KHBindingSource.Position = vitri;
+            tK_KHBindingSource.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
             pnlGD.Enabled = false;
             khachHangGridControl.Enabled = taiKhoanGridControl.Enabled = true;
             hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
@@ -137,16 +142,16 @@ namespace NganHang
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            bdsTK.Position = vitri;
-            bdsTK.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
+            tK_KHBindingSource.Position = vitri;
+            tK_KHBindingSource.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
             pnlGD.Enabled = true;
             khachHangGridControl.Enabled = taiKhoanGridControl.Enabled = true;
             hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
             hOTextBox.Text = tENTextBox.Text = cMNDTextBox1.Text = txtSoTKChuyen.Text = sODUTextEdit.Text = "";
             try
             {
-                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
+                this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
             }
             catch (Exception ex)
             {
@@ -165,9 +170,14 @@ namespace NganHang
             if(txtSoTKNhan.Text.Trim() == txtSoTKChuyen.Text.Trim())
             {
                 System.Windows.MessageBox.Show("Số TK nhận bị trùng số tk chuyển", "error", MessageBoxButton.OK);
-                txtSoTKNhan.Clear(); hOTENRECTextBox.Clear(); cMNDTextBox.Clear();
+                txtSoTKNhan.Text = ""; hOTENRECTextBox.Text = ""; cMNDTextBox.Text = "";
                 return;
             }
+        }
+
+        private void khachHangGridControl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

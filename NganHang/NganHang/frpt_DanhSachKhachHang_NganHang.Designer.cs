@@ -36,6 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(47, 83);
             this.label1.Name = "label1";
@@ -45,24 +46,26 @@
             // 
             // btn_XacNhan
             // 
+            this.btn_XacNhan.BackColor = System.Drawing.Color.Lime;
             this.btn_XacNhan.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XacNhan.Location = new System.Drawing.Point(191, 170);
             this.btn_XacNhan.Name = "btn_XacNhan";
             this.btn_XacNhan.Size = new System.Drawing.Size(145, 72);
             this.btn_XacNhan.TabIndex = 1;
             this.btn_XacNhan.Text = "Xác Nhận";
-            this.btn_XacNhan.UseVisualStyleBackColor = true;
+            this.btn_XacNhan.UseVisualStyleBackColor = false;
             this.btn_XacNhan.Click += new System.EventHandler(this.btn_XacNhan_Click);
             // 
             // btn_Thoat
             // 
+            this.btn_Thoat.BackColor = System.Drawing.Color.Red;
             this.btn_Thoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.Location = new System.Drawing.Point(391, 170);
             this.btn_Thoat.Name = "btn_Thoat";
             this.btn_Thoat.Size = new System.Drawing.Size(149, 72);
             this.btn_Thoat.TabIndex = 2;
             this.btn_Thoat.Text = "Thoát";
-            this.btn_Thoat.UseVisualStyleBackColor = true;
+            this.btn_Thoat.UseVisualStyleBackColor = false;
             this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
             // frpt_DanhSachKhachHang_NganHang
@@ -74,7 +77,8 @@
             this.Controls.Add(this.btn_XacNhan);
             this.Controls.Add(this.label1);
             this.Name = "frpt_DanhSachKhachHang_NganHang";
-            this.Text = "frpt_DanhSachKhachHang_NganHang";
+            this.Text = "Lập Danh Sách Khách Hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

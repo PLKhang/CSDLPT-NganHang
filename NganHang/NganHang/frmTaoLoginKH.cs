@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,8 @@ namespace NganHang
         private void frmTaoLoginKH_Load(object sender, EventArgs e)
         {
             DS.EnforceConstraints = false;
+            this.v_EX_LoginNameKHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.v_EX_LoginNameKHTableAdapter.Fill(this.DS.V_EX_LoginNameKH);
-            
-
         }
 
         private void btThoat_Click(object sender, EventArgs e)
@@ -63,17 +63,30 @@ namespace NganHang
 
             try
             {
-                string cmd = "exec sp_TaoLogin '" + txtLoginNameKH.Text + "',"
+                /*string cmd = "exec sp_TaoLogin '" + txtLoginNameKH.Text + "',"
                             + "'" + txtPassKH.Text + "',"
-                            + "N'" + txtLoginNameKH.Text + "',"
-                            + "N'KhachHang'";
-                Program.ExecSqlNonQuery(cmd);
-                MessageBox.Show("Success!!", "", MessageBoxButtons.OK);
-                Close();
+                            + "N'" + cMNDComboBox.Text + "',"
+                            + "N'KhachHang'";*/
+                int result = Program.CreateLogin(txtLoginNameKH.Text, cMNDComboBox.Text, txtPassKH.Text, "KhachHang");
+                if (result == 1) 
+                {
+                    MessageBox.Show("Login name bị trùng!!", "", MessageBoxButtons.OK);
+                    txtLoginNameKH.Focus() ;
+                }
+                else if (result == 2)
+                {
+                    MessageBox.Show("User name bị trùng!!", "", MessageBoxButtons.OK);
+                    cMNDComboBox.Focus();
+                }
+                else if (result == 0)
+                {
+                    MessageBox.Show("Success!!", "", MessageBoxButtons.OK);
+                    Close();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tạo login cho nhân viên", ex.Message, MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi tạo login cho khách hàng", ex.Message, MessageBoxButtons.OK);
                 return;
             }
 

@@ -188,17 +188,5 @@ namespace NganHang
                 f.Show();
             }
         }
-
-        private void btn_SaoKe_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form frm = this.CheckExists(typeof(frpt_SaoKeTaiKhoanNganHang));
-            if (frm != null) frm.Activate();
-            else
-            {
-                frpt_SaoKeTaiKhoanNganHang f = new frpt_SaoKeTaiKhoanNganHang();
-                f.MdiParent = this;
-                f.Show();
-            }
-        }
     }
 }

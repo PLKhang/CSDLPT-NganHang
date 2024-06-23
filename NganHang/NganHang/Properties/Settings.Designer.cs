@@ -26,11 +26,22 @@ namespace NganHang.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THIENTANT;Initial Catalog=NGANHANG;User ID=sa;Password=123;TrustServe" +
-            "rCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THIENTANT\\SERVER1;Initial Catalog=NGANHANG;User ID=sa;Password=123;Tr" +
+            "ustServerCertificate=True")]
         public string NGANHANGConnectionString {
             get {
                 return ((string)(this["NGANHANGConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THIENTANT\\SERVER3;Initial Catalog=NGANHANG;Persist Security Info=True" +
+            ";User ID=sa;Password=123;Encrypt=True;TrustServerCertificate=True")]
+        public string NGANHANGConnectionString1 {
+            get {
+                return ((string)(this["NGANHANGConnectionString1"]));
             }
         }
     }

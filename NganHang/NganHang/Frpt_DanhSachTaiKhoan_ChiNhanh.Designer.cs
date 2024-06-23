@@ -53,27 +53,30 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(36, 100);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(81, 135);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(111, 16);
+            label2.Size = new System.Drawing.Size(159, 24);
             label2.TabIndex = 8;
             label2.Text = "Tất Cả Chi Nhánh";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(36, 150);
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(80, 202);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(65, 16);
+            label3.Size = new System.Drawing.Size(92, 24);
             label3.TabIndex = 9;
             label3.Text = "Từ Ngày: ";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(36, 199);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(81, 272);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(73, 16);
+            label4.Size = new System.Drawing.Size(104, 24);
             label4.TabIndex = 10;
             label4.Text = "Đến Ngày: ";
             // 
@@ -101,26 +104,30 @@
             this.tableAdapterManager.KHACHHANGTableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.TAIKHOANTableAdapter = null;
+            this.tableAdapterManager.TK_KHTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // startdateTimePicker
             // 
-            this.startdateTimePicker.Location = new System.Drawing.Point(197, 150);
+            this.startdateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startdateTimePicker.Location = new System.Drawing.Point(241, 202);
             this.startdateTimePicker.Name = "startdateTimePicker";
-            this.startdateTimePicker.Size = new System.Drawing.Size(325, 22);
+            this.startdateTimePicker.Size = new System.Drawing.Size(325, 28);
             this.startdateTimePicker.TabIndex = 11;
             // 
             // enddateTimePicker
             // 
-            this.enddateTimePicker.Location = new System.Drawing.Point(197, 194);
+            this.enddateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enddateTimePicker.Location = new System.Drawing.Point(236, 272);
             this.enddateTimePicker.Name = "enddateTimePicker";
-            this.enddateTimePicker.Size = new System.Drawing.Size(325, 22);
+            this.enddateTimePicker.Size = new System.Drawing.Size(330, 28);
             this.enddateTimePicker.TabIndex = 12;
             // 
             // cbTatCaChiNhanh
             // 
             this.cbTatCaChiNhanh.AutoSize = true;
-            this.cbTatCaChiNhanh.Location = new System.Drawing.Point(197, 100);
+            this.cbTatCaChiNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTatCaChiNhanh.Location = new System.Drawing.Point(276, 142);
             this.cbTatCaChiNhanh.Name = "cbTatCaChiNhanh";
             this.cbTatCaChiNhanh.Size = new System.Drawing.Size(18, 17);
             this.cbTatCaChiNhanh.TabIndex = 13;
@@ -128,10 +135,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(310, 246);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(372, 341);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 46);
+            this.button1.Size = new System.Drawing.Size(194, 46);
             this.button1.TabIndex = 15;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = true;
@@ -139,10 +147,11 @@
             // 
             // previewButton
             // 
-            this.previewButton.Location = new System.Drawing.Point(94, 246);
+            this.previewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.previewButton.Location = new System.Drawing.Point(156, 341);
             this.previewButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(159, 46);
+            this.previewButton.Size = new System.Drawing.Size(186, 46);
             this.previewButton.TabIndex = 14;
             this.previewButton.Text = "Xem danh sách";
             this.previewButton.UseVisualStyleBackColor = true;
@@ -151,19 +160,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 42);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(85, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(100, 24);
             this.label1.TabIndex = 17;
             this.label1.Text = "Chi Nhánh";
             // 
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChiNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(197, 39);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(241, 62);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(325, 24);
+            this.cmbChiNhanh.Size = new System.Drawing.Size(325, 30);
             this.cmbChiNhanh.TabIndex = 16;
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged_1);
             // 
@@ -171,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 321);
+            this.ClientSize = new System.Drawing.Size(723, 443);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbChiNhanh);
             this.Controls.Add(this.button1);
@@ -183,7 +194,8 @@
             this.Controls.Add(label3);
             this.Controls.Add(label2);
             this.Name = "frpt_DanhSachTaiKhoan_ChiNhanh";
-            this.Text = "Frpt_DanhSachTaiKhoan_ChiNhanh";
+            this.Text = "Danh Sách Tài Khoản Ngân Hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frpt_DanhSachTaiKhoan_ChiNhanh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsHoTenNV)).EndInit();

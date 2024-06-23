@@ -45,11 +45,11 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.pnlGD = new DevExpress.XtraEditors.GroupControl();
             this.sODUTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.fKTaiKhoanKhachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bdsKH = new System.Windows.Forms.BindingSource(this.components);
+            this.tK_KHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getAllKHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new NganHang.DS();
             this.txtMACN = new System.Windows.Forms.TextBox();
-            this.CHUYENTIEN_INFORECEIVERBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cHUYENTIEN_INFORECEIVERBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtSoTKNhan = new System.Windows.Forms.TextBox();
             this.cMNDTextBox = new System.Windows.Forms.TextBox();
             this.hOTENRECTextBox = new System.Windows.Forms.TextBox();
@@ -66,12 +66,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.khachHangTableAdapter = new NganHang.DSTableAdapters.KHACHHANGTableAdapter();
-            this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
-            this.taiKhoanTableAdapter = new NganHang.DSTableAdapters.TAIKHOANTableAdapter();
-            this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
-            this.bdsNV = new System.Windows.Forms.BindingSource(this.components);
-            this.nHANVIENTableAdapter = new NganHang.DSTableAdapters.NHANVIENTableAdapter();
             this.khachHangGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCMND = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,12 +76,10 @@
             this.colSOTK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSODU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCMND1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYMOTK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.taiKhoanGridControl = new DevExpress.XtraGrid.GridControl();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.CHUYENTIEN_INFORECEIVERTableAdapter = new NganHang.DSTableAdapters.CHUYENTIEN_INFORECEIVERTableAdapter();
             this.CHUYENTIEN_INFORECEIVERGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSOTK1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,7 +87,10 @@
             this.colCMND2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMACN1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label10 = new System.Windows.Forms.Label();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.getAllKHTableAdapter = new NganHang.DSTableAdapters.GetAllKHTableAdapter();
+            this.tableAdapterManager = new NganHang.DSTableAdapters.TableAdapterManager();
+            this.tK_KHTableAdapter = new NganHang.DSTableAdapters.TK_KHTableAdapter();
+            this.cHUYENTIEN_INFORECEIVERTableAdapter = new NganHang.DSTableAdapters.CHUYENTIEN_INFORECEIVERTableAdapter();
             label7 = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
@@ -110,20 +105,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlGD)).BeginInit();
             this.pnlGD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sODUTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKTaiKhoanKhachHangBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tK_KHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getAllKHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CHUYENTIEN_INFORECEIVERBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cHUYENTIEN_INFORECEIVERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoTien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHUYENTIEN_INFORECEIVERGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -220,7 +212,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1356, 41);
+            this.panelControl1.Size = new System.Drawing.Size(1368, 41);
             this.panelControl1.TabIndex = 8;
             // 
             // btnThoat
@@ -273,7 +265,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 41);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1356, 30);
+            this.groupControl1.Size = new System.Drawing.Size(1368, 30);
             this.groupControl1.TabIndex = 14;
             this.groupControl1.Text = "Thông Tin Giao Dịch";
             // 
@@ -306,33 +298,35 @@
             this.pnlGD.Controls.Add(cMNDLabel);
             this.pnlGD.Controls.Add(hOTENLabel);
             this.pnlGD.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlGD.Location = new System.Drawing.Point(576, 71);
+            this.pnlGD.Location = new System.Drawing.Point(588, 71);
             this.pnlGD.Name = "pnlGD";
             this.pnlGD.ShowCaption = false;
-            this.pnlGD.Size = new System.Drawing.Size(780, 812);
+            this.pnlGD.Size = new System.Drawing.Size(780, 833);
             this.pnlGD.TabIndex = 16;
             this.pnlGD.Text = "groupControl2";
             // 
             // sODUTextEdit
             // 
-            this.sODUTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.fKTaiKhoanKhachHangBindingSource, "SODU", true));
+            this.sODUTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tK_KHBindingSource, "SODU", true));
             this.sODUTextEdit.Location = new System.Drawing.Point(467, 176);
             this.sODUTextEdit.Name = "sODUTextEdit";
+            this.sODUTextEdit.Properties.DisplayFormat.FormatString = "{0:##,# VND }";
             this.sODUTextEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.sODUTextEdit.Properties.EditFormat.FormatString = "{0:##,# VND }";
             this.sODUTextEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.sODUTextEdit.Properties.ReadOnly = true;
             this.sODUTextEdit.Size = new System.Drawing.Size(171, 22);
             this.sODUTextEdit.TabIndex = 50;
             // 
-            // fKTaiKhoanKhachHangBindingSource
+            // tK_KHBindingSource
             // 
-            this.fKTaiKhoanKhachHangBindingSource.DataMember = "FK_TaiKhoan_KhachHang";
-            this.fKTaiKhoanKhachHangBindingSource.DataSource = this.bdsKH;
+            this.tK_KHBindingSource.DataMember = "rl_TK_KH";
+            this.tK_KHBindingSource.DataSource = this.getAllKHBindingSource;
             // 
-            // bdsKH
+            // getAllKHBindingSource
             // 
-            this.bdsKH.DataMember = "KHACHHANG";
-            this.bdsKH.DataSource = this.DS;
+            this.getAllKHBindingSource.DataMember = "GetAllKH";
+            this.getAllKHBindingSource.DataSource = this.DS;
             // 
             // DS
             // 
@@ -341,7 +335,7 @@
             // 
             // txtMACN
             // 
-            this.txtMACN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CHUYENTIEN_INFORECEIVERBindingSource, "MACN", true));
+            this.txtMACN.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cHUYENTIEN_INFORECEIVERBindingSource, "MACN", true));
             this.txtMACN.Enabled = false;
             this.txtMACN.Location = new System.Drawing.Point(467, 340);
             this.txtMACN.Multiline = true;
@@ -350,14 +344,14 @@
             this.txtMACN.Size = new System.Drawing.Size(171, 37);
             this.txtMACN.TabIndex = 49;
             // 
-            // CHUYENTIEN_INFORECEIVERBindingSource
+            // cHUYENTIEN_INFORECEIVERBindingSource
             // 
-            this.CHUYENTIEN_INFORECEIVERBindingSource.DataMember = "CHUYENTIEN_INFORECEIVER";
-            this.CHUYENTIEN_INFORECEIVERBindingSource.DataSource = this.DS;
+            this.cHUYENTIEN_INFORECEIVERBindingSource.DataMember = "CHUYENTIEN_INFORECEIVER";
+            this.cHUYENTIEN_INFORECEIVERBindingSource.DataSource = this.DS;
             // 
             // txtSoTKNhan
             // 
-            this.txtSoTKNhan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CHUYENTIEN_INFORECEIVERBindingSource, "SOTK", true));
+            this.txtSoTKNhan.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cHUYENTIEN_INFORECEIVERBindingSource, "SOTK", true));
             this.txtSoTKNhan.Location = new System.Drawing.Point(142, 340);
             this.txtSoTKNhan.Multiline = true;
             this.txtSoTKNhan.Name = "txtSoTKNhan";
@@ -368,7 +362,7 @@
             // 
             // cMNDTextBox
             // 
-            this.cMNDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CHUYENTIEN_INFORECEIVERBindingSource, "CMND", true));
+            this.cMNDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cHUYENTIEN_INFORECEIVERBindingSource, "CMND", true));
             this.cMNDTextBox.Location = new System.Drawing.Point(467, 286);
             this.cMNDTextBox.Multiline = true;
             this.cMNDTextBox.Name = "cMNDTextBox";
@@ -378,7 +372,7 @@
             // 
             // hOTENRECTextBox
             // 
-            this.hOTENRECTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CHUYENTIEN_INFORECEIVERBindingSource, "HOTENREC", true));
+            this.hOTENRECTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cHUYENTIEN_INFORECEIVERBindingSource, "HOTENREC", true));
             this.hOTENRECTextBox.Location = new System.Drawing.Point(142, 286);
             this.hOTENRECTextBox.Multiline = true;
             this.hOTENRECTextBox.Name = "hOTENRECTextBox";
@@ -388,7 +382,7 @@
             // 
             // txtSoTKChuyen
             // 
-            this.txtSoTKChuyen.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fKTaiKhoanKhachHangBindingSource, "SOTK", true));
+            this.txtSoTKChuyen.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tK_KHBindingSource, "SOTK", true));
             this.txtSoTKChuyen.Location = new System.Drawing.Point(142, 170);
             this.txtSoTKChuyen.Multiline = true;
             this.txtSoTKChuyen.Name = "txtSoTKChuyen";
@@ -398,7 +392,7 @@
             // 
             // cMNDTextBox1
             // 
-            this.cMNDTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "CMND", true));
+            this.cMNDTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.getAllKHBindingSource, "CMND", true));
             this.cMNDTextBox1.Location = new System.Drawing.Point(467, 121);
             this.cMNDTextBox1.Multiline = true;
             this.cMNDTextBox1.Name = "cMNDTextBox1";
@@ -408,7 +402,7 @@
             // 
             // tENTextBox
             // 
-            this.tENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "TEN", true));
+            this.tENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.getAllKHBindingSource, "TEN", true));
             this.tENTextBox.Location = new System.Drawing.Point(278, 125);
             this.tENTextBox.Multiline = true;
             this.tENTextBox.Name = "tENTextBox";
@@ -418,7 +412,7 @@
             // 
             // hOTextBox
             // 
-            this.hOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "HO", true));
+            this.hOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.getAllKHBindingSource, "HO", true));
             this.hOTextBox.Location = new System.Drawing.Point(142, 125);
             this.hOTextBox.Multiline = true;
             this.hOTextBox.Name = "hOTextBox";
@@ -532,42 +526,9 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Phiếu Giao Dịch Chuyển Tiền";
             // 
-            // khachHangTableAdapter
-            // 
-            this.khachHangTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CHINHANHTableAdapter = null;
-            this.tableAdapterManager.GD_CHUYENTIENTableAdapter = null;
-            this.tableAdapterManager.GD_GOIRUTTableAdapter = null;
-            this.tableAdapterManager.KHACHHANGTableAdapter = this.khachHangTableAdapter;
-            this.tableAdapterManager.NHANVIENTableAdapter = null;
-            this.tableAdapterManager.TAIKHOANTableAdapter = this.taiKhoanTableAdapter;
-            this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // taiKhoanTableAdapter
-            // 
-            this.taiKhoanTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsTK
-            // 
-            this.bdsTK.DataMember = "TAIKHOAN";
-            this.bdsTK.DataSource = this.DS;
-            // 
-            // bdsNV
-            // 
-            this.bdsNV.DataMember = "NHANVIEN";
-            this.bdsNV.DataSource = this.DS;
-            // 
-            // nHANVIENTableAdapter
-            // 
-            this.nHANVIENTableAdapter.ClearBeforeFill = true;
-            // 
             // khachHangGridControl
             // 
-            this.khachHangGridControl.DataSource = this.bdsKH;
+            this.khachHangGridControl.DataSource = this.getAllKHBindingSource;
             this.khachHangGridControl.Location = new System.Drawing.Point(0, 107);
             this.khachHangGridControl.MainView = this.gridView1;
             this.khachHangGridControl.Name = "khachHangGridControl";
@@ -575,6 +536,7 @@
             this.khachHangGridControl.TabIndex = 17;
             this.khachHangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.khachHangGridControl.Click += new System.EventHandler(this.khachHangGridControl_Click);
             // 
             // gridView1
             // 
@@ -636,7 +598,6 @@
             this.colSOTK,
             this.colSODU,
             this.colCMND1,
-            this.colNGAYMOTK,
             this.colMACN});
             this.gridView2.GridControl = this.taiKhoanGridControl;
             this.gridView2.Name = "gridView2";
@@ -673,25 +634,17 @@
             this.colCMND1.Visible = true;
             this.colCMND1.VisibleIndex = 2;
             // 
-            // colNGAYMOTK
-            // 
-            this.colNGAYMOTK.Caption = "Ngày mở ";
-            this.colNGAYMOTK.FieldName = "NGAYMOTK";
-            this.colNGAYMOTK.Name = "colNGAYMOTK";
-            this.colNGAYMOTK.Visible = true;
-            this.colNGAYMOTK.VisibleIndex = 3;
-            // 
             // colMACN
             // 
             this.colMACN.Caption = "Chi nhánh mở ";
             this.colMACN.FieldName = "MACN";
             this.colMACN.Name = "colMACN";
             this.colMACN.Visible = true;
-            this.colMACN.VisibleIndex = 4;
+            this.colMACN.VisibleIndex = 3;
             // 
             // taiKhoanGridControl
             // 
-            this.taiKhoanGridControl.DataSource = this.fKTaiKhoanKhachHangBindingSource;
+            this.taiKhoanGridControl.DataSource = this.tK_KHBindingSource;
             this.taiKhoanGridControl.Location = new System.Drawing.Point(0, 336);
             this.taiKhoanGridControl.MainView = this.gridView2;
             this.taiKhoanGridControl.Name = "taiKhoanGridControl";
@@ -722,13 +675,9 @@
             this.label9.TabIndex = 42;
             this.label9.Text = "Chọn khách hàng chuyển tiền";
             // 
-            // CHUYENTIEN_INFORECEIVERTableAdapter
-            // 
-            this.CHUYENTIEN_INFORECEIVERTableAdapter.ClearBeforeFill = true;
-            // 
             // CHUYENTIEN_INFORECEIVERGridControl
             // 
-            this.CHUYENTIEN_INFORECEIVERGridControl.DataSource = this.CHUYENTIEN_INFORECEIVERBindingSource;
+            this.CHUYENTIEN_INFORECEIVERGridControl.DataSource = this.cHUYENTIEN_INFORECEIVERBindingSource;
             this.CHUYENTIEN_INFORECEIVERGridControl.Location = new System.Drawing.Point(0, 604);
             this.CHUYENTIEN_INFORECEIVERGridControl.MainView = this.gridView3;
             this.CHUYENTIEN_INFORECEIVERGridControl.Name = "CHUYENTIEN_INFORECEIVERGridControl";
@@ -813,12 +762,36 @@
             this.label10.TabIndex = 43;
             this.label10.Text = "Chọn tài khoản nhận tiền";
             // 
+            // getAllKHTableAdapter
+            // 
+            this.getAllKHTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CHINHANHTableAdapter = null;
+            this.tableAdapterManager.GD_CHUYENTIENTableAdapter = null;
+            this.tableAdapterManager.GD_GOIRUTTableAdapter = null;
+            this.tableAdapterManager.KHACHHANGTableAdapter = null;
+            this.tableAdapterManager.NHANVIENTableAdapter = null;
+            this.tableAdapterManager.TAIKHOANTableAdapter = null;
+            this.tableAdapterManager.TK_KHTableAdapter = this.tK_KHTableAdapter;
+            this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tK_KHTableAdapter
+            // 
+            this.tK_KHTableAdapter.ClearBeforeFill = true;
+            // 
+            // cHUYENTIEN_INFORECEIVERTableAdapter
+            // 
+            this.cHUYENTIEN_INFORECEIVERTableAdapter.ClearBeforeFill = true;
+            // 
             // frmChuyenTien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1312, 904);
+            this.ClientSize = new System.Drawing.Size(1368, 904);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.CHUYENTIEN_INFORECEIVERGridControl);
             this.Controls.Add(this.label9);
@@ -842,20 +815,17 @@
             this.pnlGD.ResumeLayout(false);
             this.pnlGD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sODUTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKTaiKhoanKhachHangBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tK_KHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getAllKHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CHUYENTIEN_INFORECEIVERBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cHUYENTIEN_INFORECEIVERBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuSoTien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CHUYENTIEN_INFORECEIVERGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -876,14 +846,6 @@
         private System.Windows.Forms.Button btnChuyenTien;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private DS DS;
-        private System.Windows.Forms.BindingSource bdsKH;
-        private DSTableAdapters.KHACHHANGTableAdapter khachHangTableAdapter;
-        private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DSTableAdapters.TAIKHOANTableAdapter taiKhoanTableAdapter;
-        private System.Windows.Forms.BindingSource bdsTK;
-        private System.Windows.Forms.BindingSource bdsNV;
-        private DSTableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
         private DevExpress.XtraGrid.GridControl khachHangGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colCMND;
@@ -894,18 +856,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSOTK;
         private DevExpress.XtraGrid.Columns.GridColumn colSODU;
         private DevExpress.XtraGrid.Columns.GridColumn colCMND1;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYMOTK;
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private DevExpress.XtraGrid.GridControl taiKhoanGridControl;
-        private System.Windows.Forms.BindingSource fKTaiKhoanKhachHangBindingSource;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox hOTextBox;
         private System.Windows.Forms.TextBox cMNDTextBox1;
         private System.Windows.Forms.TextBox tENTextBox;
         private System.Windows.Forms.TextBox txtSoTKChuyen;
-        private System.Windows.Forms.BindingSource CHUYENTIEN_INFORECEIVERBindingSource;
-        private DSTableAdapters.CHUYENTIEN_INFORECEIVERTableAdapter CHUYENTIEN_INFORECEIVERTableAdapter;
         private DevExpress.XtraGrid.GridControl CHUYENTIEN_INFORECEIVERGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraGrid.Columns.GridColumn colSOTK1;
@@ -918,9 +876,16 @@
         private System.Windows.Forms.TextBox txtMACN;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.TextEdit sODUTextEdit;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Label label2;
+        private DS DS;
+        private System.Windows.Forms.BindingSource getAllKHBindingSource;
+        private DSTableAdapters.GetAllKHTableAdapter getAllKHTableAdapter;
+        private DSTableAdapters.TableAdapterManager tableAdapterManager;
+        private DSTableAdapters.TK_KHTableAdapter tK_KHTableAdapter;
+        private System.Windows.Forms.BindingSource tK_KHBindingSource;
+        private System.Windows.Forms.BindingSource cHUYENTIEN_INFORECEIVERBindingSource;
+        private DSTableAdapters.CHUYENTIEN_INFORECEIVERTableAdapter cHUYENTIEN_INFORECEIVERTableAdapter;
     }
 }

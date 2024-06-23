@@ -59,18 +59,20 @@
             // cMNDLabel
             // 
             cMNDLabel.AutoSize = true;
-            cMNDLabel.Location = new System.Drawing.Point(71, 41);
+            cMNDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            cMNDLabel.Location = new System.Drawing.Point(72, 62);
             cMNDLabel.Name = "cMNDLabel";
-            cMNDLabel.Size = new System.Drawing.Size(47, 16);
+            cMNDLabel.Size = new System.Drawing.Size(66, 24);
             cMNDLabel.TabIndex = 0;
             cMNDLabel.Text = "CMND";
             // 
             // hOTENLabel
             // 
             hOTENLabel.AutoSize = true;
-            hOTENLabel.Location = new System.Drawing.Point(71, 100);
+            hOTENLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            hOTENLabel.Location = new System.Drawing.Point(72, 121);
             hOTENLabel.Name = "hOTENLabel";
-            hOTENLabel.Size = new System.Drawing.Size(52, 16);
+            hOTENLabel.Size = new System.Drawing.Size(74, 24);
             hOTENLabel.TabIndex = 2;
             hOTENLabel.Text = "Họ Tên";
             // 
@@ -95,30 +97,35 @@
             this.panel1.Controls.Add(this.hOTENTextBox);
             this.panel1.Controls.Add(cMNDLabel);
             this.panel1.Controls.Add(this.cMNDComboBox);
-            this.panel1.Location = new System.Drawing.Point(107, 35);
+            this.panel1.Location = new System.Drawing.Point(77, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 358);
+            this.panel1.Size = new System.Drawing.Size(701, 416);
             this.panel1.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Aqua;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(4, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 16);
+            this.label4.Size = new System.Drawing.Size(322, 29);
             this.label4.TabIndex = 59;
             this.label4.Text = "Tạo Tài Khoản Đăng Nhập";
             // 
             // txtLoginNameKH
             // 
-            this.txtLoginNameKH.Location = new System.Drawing.Point(269, 139);
+            this.txtLoginNameKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoginNameKH.Location = new System.Drawing.Point(270, 174);
             this.txtLoginNameKH.Name = "txtLoginNameKH";
-            this.txtLoginNameKH.Size = new System.Drawing.Size(312, 22);
+            this.txtLoginNameKH.Size = new System.Drawing.Size(312, 28);
             this.txtLoginNameKH.TabIndex = 58;
             // 
             // btLuu
             // 
-            this.btLuu.Location = new System.Drawing.Point(308, 272);
+            this.btLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.btLuu.Appearance.Options.UseFont = true;
+            this.btLuu.Location = new System.Drawing.Point(324, 350);
             this.btLuu.Margin = new System.Windows.Forms.Padding(5);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(116, 44);
@@ -128,25 +135,31 @@
             // 
             // txtPassKHConfir
             // 
-            this.txtPassKHConfir.Location = new System.Drawing.Point(269, 228);
+            this.txtPassKHConfir.Location = new System.Drawing.Point(270, 291);
             this.txtPassKHConfir.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassKHConfir.Name = "txtPassKHConfir";
+            this.txtPassKHConfir.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.txtPassKHConfir.Properties.Appearance.Options.UseFont = true;
             this.txtPassKHConfir.Properties.UseSystemPasswordChar = true;
-            this.txtPassKHConfir.Size = new System.Drawing.Size(312, 22);
+            this.txtPassKHConfir.Size = new System.Drawing.Size(312, 28);
             this.txtPassKHConfir.TabIndex = 56;
             // 
             // txtPassKH
             // 
-            this.txtPassKH.Location = new System.Drawing.Point(269, 185);
+            this.txtPassKH.Location = new System.Drawing.Point(270, 231);
             this.txtPassKH.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassKH.Name = "txtPassKH";
+            this.txtPassKH.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.txtPassKH.Properties.Appearance.Options.UseFont = true;
             this.txtPassKH.Properties.UseSystemPasswordChar = true;
-            this.txtPassKH.Size = new System.Drawing.Size(312, 22);
+            this.txtPassKH.Size = new System.Drawing.Size(312, 28);
             this.txtPassKH.TabIndex = 55;
             // 
             // btThoat
             // 
-            this.btThoat.Location = new System.Drawing.Point(466, 270);
+            this.btThoat.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.btThoat.Appearance.Options.UseFont = true;
+            this.btThoat.Location = new System.Drawing.Point(482, 348);
             this.btThoat.Margin = new System.Windows.Forms.Padding(5);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(115, 46);
@@ -157,30 +170,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 233);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(73, 296);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 16);
+            this.label1.Size = new System.Drawing.Size(160, 24);
             this.label1.TabIndex = 53;
             this.label1.Text = "Nhập lại mật khẩu";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 189);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(73, 235);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 16);
+            this.label3.Size = new System.Drawing.Size(89, 24);
             this.label3.TabIndex = 52;
             this.label3.Text = "Mật Khẩu";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 146);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(73, 181);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 16);
+            this.label2.Size = new System.Drawing.Size(124, 24);
             this.label2.TabIndex = 51;
             this.label2.Text = "Tên tài khoản";
             // 
@@ -188,9 +204,10 @@
             // 
             this.hOTENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameKHBindingSource, "HOTEN", true));
             this.hOTENTextBox.Enabled = false;
-            this.hOTENTextBox.Location = new System.Drawing.Point(269, 94);
+            this.hOTENTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hOTENTextBox.Location = new System.Drawing.Point(270, 115);
             this.hOTENTextBox.Name = "hOTENTextBox";
-            this.hOTENTextBox.Size = new System.Drawing.Size(312, 22);
+            this.hOTENTextBox.Size = new System.Drawing.Size(312, 28);
             this.hOTENTextBox.TabIndex = 3;
             // 
             // v_EX_LoginNameKHBindingSource
@@ -200,14 +217,14 @@
             // 
             // cMNDComboBox
             // 
-            this.cMNDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameKHBindingSource, "CMND", true));
             this.cMNDComboBox.DataSource = this.v_EX_LoginNameKHBindingSource;
             this.cMNDComboBox.DisplayMember = "CMND";
             this.cMNDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cMNDComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cMNDComboBox.FormattingEnabled = true;
-            this.cMNDComboBox.Location = new System.Drawing.Point(269, 38);
+            this.cMNDComboBox.Location = new System.Drawing.Point(270, 59);
             this.cMNDComboBox.Name = "cMNDComboBox";
-            this.cMNDComboBox.Size = new System.Drawing.Size(312, 24);
+            this.cMNDComboBox.Size = new System.Drawing.Size(312, 30);
             this.cMNDComboBox.TabIndex = 1;
             this.cMNDComboBox.ValueMember = "CMND";
             // 
@@ -225,6 +242,7 @@
             this.tableAdapterManager.KHACHHANGTableAdapter = null;
             this.tableAdapterManager.NHANVIENTableAdapter = null;
             this.tableAdapterManager.TAIKHOANTableAdapter = null;
+            this.tableAdapterManager.TK_KHTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = NganHang.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // frmTaoLoginKH

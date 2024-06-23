@@ -177,7 +177,6 @@
             this.btn_SaoKe.Id = 10;
             this.btn_SaoKe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_SaoKe.ImageOptions.SvgImage")));
             this.btn_SaoKe.Name = "btn_SaoKe";
-            this.btn_SaoKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_SaoKe_ItemClick);
             // 
             // btn_LietKeTK
             // 

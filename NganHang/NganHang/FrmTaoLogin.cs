@@ -31,6 +31,7 @@ namespace NganHang
         private void FrmTaoLogin_Load(object sender, EventArgs e)
         {
             DS.EnforceConstraints = false;
+            this.v_EX_LoginNameTableAdapter.Connection.ConnectionString = Program.connstr;
             this.v_EX_LoginNameTableAdapter.Fill(this.DS.V_EX_LoginName);
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.DS.NHANVIEN);
@@ -77,22 +78,34 @@ namespace NganHang
                 txtPass.Focus();
                 return;
             }
-
             try
             {
-                string cmd = "exec sp_TaoLogin '" + txtLoginName.Text + "',"
+                /*string cmd = "exec sp_TaoLogin '" + txtLoginName.Text + "',"
                             + "'" + txtPass.Text + "',"
-                            + "N'" + txtLoginName.Text + "',"
-                            + "N'" + Program.mGroup + "'";
-                Program.ExecSqlNonQuery(cmd);
-                MessageBox.Show("Đã Tạo Thành Công!!", "", MessageBoxButtons.OK);
+                            + "N'" + cmbMANV.Text + "',"
+                            + "N'" + Program.mGroup;*/
+                int result = Program.CreateLogin(txtLoginName.Text, cmbMANV.Text, txtPass.Text, Program.mGroup);
+                if (result == 1)
+                {
+                    MessageBox.Show("Login name bị trùng!!", "", MessageBoxButtons.OK);
+                    txtLoginName.Focus();
+                }
+                else if (result == 2)
+                {
+                    MessageBox.Show("User name bị trùng!!", "", MessageBoxButtons.OK);
+                    cmbMANV.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Thành Công!!", "", MessageBoxButtons.OK);
+                    Close();
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi tạo login cho nhân viên", ex.Message, MessageBoxButtons.OK);
                 return;
             }
-            
         }
     }
 }

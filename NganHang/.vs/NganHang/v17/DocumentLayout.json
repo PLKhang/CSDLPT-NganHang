@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "D:\\projects\\C#\\NganHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\xrptkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\xrptkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\ds.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\ds.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\xrpt_saoke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\xrpt_saoke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\xrpt_danhsachtaikhoan_chinhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\xrpt_danhsachtaikhoan_chinhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\frmtaologin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\frmtaologin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\frmchuyentien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\frmchuyentien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\frpt_danhsachtaikhoan_chinhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\frpt_danhsachtaikhoan_chinhanh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|D:\\projects\\C#\\NganHang\\nganhang\\frmchuyentien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\frmchuyentien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|D:\\projects\\C#\\NganHang\\nganhang\\frmnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\frmnv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|d:\\projects\\c#\\nganhang\\nganhang\\frpt_danhsachkhachhang_nganhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{144670CB-6396-488C-A76D-2E03A3B69E78}|NganHang\\NganHang.csproj|solutionrelative:nganhang\\frpt_danhsachkhachhang_nganhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,102 +38,64 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DS.xsd",
+              "DocumentMoniker": "D:\\projects\\C#\\NGANHANG\\NganHang\\DS.xsd",
+              "RelativeDocumentMoniker": "NganHang\\DS.xsd",
+              "ToolTip": "D:\\projects\\C#\\NGANHANG\\NganHang\\DS.xsd",
+              "RelativeToolTip": "NganHang\\DS.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-06-23T10:43:16.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Xrpt_SaoKe.cs [Design]",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\Xrpt_SaoKe.cs",
-              "RelativeDocumentMoniker": "NganHang\\Xrpt_SaoKe.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\Xrpt_SaoKe.cs [Design]",
-              "RelativeToolTip": "NganHang\\Xrpt_SaoKe.cs [Design]",
+              "Title": "FrmTaoLogin.cs [Design]",
+              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\FrmTaoLogin.cs",
+              "RelativeDocumentMoniker": "NganHang\\FrmTaoLogin.cs",
+              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\FrmTaoLogin.cs [Design]",
+              "RelativeToolTip": "NganHang\\FrmTaoLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T11:25:04.758Z",
+              "WhenOpened": "2024-06-23T10:43:11.476Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Main.cs",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\Main.cs",
-              "RelativeDocumentMoniker": "NganHang\\Main.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\Main.cs",
-              "RelativeToolTip": "NganHang\\Main.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T11:15:19.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Xrpt_DanhSachTaiKhoan_ChiNhanh.cs [Design]",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\Xrpt_DanhSachTaiKhoan_ChiNhanh.cs",
-              "RelativeDocumentMoniker": "NganHang\\Xrpt_DanhSachTaiKhoan_ChiNhanh.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\Xrpt_DanhSachTaiKhoan_ChiNhanh.cs [Design]",
-              "RelativeToolTip": "NganHang\\Xrpt_DanhSachTaiKhoan_ChiNhanh.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T11:11:27.907Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "XrptKhachHang.cs [Design]",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\XrptKhachHang.cs",
-              "RelativeDocumentMoniker": "NganHang\\XrptKhachHang.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\XrptKhachHang.cs [Design]",
-              "RelativeToolTip": "NganHang\\XrptKhachHang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T11:06:19.291Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\Program.cs",
               "RelativeDocumentMoniker": "NganHang\\Program.cs",
               "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\Program.cs",
               "RelativeToolTip": "NganHang\\Program.cs",
-              "ViewState": "AQIAAIEAAAAAAAAAAAAswIUAAAATAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAANMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T10:58:07.669Z",
+              "WhenOpened": "2024-06-23T10:42:10.443Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmNV.cs",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\frmNV.cs",
-              "RelativeDocumentMoniker": "NganHang\\frmNV.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\frmNV.cs",
-              "RelativeToolTip": "NganHang\\frmNV.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAswKMAAAALAAAA",
+              "DocumentIndex": 3,
+              "Title": "frpt_DanhSachTaiKhoan_ChiNhanh.cs [Design]",
+              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\Frpt_DanhSachTaiKhoan_ChiNhanh.cs",
+              "RelativeDocumentMoniker": "NganHang\\Frpt_DanhSachTaiKhoan_ChiNhanh.cs",
+              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\Frpt_DanhSachTaiKhoan_ChiNhanh.cs [Design]",
+              "RelativeToolTip": "NganHang\\Frpt_DanhSachTaiKhoan_ChiNhanh.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T10:02:14.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmChuyenTien.cs [Design]",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\frmChuyenTien.cs",
-              "RelativeDocumentMoniker": "NganHang\\frmChuyenTien.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\frmChuyenTien.cs [Design]",
-              "RelativeToolTip": "NganHang\\frmChuyenTien.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T09:58:03.914Z",
+              "WhenOpened": "2024-06-23T10:39:54.367Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmChuyenTien.cs",
-              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\frmChuyenTien.cs",
-              "RelativeDocumentMoniker": "NganHang\\frmChuyenTien.cs",
-              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\frmChuyenTien.cs",
-              "RelativeToolTip": "NganHang\\frmChuyenTien.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAuwF4AAAANAAAA",
+              "DocumentIndex": 4,
+              "Title": "frpt_DanhSachKhachHang_NganHang.cs [Design]",
+              "DocumentMoniker": "D:\\projects\\C#\\NganHang\\NganHang\\frpt_DanhSachKhachHang_NganHang.cs",
+              "RelativeDocumentMoniker": "NganHang\\frpt_DanhSachKhachHang_NganHang.cs",
+              "ToolTip": "D:\\projects\\C#\\NganHang\\NganHang\\frpt_DanhSachKhachHang_NganHang.cs [Design]",
+              "RelativeToolTip": "NganHang\\frpt_DanhSachKhachHang_NganHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-22T09:52:37.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T10:39:08.122Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },

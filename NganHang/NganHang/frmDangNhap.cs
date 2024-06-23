@@ -116,10 +116,6 @@ namespace NganHang
                 MessageBox.Show("Login bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại username, password", "", MessageBoxButtons.OK);
                 return;
             }
-
-            // Setup DbConnection
-            //DbConnection.SetDefaultConnectionString($"Data Source={Program.servername};Initial Catalog={Program.database};User ID={Program.mlogin};password={Program.password}");
-
             Program.mHoten = Program.myReader.GetString(1); //GetString(1) chứa HOTEN
             Program.mGroup = Program.myReader.GetString(2); //GetString(2) chứa NHOM
             Program.myReader.Close();

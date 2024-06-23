@@ -1,9 +1,11 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.XtraCharts.Native;
+using DevExpress.XtraEditors;
 using NGANHANG;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,40 +27,57 @@ namespace NganHang
         private void kHACHHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsKH.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DS);
+            this.kHACHHANGBindingSource.EndEdit();
+            this.tableAdapterManager1.UpdateAll(this.khachHang);
 
         }
-
         private void frmTaiKhoanNganHang_Load(object sender, EventArgs e)
         {
-            
-            DS.EnforceConstraints = false;
-            this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
-            this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-            this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
-            this.gD_CHUYENTIENTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
-
-            macn = ((DataRowView)bdsKH[0])["MACN"].ToString();
-            cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
-            cmbChiNhanh.DisplayMember = "TENCN";
-            cmbChiNhanh.ValueMember = "TENSERVER";
-            cmbChiNhanh.SelectedIndex = Program.mChinhanh;
-            panel2.Enabled = btnUndo.Enabled = btnSave.Enabled = false;
-            if (Program.mGroup == "NganHang")
+            try
             {
-                cmbChiNhanh.Enabled = true;
-                btnAdd.Enabled = btnUpdate.Enabled = btnSave.Enabled = btnDelete.Enabled = btnUndo.Enabled = false;
-            }
-            else
-            {
-                cmbChiNhanh.Enabled = false;
-                btnAdd.Enabled = btnUpdate.Enabled = btnSave.Enabled = btnDelete.Enabled = btnUndo.Enabled = true;
-            }
+                // Tắt EnforceConstraints để tránh lỗi ràng buộc khi tải dữ liệu
+                khachHang.EnforceConstraints = false;
 
+                // Thiết lập chuỗi kết nối cho các TableAdapter và tải dữ liệu
+                this.kHACHHANGTableAdapter1.Connection.ConnectionString = Program.connstr;
+                this.kHACHHANGTableAdapter1.Fill(this.khachHang.KHACHHANG);
+
+                this.tAIKHOANTableAdapter1.Connection.ConnectionString = Program.connstr;
+                this.tAIKHOANTableAdapter1.Fill(this.khachHang.TAIKHOAN);
+
+
+                // Lấy mã chi nhánh từ dòng đầu tiên của BindingSource bdsKH và gán cho biến macn
+                if (kHACHHANGBindingSource.Count > 0)
+                {
+                    macn = ((DataRowView)kHACHHANGBindingSource[0])["MACN"].ToString();
+                }
+
+                // Cài đặt dữ liệu cho ComboBox chi nhánh
+                cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
+                cmbChiNhanh.DisplayMember = "TENCN";
+                cmbChiNhanh.ValueMember = "TENSERVER";
+                cmbChiNhanh.SelectedIndex = Program.mChinhanh;
+
+                // Cài đặt trạng thái ban đầu cho các điều khiển
+                panel2.Enabled = btnUndo.Enabled = btnSave.Enabled = false;
+
+                if (Program.mGroup == "NganHang")
+                {
+                    cmbChiNhanh.Enabled = true;
+                    btnAdd.Enabled = btnSave.Enabled = btnUndo.Enabled = false;
+                }
+                else
+                {
+                    cmbChiNhanh.Enabled = false;
+                    btnAdd.Enabled = btnSave.Enabled = btnUndo.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi load dữ liệu: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -78,58 +97,38 @@ namespace NganHang
             if (Program.KetNoi() == 0) MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             else
             {
-                this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
+                this.kHACHHANGTableAdapter1.Connection.ConnectionString = Program.connstr;
+                this.kHACHHANGTableAdapter1.Fill(this.khachHang.KHACHHANG);
             }
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsKH.Position;
-            panel2.Enabled = true;          
+            vitri = kHACHHANGBindingSource.Position;
+            panel2.Enabled = true;
+            string cmd1 = "EXEC sp_TaoSTK";
+            Program.myReader=Program.ExecSqlDataReader(cmd1);
+            Program.myReader.Read();
+            string generatedSTK = Program.myReader.GetString(0);
+             Program.myReader.Close();
+            txtSOTK.Text = generatedSTK;    
             txtMACN.Text = macn;//tự gán mã chi nhánh = chi nhánh đang đăng nhập của tài khoản thuộc chi nhánh
-            btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
+            btnAdd.Enabled  =  btnReload.Enabled = btnExit.Enabled = false;
             btnSave.Enabled = btnUndo.Enabled = true;
             gcKH.Enabled = gcTK.Enabled = false;
             String dt = String.Format("{0:yyyy-MM-dd HH:mm:ss.fff}", DateTime.Now);
             dateEditNgayMoTK.Text = dt;
+            btn_Add_clicked = true;
         }
-
-        private void btnUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string cmnd = (((DataRowView)bdsTK_FK[bdsTK_FK.Position])["CMND"].ToString()); //giữ lại vị trí nv hiện tại
-            if (bdsCT.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch chuyển tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-            if(bdsGR.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch gửi rút tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-            try
-            {
-                vitri = bdsKH.Position;
-                panel2.Enabled = true;
-                btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = false;
-                btnSave.Enabled = btnUndo.Enabled = true;
-                gcKH.Enabled = gcTK.Enabled = false; 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi hiệu chỉnh tài khoản. Bạn hãy hiệu chỉnh lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-                 bdsTK_FK.Position = bdsTK_FK.Find("CMND", cmnd);
-                 return;
-            }
-            if (bdsTK_FK.Count == 0) btnUpdate.Enabled = false;
-        }
-
+        
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String sotk = (((DataRowView)bdsTK_FK[bdsTK_FK.Position])["CMND"].ToString()).TrimEnd();
-
+            if (btn_Add_clicked == false)
+            {
+                return;
+            }
+            
+          
             if (txtSOTK.Text.Trim() == "")
             {
                 MessageBox.Show("Số Tài Khoản không được trống", "", MessageBoxButtons.OK);
@@ -138,100 +137,83 @@ namespace NganHang
             }
             if (!txtSOTK.Text.All(Char.IsDigit))
             {
-                MessageBox.Show("Số điện thoại không hợp lệ (Chỉ được có số)", "", MessageBoxButtons.OK);
+                MessageBox.Show("Số tài khoản không hợp lệ (Chỉ được có số)", "", MessageBoxButtons.OK);
                 txtSOTK.Focus();
                 return;
             }
 
-            // Kiểm tra mã nhân viên tồn tại trên site chủ
-            //viết 1 SP kiểm tra mã trùng. gọi SP đó thông qua hàm ExecSqlDataReader dưới dạng có hay không!! 
-            //if (btn_Add_clicked == true || sotk != nuSODU.Text.TrimEnd())
-            //{
-            //    Program.myReader.Close();
-            //    string strlenh1 = "EXEC sp_Existed_CMND_NV '" + nuSODU.Text.TrimEnd() + "'";
-            //    Program.myReader = Program.ExecSqlDataReader(strlenh1);
-            //    Program.myReader.Read();
-            //    if (Program.myReader.HasRows)
-            //    {
-            //        MessageBox.Show("CMND nhân viên đã tồn tại \nVui lòng nhập lại", "", MessageBoxButtons.OK);
-            //        return;
-            //    }
-            //    Program.myReader.Close();
-            //}
+            //kiểm tra mã nhân viên tồn tại trên site chủ
+            //viết 1 sp kiểm tra mã trùng.gọi sp đó thông qua hàm execsqldatareader dưới dạng có hay không!!
+            if (true)
+            {
+                int tmp = Program.ExecSqlAndGetReturnedValue("sp_Existed_STK",  new SqlParameter("@SOTK", txtSOTK.Text));
+         
+                if (tmp == 1)
+                {
+                    MessageBox.Show("Số tài khoản đã tồn tại.\nVui lòng nhập lại.", "", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+
             try
             {
-                //bdsNV.EndEdit(); //kết thúc quá trình hiệu chỉnh (ghi vào datasource)
-                //bdsNV.ResetCurrentItem();//đưa thông tin lên lưới
-                //this.NHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                //this.NHANVIENTableAdapter.Update(this.DS.NHANVIEN);
-                MessageBox.Show("Lưu thành công!!", "", MessageBoxButtons.OK);
+                // Định dạng ngày tháng theo chuẩn SQL (ví dụ yyyy-MM-dd)
+                //string formattedDate = ((DateTime)dateEditNgayMoTK.EditValue).ToString("yyyy-MM-dd");
+
+                // Xây dựng câu lệnh SQL với định dạng ngày tháng đúng
+                string cmd = "EXEC sp_TaoTK_KH '" + txtSOTK.Text.Trim() + "', '"
+                                              + cMND.Text.Trim() + "', "
+                                              + nuSODU.Value.ToString() + ", '"
+                                              + txtMACN.Text.Trim() + "', '"
+                                              + dateEditNgayMoTK.EditValue + "'";
+
+                Program.myReader = Program.ExecSqlDataReader(cmd);
+                Program.myReader.Close();
+                MessageBox.Show("Thêm thành công!!", "", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi ghi nhân viên. \n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi thêm tài khoản. \n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
             gcTK.Enabled = true;
-            btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = true;
+            gcKH.Enabled = true;
+            btnAdd.Enabled = btnReload.Enabled = btnExit.Enabled = true;
             btnSave.Enabled = btnUndo.Enabled = false;
             panel2.Enabled = false;
-        }
-
-        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string cmnd = (((DataRowView)bdsTK_FK[bdsTK_FK.Position])["CMND"].ToString()); //giữ lại vị trí nv hiện tại
-            if (bdsGR.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch chuyển tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-            if (bdsCT.Count > 0)
-            {
-                MessageBox.Show("Không thể chỉnh sửa tài khoản, vì đã thực hiện giao dịch gửi rút tiền cho tài khoản này", "", MessageBoxButtons.OK);
-                return;
-            }
-
-           try
-           {                 
-                bdsTK_FK.RemoveCurrent();
-                this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.tAIKHOANTableAdapter.Update(this.DS.TAIKHOAN);
-                MessageBox.Show("Xoá thành công nhân viên " + cmnd, "", MessageBoxButtons.OK);
-           }
-            catch (Exception ex)
-             {
-                MessageBox.Show("Lỗi xoá nhân viên. Bạn hãy xoá lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-                bdsTK_FK.Position = bdsTK_FK.Find("CMND", cmnd);
-                return;
-            }
-            if (bdsTK_FK.Count == 0) btnUpdate.Enabled = false;
+            btn_Add_clicked = false;
+            btnReload_ItemClick(sender,null);
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
-                this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
-                this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.tAIKHOANTableAdapter.Update(this.DS.TAIKHOAN);
+                this.kHACHHANGTableAdapter1.Connection.ConnectionString = Program.connstr;
+                this.kHACHHANGTableAdapter1.Fill(this.khachHang.KHACHHANG);
+                this.tAIKHOANTableAdapter1.Connection.ConnectionString = Program.connstr;
+                this.tAIKHOANTableAdapter1.Fill(this.khachHang.TAIKHOAN);
+                
+                gcTK.Refresh();
+                gcKH.Refresh(); 
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
                 return;
-            }
+            } 
         }
 
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdsKH.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
-            if (btnAdd.Enabled == false) bdsKH.Position = vitri;
+            kHACHHANGBindingSource.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
+            if (btnAdd.Enabled == false) kHACHHANGBindingSource.Position = vitri;
+            txtSOTK.Text= string.Empty;
             gcKH.Enabled = gcTK.Enabled = true;
 
             panel2.Enabled = false;
-            btnAdd.Enabled = btnUpdate.Enabled = btnDelete.Enabled = btnReload.Enabled = btnExit.Enabled = true;
+            btnAdd.Enabled =  btnReload.Enabled = btnExit.Enabled = true;
             btnSave.Enabled = btnUndo.Enabled = false;
             dateEditNgayMoTK.Text = "";
         }
@@ -240,5 +222,14 @@ namespace NganHang
         {
             Close();
         }
+
+       
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+   
     }
 }

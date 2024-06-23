@@ -23,7 +23,7 @@ namespace NganHang
         private void kHACHHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsKH.EndEdit();
+            this.getAllKHBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.DS);
 
         }
@@ -31,13 +31,12 @@ namespace NganHang
         private void frmGuiRutTien_Load(object sender, EventArgs e)
         {
             DS.EnforceConstraints = false;
-            this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-            this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
-            this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
-            macn = ((DataRowView)bdsKH[0])["MACN"].ToString();
+            this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
+            this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
+
+            macn = ((DataRowView)getAllKHBindingSource[0])["MACN"].ToString();
             cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
             cmbChiNhanh.DisplayMember = "TENCN";
             cmbChiNhanh.ValueMember = "TENSERVER";
@@ -74,12 +73,10 @@ namespace NganHang
             else
             {
                 DS.EnforceConstraints = false;
-                this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
-                this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
+                this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
+                this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
             }
         }
 
@@ -90,16 +87,16 @@ namespace NganHang
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            bdsTK.Position = vitri;
-            bdsTK.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
+            tK_KHBindingSource.Position = vitri;
+            tK_KHBindingSource.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
             pnlGD.Enabled = false;
-            gD_GOIRUTGridControl.Enabled = tAIKHOANGridControl.Enabled = true;
+            gcTK.Enabled = true;
             txtSOTK.Text = cmbLoaiGD.Text = "";
             
             try
             {
-                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
+                this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
             }
             catch (Exception ex)
             {
@@ -141,27 +138,29 @@ namespace NganHang
                                             + "','" + loaiGD 
                                             + "','" + dt 
                                             + "','" + txtMANV.EditValue + "'");
-                this.taiKhoanTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.taiKhoanTableAdapter.Fill(this.DS.TAIKHOAN);
-                this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);
+                this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
+                /*this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);*/
+
+                MessageBox.Show("Giao Dịch " + cmbLoaiGD.Text + " thành công", "Infor", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi Giao Dịch: " +ex.Message, "Error", MessageBoxButtons.OK);
                 return;
             }
-            gD_GOIRUTGridControl.Enabled = tAIKHOANGridControl.Enabled = true;
+            gcTK.Enabled = true;
             pnlGD.Enabled = false;
-            bdsTK.Position = vitri;
+            tK_KHBindingSource.Position = vitri;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            vitri = bdsTK.Position;
-            gD_GOIRUTGridControl.Enabled = tAIKHOANGridControl.Enabled = false;
+            vitri = tK_KHBindingSource.Position;
+            gcTK.Enabled = true;
             pnlGD.Enabled = true;
             txtMANV.EditValue = Program.username;
-            txtSOTK.Text = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
+            //txtSOTK.Text = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
         }
     }
 }
