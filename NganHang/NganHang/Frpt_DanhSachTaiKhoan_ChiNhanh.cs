@@ -77,6 +77,11 @@ namespace NganHang
                 MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc", "", MessageBoxButtons.OK);
                 return;
             }
+            if (enddateTimePicker.Value > DateTime.Now)
+            {
+                MessageBox.Show("Thời gian sao kê phải bé hơn hiện tại", "", MessageBoxButtons.OK);
+                return;
+            }
             try
             {
 

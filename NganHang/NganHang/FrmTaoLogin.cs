@@ -107,5 +107,40 @@ namespace NganHang
                 return;
             }
         }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbMANV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hOTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLoginName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tENTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassConfir_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

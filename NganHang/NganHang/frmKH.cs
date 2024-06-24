@@ -186,8 +186,7 @@ namespace NganHang
                                                                     new SqlParameter("@DIACHI", txtDIACHI.Text),
                                                                     new SqlParameter("@PHAI", cmbPHAI.Text),
                                                                     new SqlParameter("@NGAYCAP", dateNgayCap.Text),
-                                                                    new SqlParameter("@SODT", txtSODT.Text),
-                                                                    new SqlParameter("@MACN", cmbChiNhanh.Text));
+                                                                    new SqlParameter("@SODT", txtSODT.Text));
                     if (result == 1)
                     {
                         MessageBox.Show("Trùng CMND!!", "", MessageBoxButtons.OK);
@@ -218,14 +217,13 @@ namespace NganHang
                                                                     new SqlParameter("@oldCMND", oldCMND),
                                                                     new SqlParameter("@NGAYCAP", dateNgayCap.Text),
                                                                     new SqlParameter("@SODT", txtSODT.Text),
-                                                                    new SqlParameter("@PHAI", cmbPHAI.Text),
-                                                                    new SqlParameter("@MACN", cmbChiNhanh.Text));
+                                                                    new SqlParameter("@PHAI", cmbPHAI.Text));
                     if (result == 1)
                     {
                         MessageBox.Show("Trùng CMND!!", "", MessageBoxButtons.OK);
                         return;
                     }
-                    else if(result != 1 && result != 0)
+                    else if(result == 0)
                     {
                         MessageBox.Show("Lưu thành công!!", "", MessageBoxButtons.OK); 
                     }

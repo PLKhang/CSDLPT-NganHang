@@ -21,6 +21,22 @@ namespace NganHang
             InitializeComponent();
         }
 
+        private void reload_Adapter()
+        {
+            // TODO: This line of code loads data into the 'dS.GetAllKH' table. You can move, or remove it, as needed.
+            this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
+            // TODO: This line of code loads data into the 'DS.TK_KH' table. You can move, or remove it, as needed.
+            this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
+            // TODO: This line of code loads data into the 'DS.CHUYENTIEN_INFORECEIVER' table. You can move, or remove it, as needed.
+            this.cHUYENTIEN_INFORECEIVERTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.cHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
+        }
+        private void resetText()
+        {
+            hOTextBox.Text = hOTENRECTextBox.Text = tENTextBox.Text = cMNDTextBox1.Text = cMNDTextBox.Text = txtSoTKChuyen.Text = sODUTextEdit.Text = txtSoTKNhan.Text = "";
+        }
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView")
@@ -57,17 +73,8 @@ namespace NganHang
 
         private void frmChuyenTien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.GetAllKH' table. You can move, or remove it, as needed.
-            this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
-            // TODO: This line of code loads data into the 'DS.TK_KH' table. You can move, or remove it, as needed.
-            this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
-            // TODO: This line of code loads data into the 'DS.CHUYENTIEN_INFORECEIVER' table. You can move, or remove it, as needed.
-            this.cHUYENTIEN_INFORECEIVERTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.cHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
             DS.EnforceConstraints = false;
-            //this.CHUYENTIEN_INFORECEIVERTableAdapter.Fill(this.DS.CHUYENTIEN_INFORECEIVER);
+            reload_Adapter();
             macn = ((DataRowView)getAllKHBindingSource[0])["MACN"].ToString();
             cmbChiNhanh.DataSource = Program.bds_dspm; // sao chép bds_ds đã load ở form đăng nhập
             cmbChiNhanh.DisplayMember = "TENCN";
@@ -105,17 +112,21 @@ namespace NganHang
                     MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
 
-                        Program.ExecSqlNonQuery("EXEC sp_ChuyenTien '" + txtSoTKChuyen.Text
+                        int result = Program.ExecSqlNonQuery("EXEC sp_ChuyenTien '" + txtSoTKChuyen.Text
                                                             + "','" + txtSoTKNhan.Text
                                                             + "','" + nuSoTien.Value
                                                             + "','" + dt
                                                             + "','" + txtMANV.Text + "'");
-                        /*DS.EnforceConstraints = false;
-                        this.khachHangTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.khachHangTableAdapter.Fill(this.DS.KHACHHANG);
-                        this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.tK_KHTableAdapter.Fill(this.DS.TAIKHOAN);*/
-                        System.Windows.Forms.MessageBox.Show("Giao Dịch Thành Công ", "", MessageBoxButtons.OK);
+                        if (result == 0)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Giao Dịch Thành Công ", "Success", MessageBoxButtons.OK);
+
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show("Giao Dịch Thất Bại ", "Fail", MessageBoxButtons.OK);
+
+                        }
                     }
 
                 }
@@ -123,9 +134,10 @@ namespace NganHang
                 {
                     System.Windows.Forms.MessageBox.Show("Lỗi reload: " + ex.Message, "", MessageBoxButtons.OK);
                 }
+
+                reload_Adapter();
+                resetText();
                 taiKhoanGridControl.Enabled = khachHangGridControl.Enabled = true;
-                hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
-                pnlGD.Enabled = false;
                 tK_KHBindingSource.Position = vitri;
                 return;
             }
@@ -135,19 +147,21 @@ namespace NganHang
         {
             tK_KHBindingSource.Position = vitri;
             tK_KHBindingSource.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
+            reload_Adapter();
             pnlGD.Enabled = false;
             khachHangGridControl.Enabled = taiKhoanGridControl.Enabled = true;
-            hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
+            resetText();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
             tK_KHBindingSource.Position = vitri;
             tK_KHBindingSource.CancelEdit();//hai trường hợp: đang thêm bỏ thêm, đang sửa bỏ sửa
+            reload_Adapter();
+            resetText();
             pnlGD.Enabled = true;
             khachHangGridControl.Enabled = taiKhoanGridControl.Enabled = true;
-            hOTENRECTextBox.Text = cMNDTextBox.Text = txtSoTKNhan.Text = txtMACN.Text = "";
-            hOTextBox.Text = tENTextBox.Text = cMNDTextBox1.Text = txtSoTKChuyen.Text = sODUTextEdit.Text = "";
+            resetText();
             try
             {
                 this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;

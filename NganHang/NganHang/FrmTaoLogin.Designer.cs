@@ -65,21 +65,23 @@
             // 
             mANVLabel.AutoSize = true;
             mANVLabel.Font = new System.Drawing.Font("Tahoma", 11F);
-            mANVLabel.Location = new System.Drawing.Point(26, 97);
+            mANVLabel.Location = new System.Drawing.Point(78, 116);
+            mANVLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(128, 23);
+            mANVLabel.Size = new System.Drawing.Size(135, 23);
             mANVLabel.TabIndex = 2;
-            mANVLabel.Text = "Mã Nhân Viên";
+            mANVLabel.Text = "Mã Nhân Viên:";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
             hOLabel.Font = new System.Drawing.Font("Tahoma", 11F);
-            hOLabel.Location = new System.Drawing.Point(29, 156);
+            hOLabel.Location = new System.Drawing.Point(33, 192);
+            hOLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(164, 23);
+            hOLabel.Size = new System.Drawing.Size(171, 23);
             hOLabel.TabIndex = 43;
-            hOLabel.Text = "Họ Tên Nhân Viên";
+            hOLabel.Text = "Họ Tên Nhân Viên:";
             // 
             // DS
             // 
@@ -126,17 +128,20 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Controls.Add(this.label3);
             this.panelControl1.Controls.Add(this.label2);
-            this.panelControl1.Location = new System.Drawing.Point(187, 47);
+            this.panelControl1.Location = new System.Drawing.Point(38, 13);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(795, 471);
+            this.panelControl1.Size = new System.Drawing.Size(1032, 543);
             this.panelControl1.TabIndex = 2;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Aquamarine;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(245, 24);
+            this.label4.Location = new System.Drawing.Point(389, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(323, 29);
             this.label4.TabIndex = 51;
@@ -147,11 +152,13 @@
             this.txtLoginName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameBindingSource, "MANV", true));
             this.txtLoginName.Enabled = false;
             this.txtLoginName.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.txtLoginName.Location = new System.Drawing.Point(226, 209);
+            this.txtLoginName.Location = new System.Drawing.Point(277, 256);
+            this.txtLoginName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.ReadOnly = true;
-            this.txtLoginName.Size = new System.Drawing.Size(507, 30);
+            this.txtLoginName.Size = new System.Drawing.Size(633, 30);
             this.txtLoginName.TabIndex = 50;
+            this.txtLoginName.TextChanged += new System.EventHandler(this.txtLoginName_TextChanged);
             // 
             // v_EX_LoginNameBindingSource
             // 
@@ -162,23 +169,27 @@
             // 
             this.tENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameBindingSource, "TEN", true));
             this.tENTextBox.Enabled = false;
-            this.tENTextBox.Location = new System.Drawing.Point(520, 153);
+            this.tENTextBox.Location = new System.Drawing.Point(645, 186);
+            this.tENTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tENTextBox.Multiline = true;
             this.tENTextBox.Name = "tENTextBox";
             this.tENTextBox.ReadOnly = true;
-            this.tENTextBox.Size = new System.Drawing.Size(213, 31);
+            this.tENTextBox.Size = new System.Drawing.Size(265, 38);
             this.tENTextBox.TabIndex = 49;
+            this.tENTextBox.TextChanged += new System.EventHandler(this.tENTextBox_TextChanged);
             // 
             // hOTextBox
             // 
             this.hOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameBindingSource, "HO", true));
             this.hOTextBox.Enabled = false;
-            this.hOTextBox.Location = new System.Drawing.Point(226, 153);
+            this.hOTextBox.Location = new System.Drawing.Point(277, 186);
+            this.hOTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hOTextBox.Multiline = true;
             this.hOTextBox.Name = "hOTextBox";
             this.hOTextBox.ReadOnly = true;
-            this.hOTextBox.Size = new System.Drawing.Size(277, 31);
+            this.hOTextBox.Size = new System.Drawing.Size(345, 38);
             this.hOTextBox.TabIndex = 48;
+            this.hOTextBox.TextChanged += new System.EventHandler(this.hOTextBox_TextChanged);
             // 
             // cmbMANV
             // 
@@ -187,54 +198,58 @@
             this.cmbMANV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMANV.Font = new System.Drawing.Font("Tahoma", 11F);
             this.cmbMANV.FormattingEnabled = true;
-            this.cmbMANV.Location = new System.Drawing.Point(226, 97);
+            this.cmbMANV.Location = new System.Drawing.Point(277, 116);
+            this.cmbMANV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbMANV.Name = "cmbMANV";
-            this.cmbMANV.Size = new System.Drawing.Size(507, 30);
+            this.cmbMANV.Size = new System.Drawing.Size(633, 30);
             this.cmbMANV.TabIndex = 47;
             this.cmbMANV.ValueMember = "MANV";
+            this.cmbMANV.SelectedIndexChanged += new System.EventHandler(this.cmbMANV_SelectedIndexChanged);
             // 
             // btLuu
             // 
             this.btLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btLuu.Appearance.Options.UseFont = true;
-            this.btLuu.Location = new System.Drawing.Point(412, 346);
-            this.btLuu.Margin = new System.Windows.Forms.Padding(5);
+            this.btLuu.Location = new System.Drawing.Point(464, 461);
+            this.btLuu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btLuu.Name = "btLuu";
-            this.btLuu.Size = new System.Drawing.Size(156, 56);
+            this.btLuu.Size = new System.Drawing.Size(181, 50);
             this.btLuu.TabIndex = 43;
             this.btLuu.Text = "Lưu";
             this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
             // 
             // txtPassConfir
             // 
-            this.txtPassConfir.Location = new System.Drawing.Point(226, 298);
-            this.txtPassConfir.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPassConfir.Location = new System.Drawing.Point(277, 394);
+            this.txtPassConfir.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPassConfir.Name = "txtPassConfir";
             this.txtPassConfir.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtPassConfir.Properties.Appearance.Options.UseFont = true;
             this.txtPassConfir.Properties.UseSystemPasswordChar = true;
-            this.txtPassConfir.Size = new System.Drawing.Size(508, 28);
+            this.txtPassConfir.Size = new System.Drawing.Size(635, 28);
             this.txtPassConfir.TabIndex = 42;
+            this.txtPassConfir.EditValueChanged += new System.EventHandler(this.txtPassConfir_EditValueChanged);
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(226, 255);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPass.Location = new System.Drawing.Point(277, 329);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtPass.Properties.Appearance.Options.UseFont = true;
             this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(508, 28);
+            this.txtPass.Size = new System.Drawing.Size(635, 28);
             this.txtPass.TabIndex = 41;
+            this.txtPass.EditValueChanged += new System.EventHandler(this.txtPass_EditValueChanged);
             // 
             // btThoat
             // 
             this.btThoat.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btThoat.Appearance.Options.UseFont = true;
-            this.btThoat.Location = new System.Drawing.Point(578, 346);
-            this.btThoat.Margin = new System.Windows.Forms.Padding(5);
+            this.btThoat.Location = new System.Drawing.Point(671, 461);
+            this.btThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btThoat.Name = "btThoat";
-            this.btThoat.Size = new System.Drawing.Size(156, 56);
+            this.btThoat.Size = new System.Drawing.Size(181, 50);
             this.btThoat.TabIndex = 39;
             this.btThoat.Text = "Thoát";
             this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
@@ -243,34 +258,34 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.label1.Location = new System.Drawing.Point(29, 303);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(33, 393);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 23);
+            this.label1.Size = new System.Drawing.Size(171, 23);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Nhập lại mật khẩu";
+            this.label1.Text = "Nhập lại mật khẩu:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.label3.Location = new System.Drawing.Point(29, 258);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(125, 329);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 23);
+            this.label3.Size = new System.Drawing.Size(97, 23);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Mật Khẩu";
+            this.label3.Text = "Mật Khẩu:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.label2.Location = new System.Drawing.Point(29, 212);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(81, 261);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 23);
+            this.label2.Size = new System.Drawing.Size(132, 23);
             this.label2.TabIndex = 36;
-            this.label2.Text = "Tên tài khoản";
+            this.label2.Text = "Tên tài khoản:";
             // 
             // v_EX_LoginNameTableAdapter
             // 

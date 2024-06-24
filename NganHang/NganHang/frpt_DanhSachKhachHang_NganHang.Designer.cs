@@ -37,16 +37,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Yellow;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 83);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(706, 32);
+            this.label1.Size = new System.Drawing.Size(749, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Lập Danh Sách Trong Toàn Bộ Chi Nhánh Của Ngân Hàng";
+            this.label1.Text = "Lập Danh Sách Khách Hàng Trong Toàn Bộ Chi Nhánh Của Ngân Hàng";
             // 
             // btn_XacNhan
             // 
-            this.btn_XacNhan.BackColor = System.Drawing.Color.Lime;
+            this.btn_XacNhan.BackColor = System.Drawing.Color.PaleGreen;
             this.btn_XacNhan.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XacNhan.Location = new System.Drawing.Point(191, 170);
             this.btn_XacNhan.Name = "btn_XacNhan";
@@ -58,7 +58,7 @@
             // 
             // btn_Thoat
             // 
-            this.btn_Thoat.BackColor = System.Drawing.Color.Red;
+            this.btn_Thoat.BackColor = System.Drawing.Color.LightCoral;
             this.btn_Thoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.Location = new System.Drawing.Point(391, 170);
             this.btn_Thoat.Name = "btn_Thoat";

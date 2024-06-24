@@ -96,7 +96,8 @@
             // 
             mANVLabel.AutoSize = true;
             mANVLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mANVLabel.Location = new System.Drawing.Point(404, 139);
+            mANVLabel.Location = new System.Drawing.Point(505, 174);
+            mANVLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             mANVLabel.Name = "mANVLabel";
             mANVLabel.Size = new System.Drawing.Size(62, 20);
             mANVLabel.TabIndex = 10;
@@ -106,7 +107,8 @@
             // 
             sOTIENLabel.AutoSize = true;
             sOTIENLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sOTIENLabel.Location = new System.Drawing.Point(404, 99);
+            sOTIENLabel.Location = new System.Drawing.Point(505, 124);
+            sOTIENLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             sOTIENLabel.Name = "sOTIENLabel";
             sOTIENLabel.Size = new System.Drawing.Size(75, 20);
             sOTIENLabel.TabIndex = 8;
@@ -116,7 +118,8 @@
             // 
             lOAIGDLabel.AutoSize = true;
             lOAIGDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lOAIGDLabel.Location = new System.Drawing.Point(38, 139);
+            lOAIGDLabel.Location = new System.Drawing.Point(48, 174);
+            lOAIGDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lOAIGDLabel.Name = "lOAIGDLabel";
             lOAIGDLabel.Size = new System.Drawing.Size(78, 20);
             lOAIGDLabel.TabIndex = 4;
@@ -126,7 +129,8 @@
             // 
             sOTKLabel.AutoSize = true;
             sOTKLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sOTKLabel.Location = new System.Drawing.Point(38, 99);
+            sOTKLabel.Location = new System.Drawing.Point(48, 124);
+            sOTKLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             sOTKLabel.Name = "sOTKLabel";
             sOTKLabel.Size = new System.Drawing.Size(59, 20);
             sOTKLabel.TabIndex = 2;
@@ -141,16 +145,18 @@
             this.panelControl1.Controls.Add(this.cmbChiNhanh);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1287, 39);
+            this.panelControl1.Size = new System.Drawing.Size(1648, 49);
             this.panelControl1.TabIndex = 7;
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(493, 5);
+            this.btnAdd.Location = new System.Drawing.Point(616, 6);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(158, 32);
+            this.btnAdd.Size = new System.Drawing.Size(198, 40);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Thêm Giao Dịch";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -159,9 +165,10 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(821, 5);
+            this.btnThoat.Location = new System.Drawing.Point(1026, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(134, 32);
+            this.btnThoat.Size = new System.Drawing.Size(168, 40);
             this.btnThoat.TabIndex = 16;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -170,7 +177,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 12);
+            this.label1.Location = new System.Drawing.Point(40, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 1;
@@ -179,9 +187,10 @@
             // btnReload
             // 
             this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(657, 5);
+            this.btnReload.Location = new System.Drawing.Point(821, 6);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(158, 32);
+            this.btnReload.Size = new System.Drawing.Size(198, 40);
             this.btnReload.TabIndex = 15;
             this.btnReload.Text = "Tải Lại";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -191,9 +200,10 @@
             // 
             this.cmbChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(129, 9);
+            this.cmbChiNhanh.Location = new System.Drawing.Point(161, 11);
+            this.cmbChiNhanh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(325, 24);
+            this.cmbChiNhanh.Size = new System.Drawing.Size(405, 24);
             this.cmbChiNhanh.TabIndex = 0;
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
@@ -204,9 +214,10 @@
             this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 39);
+            this.groupControl1.Location = new System.Drawing.Point(0, 49);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1287, 30);
+            this.groupControl1.Size = new System.Drawing.Size(1648, 38);
             this.groupControl1.TabIndex = 13;
             this.groupControl1.Text = "Danh sách khách hàng";
             // 
@@ -217,18 +228,21 @@
             this.panelControl2.Controls.Add(this.pnlGD);
             this.panelControl2.Controls.Add(this.label2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 69);
+            this.panelControl2.Location = new System.Drawing.Point(0, 87);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1287, 594);
+            this.panelControl2.Size = new System.Drawing.Size(1648, 705);
             this.panelControl2.TabIndex = 18;
             // 
             // gcTK
             // 
             this.gcTK.DataSource = this.tK_KHBindingSource;
-            this.gcTK.Location = new System.Drawing.Point(0, 300);
+            this.gcTK.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcTK.Location = new System.Drawing.Point(-10, 331);
             this.gcTK.MainView = this.gridView2;
+            this.gcTK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcTK.Name = "gcTK";
-            this.gcTK.Size = new System.Drawing.Size(630, 275);
+            this.gcTK.Size = new System.Drawing.Size(788, 344);
             this.gcTK.TabIndex = 20;
             this.gcTK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -250,15 +264,22 @@
             // 
             // gridView2
             // 
-            this.gridView2.Appearance.FocusedCell.BackColor = System.Drawing.Color.Lime;
-            this.gridView2.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gridView2.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.gridView2.Appearance.FocusedCell.Options.UseFont = true;
+            this.gridView2.Appearance.FocusedCell.Options.UseTextOptions = true;
+            this.gridView2.Appearance.FocusedCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView2.Appearance.FocusedRow.BackColor = System.Drawing.Color.Lime;
             this.gridView2.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSOTK,
             this.colCMND1,
             this.colSODU,
             this.colMACN1});
+            this.gridView2.DetailHeight = 437;
             this.gridView2.GridControl = this.gcTK;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
@@ -272,60 +293,66 @@
             // 
             this.colSOTK.Caption = "Số Tài Khoản";
             this.colSOTK.FieldName = "SOTK";
-            this.colSOTK.MinWidth = 25;
+            this.colSOTK.MinWidth = 31;
             this.colSOTK.Name = "colSOTK";
             this.colSOTK.Visible = true;
             this.colSOTK.VisibleIndex = 0;
-            this.colSOTK.Width = 94;
+            this.colSOTK.Width = 117;
             // 
             // colCMND1
             // 
             this.colCMND1.Caption = "CMND";
             this.colCMND1.FieldName = "CMND";
-            this.colCMND1.MinWidth = 25;
+            this.colCMND1.MinWidth = 31;
             this.colCMND1.Name = "colCMND1";
             this.colCMND1.Visible = true;
             this.colCMND1.VisibleIndex = 1;
-            this.colCMND1.Width = 94;
+            this.colCMND1.Width = 117;
             // 
             // colSODU
             // 
             this.colSODU.Caption = "Số Dư";
             this.colSODU.FieldName = "SODU";
-            this.colSODU.MinWidth = 25;
+            this.colSODU.MinWidth = 31;
             this.colSODU.Name = "colSODU";
             this.colSODU.Visible = true;
             this.colSODU.VisibleIndex = 2;
-            this.colSODU.Width = 94;
+            this.colSODU.Width = 117;
             // 
             // colMACN1
             // 
             this.colMACN1.Caption = "Mã Chi Nhánh";
             this.colMACN1.FieldName = "MACN";
-            this.colMACN1.MinWidth = 25;
+            this.colMACN1.MinWidth = 31;
             this.colMACN1.Name = "colMACN1";
             this.colMACN1.Visible = true;
             this.colMACN1.VisibleIndex = 3;
-            this.colMACN1.Width = 94;
+            this.colMACN1.Width = 117;
             // 
             // gcKH
             // 
             this.gcKH.DataSource = this.getAllKHBindingSource;
             this.gcKH.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcKH.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcKH.Location = new System.Drawing.Point(2, 2);
             this.gcKH.MainView = this.gridView1;
+            this.gcKH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcKH.Name = "gcKH";
-            this.gcKH.Size = new System.Drawing.Size(1283, 272);
+            this.gcKH.Size = new System.Drawing.Size(1644, 284);
             this.gcKH.TabIndex = 17;
             this.gcKH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.Appearance.FocusedCell.BackColor = System.Drawing.Color.Lime;
-            this.gridView1.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.gridView1.Appearance.FocusedCell.Options.UseFont = true;
             this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.Lime;
             this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colHO,
             this.colTEN,
@@ -335,6 +362,7 @@
             this.colSoDT,
             this.colPHAI,
             this.colMACN});
+            this.gridView1.DetailHeight = 437;
             this.gridView1.GridControl = this.gcKH;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -348,87 +376,113 @@
             // 
             // colHO
             // 
+            this.colHO.AppearanceHeader.Options.UseTextOptions = true;
+            this.colHO.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 25;
+            this.colHO.MinWidth = 31;
             this.colHO.Name = "colHO";
             this.colHO.OptionsEditForm.Caption = "HO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 0;
-            this.colHO.Width = 101;
+            this.colHO.Width = 126;
             // 
             // colTEN
             // 
+            this.colTEN.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTEN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 25;
+            this.colTEN.MinWidth = 31;
             this.colTEN.Name = "colTEN";
             this.colTEN.OptionsEditForm.Caption = "TEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 1;
-            this.colTEN.Width = 94;
+            this.colTEN.Width = 117;
             // 
             // colDIACHI
             // 
+            this.colDIACHI.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDIACHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDIACHI.Caption = "Địa Chỉ";
             this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 25;
+            this.colDIACHI.MinWidth = 31;
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.OptionsEditForm.Caption = "DIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 2;
-            this.colDIACHI.Width = 111;
+            this.colDIACHI.Width = 139;
             // 
             // colCMND
             // 
+            this.colCMND.AppearanceCell.Options.UseTextOptions = true;
+            this.colCMND.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colCMND.AppearanceHeader.Options.UseTextOptions = true;
+            this.colCMND.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colCMND.FieldName = "CMND";
-            this.colCMND.MinWidth = 25;
+            this.colCMND.MinWidth = 31;
             this.colCMND.Name = "colCMND";
             this.colCMND.Visible = true;
             this.colCMND.VisibleIndex = 3;
-            this.colCMND.Width = 81;
+            this.colCMND.Width = 101;
             // 
             // colNGAYCAP
             // 
+            this.colNGAYCAP.AppearanceCell.Options.UseTextOptions = true;
+            this.colNGAYCAP.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNGAYCAP.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNGAYCAP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNGAYCAP.Caption = "Ngày Cấp";
             this.colNGAYCAP.FieldName = "NGAYCAP";
-            this.colNGAYCAP.MinWidth = 25;
+            this.colNGAYCAP.MinWidth = 31;
             this.colNGAYCAP.Name = "colNGAYCAP";
             this.colNGAYCAP.Visible = true;
             this.colNGAYCAP.VisibleIndex = 4;
-            this.colNGAYCAP.Width = 88;
+            this.colNGAYCAP.Width = 110;
             // 
             // colSoDT
             // 
+            this.colSoDT.AppearanceCell.Options.UseTextOptions = true;
+            this.colSoDT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSoDT.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSoDT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colSoDT.Caption = "Số Điện Thoại";
             this.colSoDT.FieldName = "SoDT";
-            this.colSoDT.MinWidth = 25;
+            this.colSoDT.MinWidth = 31;
             this.colSoDT.Name = "colSoDT";
             this.colSoDT.OptionsEditForm.Caption = "SODT:";
             this.colSoDT.Visible = true;
             this.colSoDT.VisibleIndex = 5;
-            this.colSoDT.Width = 87;
+            this.colSoDT.Width = 109;
             // 
             // colPHAI
             // 
+            this.colPHAI.AppearanceCell.Options.UseTextOptions = true;
+            this.colPHAI.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
+            this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colPHAI.Caption = "Giới Tính";
             this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 25;
+            this.colPHAI.MinWidth = 31;
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 6;
-            this.colPHAI.Width = 80;
+            this.colPHAI.Width = 100;
             // 
             // colMACN
             // 
+            this.colMACN.AppearanceCell.Options.UseTextOptions = true;
+            this.colMACN.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMACN.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMACN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colMACN.Caption = "Mã Chi Nhánh";
             this.colMACN.FieldName = "MACN";
             this.colMACN.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
-            this.colMACN.MinWidth = 25;
+            this.colMACN.MinWidth = 31;
             this.colMACN.Name = "colMACN";
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 7;
-            this.colMACN.Width = 160;
+            this.colMACN.Width = 200;
             // 
             // pnlGD
             // 
@@ -442,36 +496,41 @@
             this.pnlGD.Controls.Add(lOAIGDLabel);
             this.pnlGD.Controls.Add(this.cmbLoaiGD);
             this.pnlGD.Controls.Add(sOTKLabel);
-            this.pnlGD.Location = new System.Drawing.Point(657, 274);
+            this.pnlGD.Location = new System.Drawing.Point(809, 294);
+            this.pnlGD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlGD.Name = "pnlGD";
-            this.pnlGD.Size = new System.Drawing.Size(630, 301);
+            this.pnlGD.Size = new System.Drawing.Size(788, 376);
             this.pnlGD.TabIndex = 19;
             // 
             // txtSOTK
             // 
             this.txtSOTK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tK_KHBindingSource, "SOTK", true));
             this.txtSOTK.Enabled = false;
-            this.txtSOTK.Location = new System.Drawing.Point(127, 96);
+            this.txtSOTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSOTK.Location = new System.Drawing.Point(159, 120);
+            this.txtSOTK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSOTK.Name = "txtSOTK";
-            this.txtSOTK.Size = new System.Drawing.Size(121, 23);
+            this.txtSOTK.Size = new System.Drawing.Size(150, 28);
             this.txtSOTK.TabIndex = 14;
             // 
             // txtMANV
             // 
-            this.txtMANV.Location = new System.Drawing.Point(498, 136);
+            this.txtMANV.Location = new System.Drawing.Point(622, 170);
+            this.txtMANV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMANV.Name = "txtMANV";
-            this.txtMANV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMANV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMANV.Properties.Appearance.Options.UseFont = true;
             this.txtMANV.Properties.ReadOnly = true;
-            this.txtMANV.Size = new System.Drawing.Size(120, 26);
+            this.txtMANV.Size = new System.Drawing.Size(150, 28);
             this.txtMANV.TabIndex = 13;
             // 
             // btnXacNhan
             // 
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.Location = new System.Drawing.Point(251, 180);
+            this.btnXacNhan.Location = new System.Drawing.Point(314, 225);
+            this.btnXacNhan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(140, 39);
+            this.btnXacNhan.Size = new System.Drawing.Size(175, 49);
             this.btnXacNhan.TabIndex = 12;
             this.btnXacNhan.Text = "Xác Nhận";
             this.btnXacNhan.UseVisualStyleBackColor = true;
@@ -479,13 +538,14 @@
             // 
             // txtSoTien
             // 
-            this.txtSoTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoTien.Increment = new decimal(new int[] {
             50000,
             0,
             0,
             0});
-            this.txtSoTien.Location = new System.Drawing.Point(498, 97);
+            this.txtSoTien.Location = new System.Drawing.Point(622, 121);
+            this.txtSoTien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSoTien.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -497,7 +557,7 @@
             0,
             0});
             this.txtSoTien.Name = "txtSoTien";
-            this.txtSoTien.Size = new System.Drawing.Size(120, 27);
+            this.txtSoTien.Size = new System.Drawing.Size(150, 28);
             this.txtSoTien.TabIndex = 9;
             this.txtSoTien.ThousandsSeparator = true;
             this.txtSoTien.Value = new decimal(new int[] {
@@ -509,14 +569,15 @@
             // cmbLoaiGD
             // 
             this.cmbLoaiGD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoaiGD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLoaiGD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLoaiGD.FormattingEnabled = true;
             this.cmbLoaiGD.Items.AddRange(new object[] {
             "Gửi tiền",
             "Rút tiền"});
-            this.cmbLoaiGD.Location = new System.Drawing.Point(127, 136);
+            this.cmbLoaiGD.Location = new System.Drawing.Point(159, 170);
+            this.cmbLoaiGD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbLoaiGD.Name = "cmbLoaiGD";
-            this.cmbLoaiGD.Size = new System.Drawing.Size(121, 28);
+            this.cmbLoaiGD.Size = new System.Drawing.Size(150, 30);
             this.cmbLoaiGD.TabIndex = 5;
             // 
             // label2
@@ -525,7 +586,8 @@
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(-5, 277);
+            this.label2.Location = new System.Drawing.Point(6, 302);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(430, 25);
             this.label2.TabIndex = 18;
@@ -555,7 +617,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 663);
+            this.ClientSize = new System.Drawing.Size(1648, 792);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);

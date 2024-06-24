@@ -34,11 +34,6 @@ namespace NganHang
         }
         private void btn_DangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*if (Program.mloginDN != "")
-            {
-                MessageBox.Show("Bạn cần đăng xuất trước khi thực hiện hành động này");
-                return;
-            }*/
             Form frm = this.CheckExists(typeof(frmDangNhap));
             if (frm != null) frm.Activate();
             else
@@ -50,48 +45,14 @@ namespace NganHang
         }
         private void btn_DangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*if (Program.mloginDN == "")
-            {
-                MessageBox.Show("Bạn phải đăng nhập trước khi đăng xuất!", "", MessageBoxButtons.OK);
-                return;
-            }
-            else
-            {
-                try
-                {
-                    Program.servername = "";
-                    Program.username = "";
-                    Program.mlogin = "";
-                    Program.password = "";
-                    Program.mloginDN = "";
-                    Program.passwordDN = "";
-                    if (Program.conn.State == ConnectionState.Open) Program.conn.Close();   //Nếu đang mở kết nối thì ta đóng lại.
-
-                    Form[] childArray = this.MdiChildren;   //Đóng hết tất cả form con đang mở.
-                    foreach (Form childForm in childArray)
-                    {
-                        childForm.Close();
-                    }
-
-                    rib_BaoCao.Visible  = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
-                    btn_DangNhap.Enabled = true;
-                    MANV.Text = "MANV "; HOTEN.Text = "HOTEN "; NHOM.Text = "NHOM";
-                    MessageBox.Show("Đăng xuất thành công.", "", MessageBoxButtons.OK);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "", MessageBoxButtons.OK);
-                    return;
-                }
-            }
-            return;*/
             Program.servername = "";
             Program.username = "";
             Program.mlogin = "";
             Program.password = "";
             Program.mloginDN = "";
             Program.passwordDN = "";
-            if (Program.conn.State == ConnectionState.Open) Program.conn.Close();   //Nếu đang mở kết nối thì ta đóng lại.
+            if (Program.conn != null && Program.conn.State == System.Data.ConnectionState.Open)
+                Program.conn.Close();   //Nếu đang mở kết nối thì ta đóng lại.
 
             Form[] childArray = this.MdiChildren;   //Đóng hết tất cả form con đang mở.
             foreach (Form childForm in childArray)
@@ -101,7 +62,7 @@ namespace NganHang
 
             rib_BaoCao.Visible = rib_NghiepVu.Visible = btn_DangXuat.Enabled = btn_DK.Enabled = false;
             btn_DangNhap.Enabled = true;
-            MANV.Text = "Mã Nhân Viên "; HOTEN.Text = "Họ Tên "; NHOM.Text = "Nhóm";
+            MANV.Text = "Username: NONE;"; HOTEN.Text = "Họ Tên: NONE;"; NHOM.Text = "Nhóm: NONE;";
             MessageBox.Show("Đăng xuất thành công.", "", MessageBoxButtons.OK);
         }
         private void btn_TaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

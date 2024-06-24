@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -97,6 +98,8 @@ namespace NganHang
             {
                 this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
+                this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
             }
             catch (Exception ex)
             {
@@ -133,16 +136,17 @@ namespace NganHang
                     txtSoTien.Focus();
                     return;
                 }
-                Program.ExecSqlNonQuery("EXEC SP_GuiRut '" + txtSOTK.Text 
-                                            + "','" + txtSoTien.Value 
-                                            + "','" + loaiGD 
-                                            + "','" + dt 
-                                            + "','" + txtMANV.EditValue + "'");
+                int result = Program.ExecSqlAndGetReturnedValue2("SP_GuiRut",
+                                               new SqlParameter("@SOTK", txtSOTK.Text),
+                                               new SqlParameter("@TIEN", txtSoTien.Value),
+                                               new SqlParameter("@LOAIGD", loaiGD),
+                                               new SqlParameter("@NGAYGD", dt),
+                                               new SqlParameter("@MANV", txtMANV.EditValue)); 
                 this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
-                /*this.gD_GOIRUTTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.gD_GOIRUTTableAdapter.Fill(this.DS.GD_GOIRUT);*/
-
+                this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
+                if (result != -1)
                 MessageBox.Show("Giao Dịch " + cmbLoaiGD.Text + " thành công", "Infor", MessageBoxButtons.OK);
             }
             catch (Exception ex)

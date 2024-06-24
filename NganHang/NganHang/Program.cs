@@ -68,27 +68,6 @@ namespace NGANHANG
                 return 0;
             }
         }
-        public static int KetNoiCosoKhac()
-        {
-            if (Program.conn1 != null && Program.conn1.State == ConnectionState.Open)
-                Program.conn1.Close();
-            try
-            {
-                Program.connstr1 = "Data Source=" + Program.servername1 + ";Initial Catalog=" +
-                      Program.database + ";User ID=" +
-                      Program.mlogin1 + ";password=" + Program.password1;
-                Program.conn1.ConnectionString = Program.connstr1;
-                Program.conn1.Open();
-                return 1;
-            }
-
-            catch (Exception e)
-            {
-                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n "
-                    + e.Message, "", MessageBoxButtons.OK);
-                return 0;
-            }
-        }
         public static SqlDataReader ExecSqlDataReader(String strLenh)
         { // thực thi câu lệnh và trả về dưới dạng DataReader.
             SqlDataReader myreader;

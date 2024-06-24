@@ -42,31 +42,31 @@
             // 
             this.labChiNhanh.AutoSize = true;
             this.labChiNhanh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labChiNhanh.Location = new System.Drawing.Point(158, 64);
+            this.labChiNhanh.Location = new System.Drawing.Point(123, 64);
             this.labChiNhanh.Name = "labChiNhanh";
-            this.labChiNhanh.Size = new System.Drawing.Size(93, 22);
+            this.labChiNhanh.Size = new System.Drawing.Size(99, 22);
             this.labChiNhanh.TabIndex = 0;
-            this.labChiNhanh.Text = "Chi Nhánh";
+            this.labChiNhanh.Text = "Chi Nhánh:";
             // 
             // labTk
             // 
             this.labTk.AutoSize = true;
             this.labTk.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTk.Location = new System.Drawing.Point(158, 142);
+            this.labTk.Location = new System.Drawing.Point(123, 142);
             this.labTk.Name = "labTk";
-            this.labTk.Size = new System.Drawing.Size(93, 22);
+            this.labTk.Size = new System.Drawing.Size(99, 22);
             this.labTk.TabIndex = 1;
-            this.labTk.Text = "Tài Khoản";
+            this.labTk.Text = "Tài Khoản:";
             // 
             // labMk
             // 
             this.labMk.AutoSize = true;
             this.labMk.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMk.Location = new System.Drawing.Point(158, 219);
+            this.labMk.Location = new System.Drawing.Point(123, 219);
             this.labMk.Name = "labMk";
-            this.labMk.Size = new System.Drawing.Size(87, 22);
+            this.labMk.Size = new System.Drawing.Size(93, 22);
             this.labMk.TabIndex = 2;
-            this.labMk.Text = "Mật Khẩu";
+            this.labMk.Text = "Mật Khẩu:";
             // 
             // cmbChiNhanh
             // 

@@ -60,21 +60,21 @@
             // 
             cMNDLabel.AutoSize = true;
             cMNDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cMNDLabel.Location = new System.Drawing.Point(72, 62);
+            cMNDLabel.Location = new System.Drawing.Point(147, 61);
             cMNDLabel.Name = "cMNDLabel";
-            cMNDLabel.Size = new System.Drawing.Size(66, 24);
+            cMNDLabel.Size = new System.Drawing.Size(71, 24);
             cMNDLabel.TabIndex = 0;
-            cMNDLabel.Text = "CMND";
+            cMNDLabel.Text = "CMND:";
             // 
             // hOTENLabel
             // 
             hOTENLabel.AutoSize = true;
             hOTENLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            hOTENLabel.Location = new System.Drawing.Point(72, 121);
+            hOTENLabel.Location = new System.Drawing.Point(139, 114);
             hOTENLabel.Name = "hOTENLabel";
-            hOTENLabel.Size = new System.Drawing.Size(74, 24);
+            hOTENLabel.Size = new System.Drawing.Size(79, 24);
             hOTENLabel.TabIndex = 2;
-            hOTENLabel.Text = "Họ Tên";
+            hOTENLabel.Text = "Họ Tên:";
             // 
             // DS
             // 
@@ -105,9 +105,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Aqua;
+            this.label4.BackColor = System.Drawing.Color.PaleTurquoise;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 4);
+            this.label4.Location = new System.Drawing.Point(175, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(322, 29);
             this.label4.TabIndex = 59;
@@ -116,7 +116,7 @@
             // txtLoginNameKH
             // 
             this.txtLoginNameKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLoginNameKH.Location = new System.Drawing.Point(270, 174);
+            this.txtLoginNameKH.Location = new System.Drawing.Point(298, 173);
             this.txtLoginNameKH.Name = "txtLoginNameKH";
             this.txtLoginNameKH.Size = new System.Drawing.Size(312, 28);
             this.txtLoginNameKH.TabIndex = 58;
@@ -125,17 +125,17 @@
             // 
             this.btLuu.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
             this.btLuu.Appearance.Options.UseFont = true;
-            this.btLuu.Location = new System.Drawing.Point(324, 350);
+            this.btLuu.Location = new System.Drawing.Point(334, 348);
             this.btLuu.Margin = new System.Windows.Forms.Padding(5);
             this.btLuu.Name = "btLuu";
-            this.btLuu.Size = new System.Drawing.Size(116, 44);
+            this.btLuu.Size = new System.Drawing.Size(123, 46);
             this.btLuu.TabIndex = 57;
             this.btLuu.Text = "Lưu";
             this.btLuu.Click += new System.EventHandler(this.btLuu_Click);
             // 
             // txtPassKHConfir
             // 
-            this.txtPassKHConfir.Location = new System.Drawing.Point(270, 291);
+            this.txtPassKHConfir.Location = new System.Drawing.Point(298, 290);
             this.txtPassKHConfir.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassKHConfir.Name = "txtPassKHConfir";
             this.txtPassKHConfir.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
@@ -146,7 +146,7 @@
             // 
             // txtPassKH
             // 
-            this.txtPassKH.Location = new System.Drawing.Point(270, 231);
+            this.txtPassKH.Location = new System.Drawing.Point(298, 230);
             this.txtPassKH.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassKH.Name = "txtPassKH";
             this.txtPassKH.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
@@ -159,7 +159,7 @@
             // 
             this.btThoat.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
             this.btThoat.Appearance.Options.UseFont = true;
-            this.btThoat.Location = new System.Drawing.Point(482, 348);
+            this.btThoat.Location = new System.Drawing.Point(467, 348);
             this.btThoat.Margin = new System.Windows.Forms.Padding(5);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(115, 46);
@@ -171,41 +171,41 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(73, 296);
+            this.label1.Location = new System.Drawing.Point(53, 293);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 24);
+            this.label1.Size = new System.Drawing.Size(165, 24);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Nhập lại mật khẩu";
+            this.label1.Text = "Nhập lại mật khẩu:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(73, 235);
+            this.label3.Location = new System.Drawing.Point(124, 233);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 24);
+            this.label3.Size = new System.Drawing.Size(94, 24);
             this.label3.TabIndex = 52;
-            this.label3.Text = "Mật Khẩu";
+            this.label3.Text = "Mật Khẩu:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(73, 181);
+            this.label2.Location = new System.Drawing.Point(89, 176);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 24);
+            this.label2.Size = new System.Drawing.Size(129, 24);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Tên tài khoản";
+            this.label2.Text = "Tên tài khoản:";
             // 
             // hOTENTextBox
             // 
             this.hOTENTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.v_EX_LoginNameKHBindingSource, "HOTEN", true));
             this.hOTENTextBox.Enabled = false;
             this.hOTENTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hOTENTextBox.Location = new System.Drawing.Point(270, 115);
+            this.hOTENTextBox.Location = new System.Drawing.Point(298, 114);
             this.hOTENTextBox.Name = "hOTENTextBox";
             this.hOTENTextBox.Size = new System.Drawing.Size(312, 28);
             this.hOTENTextBox.TabIndex = 3;
@@ -222,7 +222,7 @@
             this.cMNDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cMNDComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cMNDComboBox.FormattingEnabled = true;
-            this.cMNDComboBox.Location = new System.Drawing.Point(270, 59);
+            this.cMNDComboBox.Location = new System.Drawing.Point(298, 58);
             this.cMNDComboBox.Name = "cMNDComboBox";
             this.cMNDComboBox.Size = new System.Drawing.Size(312, 30);
             this.cMNDComboBox.TabIndex = 1;

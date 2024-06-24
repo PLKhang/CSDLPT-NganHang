@@ -24,19 +24,19 @@ namespace NganHang
         private void tAIKHOANBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsTK.EndEdit();
+            this.rlTKKHBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.DS);
         }
 
 
         private void frpt_SaoKeTaiKhoanNganHang_Load(object sender, EventArgs e)
         {
+            this.getAllKHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.getAllKHTableAdapter.Fill(this.DS.GetAllKH);
+            this.tK_KHTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.tK_KHTableAdapter.Fill(this.DS.TK_KH);
 
             DS.EnforceConstraints = false;
-            this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
-            this.kHACHHANGTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.kHACHHANGTableAdapter.Fill(this.DS.KHACHHANG);
             if(Program.mGroup == "KhachHang")
             {
                 cmbCMND.Text = Program.username;
@@ -56,7 +56,13 @@ namespace NganHang
             int compare = dayBD.CompareTo(dayKT);
             if (compare >= 0)
             {
-                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc", "", MessageBoxButtons.OK);
+                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc", "Lỗi", MessageBoxButtons.OK);
+                return;
+            }
+            string now = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd 00:00:00");
+            if (endDateTimePicker.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày kết thúc không được lớn hơn ngày hiện tại", "Lỗi", MessageBoxButtons.OK);
                 return;
             }
             try
@@ -83,9 +89,8 @@ namespace NganHang
         private void kHACHHANGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bdsKH.EndEdit();
+            this.getAllKHBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.DS);
-
         }
     }
 }

@@ -156,3 +156,4 @@ D:\projects\C#\NganHang\NganHang\obj\Debug\NganHang.csproj.CoreCompileInputs.cac
 D:\projects\C#\NganHang\NganHang\obj\Debug\NganHang.csproj.Up2Date
 D:\projects\C#\NganHang\NganHang\obj\Debug\NganHang.exe
 D:\projects\C#\NganHang\NganHang\obj\Debug\NganHang.pdb
+D:\projects\C#\NGANHANG\NganHang\obj\Debug\NganHang.g.resources
